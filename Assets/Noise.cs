@@ -45,8 +45,7 @@ public class Noise : MonoBehaviour {
         _heightmap = new float[_heightMapWidth, _heightMapHeight];
         Debug.Log(_heightMapWidth);
 
-        float[,] auxArr = new float[10, 10];
-        FillRnd(ref auxArr, 10, 10, MaxHeight);
+        ValueNoise perlin = new ValueNoise();
 
         int lastPercent = 0;
         for (int x = 0; x < _heightMapWidth; x++) {
@@ -59,7 +58,7 @@ public class Noise : MonoBehaviour {
 
             for (int y = 0; y < _heightMapHeight; y++) {
                 Profiler.BeginSample("AuxFunc");
-                _heightmap[x, y] = GetAuxFuncValue(auxArr, 10, 10, x / (float)_heightMapWidth, y / (float) _heightMapHeight);
+                _heightmap[x, y] = perlin.GetNoiseValue2D(x/(float)_heightMapWidth,y / (float)_heightMapHeight, 1);
                 //Debug.Log(_heightmap[x, y]);
                 Profiler.EndSample();
                 
@@ -82,8 +81,14 @@ public class Noise : MonoBehaviour {
     }
 
 
+    private float[,] CreateAuxArray() {
+        float[,] auxArr = new float[10, 10];
+        FillRnd(ref auxArr, 10, 10, MaxHeight);
+        return auxArr;
+    }
+
+
     private float GetAuxFuncValue(float[,] rndArr, int width, int height, float x, float y) {
-        //TODO xand y is 0-1
         Assert.IsTrue(x <= 1f);
         Assert.IsTrue(y <= 1f);
         Assert.IsTrue(y >= 0);
@@ -97,10 +102,7 @@ public class Noise : MonoBehaviour {
             ceilX = Math.Min(width, Mathf.FloorToInt(x + 1f)),
             floorY = Math.Max(0, Mathf.FloorToInt(y)),
             ceilY = Math.Min(height, Mathf.FloorToInt(y + 1f));
-        if (x >= (width-1))
-            x = width - 1;
-        if (y >= (height - 1))
-            y = height - 1;
+
         float q1 = rndArr[floorX, floorY],
               q2 = rndArr[ceilX, floorY],
               q3 = rndArr[floorX,ceilY],
@@ -113,8 +115,10 @@ public class Noise : MonoBehaviour {
 
 
     private float BillinearInterpolation(float q1, float q2, float q3, float q4, float tx, float ty) {
-        return (q1*(1-tx) + tx*q2)*(1-ty) + ty*(q3*(1-tx) + tx*q4);
+        //return (q1*(1-tx) + tx*q2)*(1-ty) + ty*(q3*(1-tx) + tx*q4);
+        return (q1 * (1 - tx) + tx * q2) * (1 - ty) + ty * (q3 * (1 - tx) + tx * q4);
     }
+
 
     private void TestBillinearInterpolation() {
         Assert.IsTrue(Math.Abs(50 - BillinearInterpolation(0f, 100f, 0f, 100f, 0.5f, 0.5f)) < Mathf.Epsilon);
