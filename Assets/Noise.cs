@@ -24,6 +24,8 @@ public class Noise : MonoBehaviour {
     [SerializeField]
     private float _maxHeight = .01f;
 
+    [SerializeField] private NoiseWindow _window;
+
     // Use this for initialization
     void Start() {
         TestBillinearInterpolation();
@@ -37,15 +39,22 @@ public class Noise : MonoBehaviour {
 
 	}
 
+    void FixedUpdate() {
+        
+    }
+
 
     private IEnumerator CalcHeightmap() {
-        _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 32;
+        //_heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 128;
         _heightMapWidth = gameObject.GetComponent<Terrain>().terrainData.heightmapWidth;
         _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapHeight;
         _heightmap = new float[_heightMapWidth, _heightMapHeight];
         Debug.Log(_heightMapWidth);
 
         ValueNoise perlin = new ValueNoise();
+
+        _window.ValueList.Clear(); 
+        _window.ExpectedValues = _heightMapWidth;
 
         int lastPercent = 0;
         for (int x = 0; x < _heightMapWidth; x++) {
@@ -58,18 +67,23 @@ public class Noise : MonoBehaviour {
 
             for (int y = 0; y < _heightMapHeight; y++) {
                 Profiler.BeginSample("AuxFunc");
-                _heightmap[x, y] = perlin.GetNoiseValue2D(x/(float)_heightMapWidth,y / (float)_heightMapHeight, 1);
+                float val = perlin.GetNoiseValue2D(x / (float)_heightMapWidth, y / (float)_heightMapHeight, 3);
+                if (x==0)
+                    _window.ValueList.Add(val);
+                _heightmap[x, y] = val;
                 //Debug.Log(_heightmap[x, y]);
                 Profiler.EndSample();
                 
-                yield return null;
                /* Profiler.BeginSample("AuxFuncOpt");
                 _heightmap[x, y] = GetAuxFuncValueOpt(auxArr, 10, 10, x / _heightMapWidth, y / _heightMapHeight);
                 Profiler.EndSample();*/
             }
+            yield return null;
         }
         gameObject.GetComponent<Terrain>().terrainData.SetHeights(0, 0, _heightmap);
     }
+
+
 
 
     private void FillRnd(ref float[,] arr, int width, int height, float range) {

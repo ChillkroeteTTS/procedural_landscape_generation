@@ -58,13 +58,22 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraRotate.cs" />
+    <Compile Include="Assets\Drawing.cs" />
     <Compile Include="Assets\Noise.cs" />
-    <Compile Include="Assets\PerlinNoise.cs" />
+    <Compile Include="Assets\NoiseWindow.cs" />
+    <Compile Include="Assets\ValueNoise.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

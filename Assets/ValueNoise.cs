@@ -9,7 +9,7 @@ public class ValueNoise  {
     public delegate float OneDAuxilaryFunction(int x);
     public delegate float TwoDAuxilaryFunction(int x, int y);
 
-    public float MaxVal = 0.005f;
+    public float MaxVal = 0.02f;
 
     private TwoDAuxilaryFunction _auxFunc;
 
@@ -32,11 +32,11 @@ public class ValueNoise  {
     }
 
 
-    public float GetNoiseValue2D(float x, float y, int r = 3) {
+    public float GetNoiseValue2D(float x, float y, int r) {
         if (r <= 0) {
             return 0;
         }
-        return GetNoiseValue2D(x,y , --r) + S1F(x*Mathf.Pow(2, r), y*Mathf.Pow(2, r)) / Mathf.Pow(2, 3);
+        return GetNoiseValue2D(x,y , --r) + S1F(x*Mathf.Pow(2, r), y*Mathf.Pow(2, r)) / Mathf.Pow(2, r);
     }
 
 
@@ -51,13 +51,21 @@ public class ValueNoise  {
     private float S1(float x, float y) {
         int floorX = Mathf.FloorToInt(x),
             ceilX = Mathf.CeilToInt(x),
-            floorY = Mathf.CeilToInt(y),
-            ceilY = Mathf.FloorToInt(y);
+            floorY = Mathf.FloorToInt(y),
+            ceilY = Mathf.CeilToInt(y);
         float tx = x - floorX,
             ty = y - floorY;
-        //Debug.Log(String.Format("x: {0} y: {1} fadefunc for adjusted x: {2} and aux top left {3}", x, y, _fadeFunction(tx), _auxFunc(floorX, floorY)));
-        return (_fadeFunction(1-ty) * (_auxFunc(floorX, floorY) * _fadeFunction(1-tx) + _fadeFunction(tx) * _auxFunc(ceilX, floorY))
-                + _fadeFunction(ty) * (_auxFunc(floorX, ceilY) * _fadeFunction(1-tx) + _fadeFunction(tx) * _auxFunc(ceilX, ceilY)));
+
+        float retVal = (_fadeFunction(1 - ty)*
+                        (_auxFunc(floorX, floorY)*_fadeFunction(1 - tx) + _fadeFunction(tx)*_auxFunc(ceilX, floorY))
+                        +
+                        _fadeFunction(ty)*
+                        (_auxFunc(floorX, ceilY)*_fadeFunction(1 - tx) + _fadeFunction(tx)*_auxFunc(ceilX, ceilY)));
+
+        //Debug.Log(String.Format("x: {0} y: {1} fadefunc for adjusted x: {2} and aux top left {3}  ->  {4}", 
+        //            tx, ty, _fadeFunction(tx), _auxFunc(floorX, floorY), retVal));
+
+        return retVal;
     }
 
 
@@ -75,5 +83,9 @@ public class ValueNoise  {
                 _auxArray[i, j] = Random.value * MaxVal;
             }
         }
+    }
+
+    public float GetNoiseValue2D(float x, float y) {
+        return GetNoiseValue2D(x, y, 3);
     }
 }
