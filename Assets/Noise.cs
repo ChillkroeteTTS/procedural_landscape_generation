@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using UnityEngine.Assertions;
@@ -22,6 +23,8 @@ public class Noise : MonoBehaviour {
 
     public int RecursionDepth;
 
+    public bool RuntimeCalculation = false;
+
     int _heightMapWidth;
 
     private int _heightMapHeight;
@@ -30,7 +33,9 @@ public class Noise : MonoBehaviour {
     [SerializeField]
     private float _maxHeight = .01f;
 
-    [SerializeField] private NoiseWindow _window;
+    [SerializeField] private List<NoiseWindow> _windows;
+    private List<GameObject> _spheres;
+    [SerializeField] private NoiseWindow _mainWindow;
 
     // Use this for initialization
     void Start() {
@@ -56,37 +61,60 @@ public class Noise : MonoBehaviour {
         _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapHeight;
         _heightmap = new float[_heightMapWidth, _heightMapHeight];
         Debug.Log(_heightMapWidth);
+        int cnt = 0;
 
-        ValueNoise perlin = UseRandomSeed ? new ValueNoise() : new ValueNoise(Seed);
+        _mainWindow.ValueList.Capacity = _heightMapHeight;
 
-        _window.ValueList.Clear(); 
-        _window.ExpectedValues = _heightMapWidth;
-
-        int lastPercent = 0;
-        for (int x = 0; x < _heightMapWidth; x++) {
-
-            float processed = x / (float) _heightMapWidth * 100f;
-            if (Mathf.FloorToInt(processed) > lastPercent) {
-                lastPercent = Mathf.CeilToInt(processed);
-                Debug.Log("processed "+processed+"%");
+        while (RuntimeCalculation || cnt == 0) {
+            ValueNoise perlin = UseRandomSeed ? new ValueNoise() : new ValueNoise(Seed);
+            perlin.MaxVal = MaxHeight;
+            foreach (NoiseWindow noiseWindow in _windows) {
+                Destroy(noiseWindow);
+            }
+            _windows.Clear();
+            _mainWindow.ValueList.Clear();
+            for (int i = 0; i < RecursionDepth; i++) {
+                NoiseWindow window = gameObject.AddComponent<NoiseWindow>();
+                window.Id = i+1;
+                window.windowRect.position += new Vector2(0, (window.windowRect.height+ window.windowRect.position.y)*(i+1));
+                _windows.Add(window);
+                perlin.ListenerLists.Add(window.ValueList);
             }
 
-            for (int y = 0; y < _heightMapHeight; y++) {
-                Profiler.BeginSample("AuxFunc");
-                float val = perlin.GetNoiseValue2D(x / (float)_heightMapWidth, y / (float)_heightMapHeight, RecursionDepth);
-                if (x==0)
-                    _window.ValueList.Add(val);
-                _heightmap[x, y] = val + perlin.MaxVal;
-                //Debug.Log(_heightmap[x, y]);
-                Profiler.EndSample();
-                
-               /* Profiler.BeginSample("AuxFuncOpt");
-                _heightmap[x, y] = GetAuxFuncValueOpt(auxArr, 10, 10, x / _heightMapWidth, y / _heightMapHeight);
-                Profiler.EndSample();*/
+            // Clear listener lists
+            foreach (List<float> list in perlin.ListenerLists) {
+                list.Clear();
+                list.Capacity = _heightMapWidth;
             }
-            yield return null;
+
+            int lastPercent = 0;
+            for (int x = 0; x < _heightMapWidth; x++) {
+
+                float processed = x/(float) _heightMapWidth*100f;
+                if (Mathf.FloorToInt(processed) > lastPercent) {
+                    lastPercent = Mathf.CeilToInt(processed);
+                    Debug.Log("processed " + processed + "%");
+                }
+
+                for (int y = 0; y < _heightMapHeight; y++) {
+                    Profiler.BeginSample("AuxFunc");
+                    float val = perlin.GetNoiseValue2D(x/(float) _heightMapWidth, y/(float) _heightMapHeight,
+                        RecursionDepth);
+                    if (x==0)
+                        _mainWindow.ValueList.Add(val);
+                    _heightmap[x, y] = val + perlin.MaxVal;
+                    //Debug.Log(_heightmap[x, y]);
+                    Profiler.EndSample();
+
+                    /* Profiler.BeginSample("AuxFuncOpt");
+                    _heightmap[x, y] = GetAuxFuncValueOpt(auxArr, 10, 10, x / _heightMapWidth, y / _heightMapHeight);
+                    Profiler.EndSample();*/
+                }
+                yield return null;
+            }
+            gameObject.GetComponent<Terrain>().terrainData.SetHeights(0, 0, _heightmap);
+            cnt++;
         }
-        gameObject.GetComponent<Terrain>().terrainData.SetHeights(0, 0, _heightmap);
     }
 
 

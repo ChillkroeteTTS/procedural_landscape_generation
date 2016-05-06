@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using UnityEngine.Assertions;
 using UnityEngine.Assertions.Comparers;
 using Random = UnityEngine.Random;
 
@@ -11,27 +14,26 @@ public class ValueNoise  {
 
     public float MaxVal = 0.02f;
 
-    private TwoDAuxilaryFunction _auxFunc;
+    public TwoDAuxilaryFunction AuxFunc;
 
     public delegate float TwoDFadeFunction(float t);
 
     private float[,] _auxArray;
 
-    private int _auxSize = 6;
+    public int AuxSize = 6;
+
     private TwoDFadeFunction _fadeFunction;
 
+    public List<List<float>> ListenerLists = new List<List<float>>();
+
     public ValueNoise(int seed=0) {
-        _auxArray = new float[_auxSize, _auxSize];
+        _auxArray = new float[AuxSize, AuxSize];
         if (seed==0)
             FillAuxArray2D();
         else 
             FillAuxArray2D(seed);
-        _auxFunc = GetFromAuxArray;
+        AuxFunc = GetFromAuxArray;
         _fadeFunction = (x) => { return x * x * x * (x * (x * 6 - 15) + 10); };
-    }
-
-    private void CalcHeightmap() {
-        FillAuxArray2D();
     }
 
 
@@ -39,16 +41,26 @@ public class ValueNoise  {
         if (r <= 0) {
             return 0;
         }
+        float val = S1F(x*Mathf.Pow(2, r), y*Mathf.Pow(2, r))/Mathf.Pow(2, r);
 
-        return GetNoiseValue2D(x,y , --r) + S1F(x*Mathf.Pow(2, r), y*Mathf.Pow(2, r)) / Mathf.Pow(2, r);
+        if (r-1 >= 0 && ListenerLists[r-1] != null && x==0)
+            ListenerLists[r-1].Add(val);
+
+        return GetNoiseValue2D(x,y , --r) + val;
     }
 
 
+    /// <summary>
+    /// Function transformes the given coordinates to ones that fit to the noise function and calls it afterwards
+    /// </summary>
+    /// <param name="x">x Coordinate in range 0 - 1</param>
+    /// <param name="y">y Coordinate in range 0 - 1</param>
+    /// <returns></returns>
     private float S1F(float x, float y) {
-        x = x - Mathf.Floor(x);
-        y = y - Mathf.Floor(y);
+        float truncX = x <= 1f ? x - Mathf.Floor(x) : (Mathf.FloorToInt(x)%2 != 0 ? 1 - (x - Mathf.Floor(x)) : x - Mathf.Floor(x)),
+              truncY = y <= 1f ? y - Mathf.Floor(y) : (Mathf.FloorToInt(y)%2 != 0 ? 1 - (y - Mathf.Floor(y)) : y - Mathf.Floor(y));
         
-        return S1(x*(_auxSize-1), y * (_auxSize - 1));
+        return S1(truncX*(AuxSize-1), truncY * (AuxSize - 1));
     }
 
 
@@ -61,10 +73,10 @@ public class ValueNoise  {
             ty = y - floorY;
 
         float retVal = (_fadeFunction(1 - ty)*
-                        (_auxFunc(floorX, floorY)*_fadeFunction(1 - tx) + _fadeFunction(tx)*_auxFunc(ceilX, floorY))
+                        (AuxFunc(floorX, floorY)*_fadeFunction(1 - tx) + _fadeFunction(tx)*AuxFunc(ceilX, floorY))
                         +
                         _fadeFunction(ty)*
-                        (_auxFunc(floorX, ceilY)*_fadeFunction(1 - tx) + _fadeFunction(tx)*_auxFunc(ceilX, ceilY)));
+                        (AuxFunc(floorX, ceilY)*_fadeFunction(1 - tx) + _fadeFunction(tx)*AuxFunc(ceilX, ceilY)));
 
         //Debug.Log(String.Format("x: {0} y: {1} fadefunc for adjusted x: {2} and aux top left {3}  ->  {4}", 
         //            tx, ty, _fadeFunction(tx), _auxFunc(floorX, floorY), retVal));
@@ -75,6 +87,11 @@ public class ValueNoise  {
 
     private float GetFromAuxArray(int x, int y=0) {
         return _auxArray[x, y];
+    }
+
+
+    private float GetFromGradient(int x, int y = 0) {
+        return 0f;
     }
 
 

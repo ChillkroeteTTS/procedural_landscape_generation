@@ -1,29 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class NoiseWindow : MonoBehaviour {
-    public Rect windowRect = new Rect(50, 40, 250, 100);
+    public Rect windowRect = new Rect(20, 20, 380, 135);
 
     public float LineWidth = 1;
 
     public Color GridColor = Color.gray;
 
-    public Color LineColor = Color.red;
+    public Color LineColor = Color.HSVToRGB(0, 242, 144);
 
-    public float Scale = 6;
+    public float Scale = 130.2f;
 
     [SerializeField]
-    private float _offsetCoordSys = 6;
+    private float _offsetCoordSys = 19.2f;
     [SerializeField]
-    private float _offsetAbzysse = 12;
+    private float _offsetAbzysse = 61.05f;
 
     [SerializeField]
     public List<float> ValueList = new List<float>();
 
-    public int ExpectedValues = 1;
+    public int Id = 0;
 
     void OnGUI() {
-        windowRect = GUI.Window(0, windowRect, DoMyWindow, "Noise");
+        windowRect = GUI.Window(Id, windowRect, DoMyWindow, "Noise");
     }
 
     void DoMyWindow(int windowID) {
@@ -42,7 +44,7 @@ public class NoiseWindow : MonoBehaviour {
 
         for (int i = 0; i < ValueList.Count; i++) {
             Vector2 first, 
-                second = new Vector2(_offsetCoordSys + i/(float)ExpectedValues * drawWidth,
+                second = new Vector2(_offsetCoordSys + i/(float)ValueList.Capacity * drawWidth,
                                     windowRect.height - _offsetAbzysse - ValueList[i] * drawHeight * Scale);
             if (i == 0) 
                 first = second;
