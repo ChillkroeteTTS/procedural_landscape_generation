@@ -16,6 +16,12 @@ public class Noise : MonoBehaviour {
         }
     }
 
+    public int Seed;
+
+    public bool UseRandomSeed;
+
+    public int RecursionDepth;
+
     int _heightMapWidth;
 
     private int _heightMapHeight;
@@ -51,7 +57,7 @@ public class Noise : MonoBehaviour {
         _heightmap = new float[_heightMapWidth, _heightMapHeight];
         Debug.Log(_heightMapWidth);
 
-        ValueNoise perlin = new ValueNoise();
+        ValueNoise perlin = UseRandomSeed ? new ValueNoise() : new ValueNoise(Seed);
 
         _window.ValueList.Clear(); 
         _window.ExpectedValues = _heightMapWidth;
@@ -67,10 +73,10 @@ public class Noise : MonoBehaviour {
 
             for (int y = 0; y < _heightMapHeight; y++) {
                 Profiler.BeginSample("AuxFunc");
-                float val = perlin.GetNoiseValue2D(x / (float)_heightMapWidth, y / (float)_heightMapHeight, 3);
+                float val = perlin.GetNoiseValue2D(x / (float)_heightMapWidth, y / (float)_heightMapHeight, RecursionDepth);
                 if (x==0)
                     _window.ValueList.Add(val);
-                _heightmap[x, y] = val;
+                _heightmap[x, y] = val + perlin.MaxVal;
                 //Debug.Log(_heightmap[x, y]);
                 Profiler.EndSample();
                 

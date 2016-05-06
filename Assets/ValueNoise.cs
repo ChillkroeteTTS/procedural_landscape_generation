@@ -17,12 +17,15 @@ public class ValueNoise  {
 
     private float[,] _auxArray;
 
-    private int _auxSize = 36;
+    private int _auxSize = 6;
     private TwoDFadeFunction _fadeFunction;
 
-    public ValueNoise() {
+    public ValueNoise(int seed=0) {
         _auxArray = new float[_auxSize, _auxSize];
-        FillAuxArray2D();
+        if (seed==0)
+            FillAuxArray2D();
+        else 
+            FillAuxArray2D(seed);
         _auxFunc = GetFromAuxArray;
         _fadeFunction = (x) => { return x * x * x * (x * (x * 6 - 15) + 10); };
     }
@@ -36,6 +39,7 @@ public class ValueNoise  {
         if (r <= 0) {
             return 0;
         }
+
         return GetNoiseValue2D(x,y , --r) + S1F(x*Mathf.Pow(2, r), y*Mathf.Pow(2, r)) / Mathf.Pow(2, r);
     }
 
@@ -43,7 +47,7 @@ public class ValueNoise  {
     private float S1F(float x, float y) {
         x = x - Mathf.Floor(x);
         y = y - Mathf.Floor(y);
-
+        
         return S1(x*(_auxSize-1), y * (_auxSize - 1));
     }
 
@@ -75,17 +79,13 @@ public class ValueNoise  {
 
 
     private void FillAuxArray2D(int seed=0) {
-        if (seed == 0)
+        if (seed != 0)
             Random.seed = seed;
 
         for (int i = 0; i < _auxArray.GetUpperBound(0); i++) {
             for (int j = 0; j < _auxArray.GetUpperBound(1); j++) {
-                _auxArray[i, j] = Random.value * MaxVal;
+                _auxArray[i, j] = Random.value * 2 * MaxVal  - MaxVal;
             }
         }
-    }
-
-    public float GetNoiseValue2D(float x, float y) {
-        return GetNoiseValue2D(x, y, 3);
     }
 }
