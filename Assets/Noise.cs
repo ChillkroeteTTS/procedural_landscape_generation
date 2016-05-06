@@ -23,6 +23,8 @@ public class Noise : MonoBehaviour {
 
     public int RecursionDepth;
 
+    public int AuxSize = 6;
+
     public bool RuntimeCalculation = false;
 
     int _heightMapWidth;
@@ -66,23 +68,27 @@ public class Noise : MonoBehaviour {
         _mainWindow.ValueList.Capacity = _heightMapHeight;
 
         while (RuntimeCalculation || cnt == 0) {
-            ValueNoise perlin = UseRandomSeed ? new ValueNoise() : new ValueNoise(Seed);
-            perlin.MaxVal = MaxHeight;
+            ValueNoise perlin = UseRandomSeed ? new ValueNoise(auxSize:AuxSize, maxVal: MaxHeight) : new ValueNoise(seed:Seed, auxSize: AuxSize, maxVal:MaxHeight);
             foreach (NoiseWindow noiseWindow in _windows) {
                 Destroy(noiseWindow);
             }
             _windows.Clear();
             _mainWindow.ValueList.Clear();
-            for (int i = 0; i < RecursionDepth; i++) {
+            for (int i = 0; i <= RecursionDepth; i++) {
                 NoiseWindow window = gameObject.AddComponent<NoiseWindow>();
                 window.Id = i+1;
                 window.windowRect.position += new Vector2(0, (window.windowRect.height+ window.windowRect.position.y)*(i+1));
                 _windows.Add(window);
                 perlin.ListenerLists.Add(window.ValueList);
+                perlin.AuxListener.Add(window.AuxList);
             }
 
             // Clear listener lists
             foreach (List<float> list in perlin.ListenerLists) {
+                list.Clear();
+                list.Capacity = _heightMapWidth;
+            }
+            foreach (List<float> list in perlin.AuxListener) {
                 list.Clear();
                 list.Capacity = _heightMapWidth;
             }

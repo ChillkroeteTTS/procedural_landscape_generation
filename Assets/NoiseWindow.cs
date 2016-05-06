@@ -10,17 +10,22 @@ public class NoiseWindow : MonoBehaviour {
 
     public Color GridColor = Color.gray;
 
+    public Color AuxColor = Color.magenta;
+
     public Color LineColor = Color.HSVToRGB(0, 242, 144);
 
-    public float Scale = 130.2f;
+    public float Scale = 22.3f;
 
     [SerializeField]
     private float _offsetCoordSys = 19.2f;
     [SerializeField]
-    private float _offsetAbzysse = 61.05f;
+    private float _offsetAbzysse = 67.9f;
 
     [SerializeField]
     public List<float> ValueList = new List<float>();
+
+    [SerializeField]
+    public List<float> AuxList = new List<float>();
 
     public int Id = 0;
 
@@ -32,7 +37,7 @@ public class NoiseWindow : MonoBehaviour {
         GUI.DragWindow(new Rect(0, 0, 10000, 20));
 
         float drawWidth = windowRect.width - 2* _offsetCoordSys,
-              drawHeight = windowRect.height - 2* _offsetAbzysse;
+              drawHeight = windowRect.height - 2* _offsetCoordSys;
 
         //Draw Coordinate system
         GUI.Label(new Rect(_offsetCoordSys, _offsetCoordSys - _offsetCoordSys / 2, drawWidth, 30), ""+(1 / Scale));
@@ -45,7 +50,7 @@ public class NoiseWindow : MonoBehaviour {
         for (int i = 0; i < ValueList.Count; i++) {
             Vector2 first, 
                 second = new Vector2(_offsetCoordSys + i/(float)ValueList.Capacity * drawWidth,
-                                    windowRect.height - _offsetAbzysse - ValueList[i] * drawHeight * Scale);
+                                    windowRect.height - _offsetAbzysse - ValueList[i] * drawHeight / 2 * Scale);
             if (i == 0) 
                 first = second;
             else
@@ -55,6 +60,14 @@ public class NoiseWindow : MonoBehaviour {
             lastSecond = second;
         }
 
+        // Draw aux values
+        for (int i = 1; i <= AuxList.Count; i++) {
+            float x = i*(drawWidth/AuxList.Count),
+                lastX = (i-1) * (drawWidth / AuxList.Count);
+            Drawing.DrawLine(new Vector2(x, _offsetCoordSys*3), new Vector2(x, windowRect.height-_offsetCoordSys*3), GridColor, LineWidth-0.2f, true);
+
+            Drawing.DrawLine(new Vector2(lastX, windowRect.height - _offsetAbzysse), new Vector2(lastX, windowRect.height - _offsetAbzysse - AuxList[i-1] * drawHeight / 2f * Scale), AuxColor, LineWidth - 0.2f, true);
+        }
 
     }
 }

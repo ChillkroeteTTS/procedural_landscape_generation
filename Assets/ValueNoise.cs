@@ -12,7 +12,7 @@ public class ValueNoise  {
     public delegate float OneDAuxilaryFunction(int x);
     public delegate float TwoDAuxilaryFunction(int x, int y);
 
-    public float MaxVal = 0.02f;
+    public float MaxVal = 0.01f;
 
     public TwoDAuxilaryFunction AuxFunc;
 
@@ -20,13 +20,16 @@ public class ValueNoise  {
 
     private float[,] _auxArray;
 
-    public int AuxSize = 6;
+    public int AuxSize;
 
     private TwoDFadeFunction _fadeFunction;
 
     public List<List<float>> ListenerLists = new List<List<float>>();
+    public List<List<float>> AuxListener = new List<List<float>>();
 
-    public ValueNoise(int seed=0) {
+    public ValueNoise(int seed=0, int auxSize=6, float maxVal=0.1f) {
+        AuxSize = auxSize;
+        MaxVal = maxVal;
         _auxArray = new float[AuxSize, AuxSize];
         if (seed==0)
             FillAuxArray2D();
@@ -38,13 +41,16 @@ public class ValueNoise  {
 
 
     public float GetNoiseValue2D(float x, float y, int r) {
-        if (r <= 0) {
+        if (r < 0) {
             return 0;
         }
         float val = S1F(x*Mathf.Pow(2, r), y*Mathf.Pow(2, r))/Mathf.Pow(2, r);
 
-        if (r-1 >= 0 && ListenerLists[r-1] != null && x==0)
-            ListenerLists[r-1].Add(val);
+        if (r >= 0 && AuxListener[r] != null && x == 0 && y == 0)
+            for(int xAux=0; xAux < AuxSize; xAux++)
+                AuxListener[r].Add(GetFromAuxArray(xAux, 0));
+        if (r >= 0 && ListenerLists[r] != null && x==0)
+            ListenerLists[r].Add(val);
 
         return GetNoiseValue2D(x,y , --r) + val;
     }
@@ -59,8 +65,9 @@ public class ValueNoise  {
     private float S1F(float x, float y) {
         float truncX = x <= 1f ? x - Mathf.Floor(x) : (Mathf.FloorToInt(x)%2 != 0 ? 1 - (x - Mathf.Floor(x)) : x - Mathf.Floor(x)),
               truncY = y <= 1f ? y - Mathf.Floor(y) : (Mathf.FloorToInt(y)%2 != 0 ? 1 - (y - Mathf.Floor(y)) : y - Mathf.Floor(y));
-        
+
         return S1(truncX*(AuxSize-1), truncY * (AuxSize - 1));
+        //return S1Gradient(truncX * (AuxSize - 1), truncY * (AuxSize - 1));
     }
 
 
@@ -85,13 +92,29 @@ public class ValueNoise  {
     }
 
 
-    private float GetFromAuxArray(int x, int y=0) {
-        return _auxArray[x, y];
+    private float S1Gradient(float x, float y) {
+        int floorX = Mathf.FloorToInt(x),
+            ceilX = Mathf.CeilToInt(x),
+            floorY = Mathf.FloorToInt(y),
+            ceilY = Mathf.CeilToInt(y);
+        float tx = x - floorX,
+              ty = y - floorY;
+
+        float retVal = (_fadeFunction(1 - ty) *
+                        (AuxFunc(floorX, floorY) * tx * _fadeFunction(1 - tx) + _fadeFunction(tx) * (tx-1) * AuxFunc(ceilX, floorY))
+                        +
+                        _fadeFunction(ty) *
+                        (AuxFunc(floorX, ceilY) * ty * _fadeFunction(1 - tx) + _fadeFunction(tx) * (ty-1) * AuxFunc(ceilX, ceilY)));
+
+        //Debug.Log(String.Format("x: {0} y: {1} fadefunc for adjusted x: {2} and aux top left {3}  ->  {4}", 
+        //            tx, ty, _fadeFunction(tx), _auxFunc(floorX, floorY), retVal));
+
+        return retVal;
     }
 
 
-    private float GetFromGradient(int x, int y = 0) {
-        return 0f;
+    private float GetFromAuxArray(int x, int y=0) {
+        return _auxArray[x, y];
     }
 
 
