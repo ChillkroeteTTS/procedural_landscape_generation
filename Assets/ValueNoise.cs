@@ -31,12 +31,14 @@ public class ValueNoise  {
         AuxSize = auxSize;
         MaxVal = maxVal;
         _auxArray = new float[AuxSize, AuxSize];
+        AuxFunc = GetFromAuxArray;
+        _fadeFunction = (x) => { return x * x * x * (x * (x * 6 - 15) + 10); };
+
+        TestValueNoise();
         if (seed==0)
             FillAuxArray2D();
         else 
             FillAuxArray2D(seed);
-        AuxFunc = GetFromAuxArray;
-        _fadeFunction = (x) => { return x * x * x * (x * (x * 6 - 15) + 10); };
     }
 
 
@@ -47,9 +49,9 @@ public class ValueNoise  {
         float val = S1F(x*Mathf.Pow(2, r), y*Mathf.Pow(2, r))/Mathf.Pow(2, r);
 
         if (r >= 0 && AuxListener[r] != null && x == 0 && y == 0)
-            for(int xAux=0; xAux < AuxSize; xAux++)
-                AuxListener[r].Add(GetFromAuxArray(xAux, 0));
-        if (r >= 0 && ListenerLists[r] != null && x==0)
+            for(int xAux=0; xAux <= (AuxSize-1)*(r+1); xAux++)
+                AuxListener[r].Add(AuxFunc(xAux%AuxSize, 0) / Mathf.Pow(2, r));
+        if (r >= 0 && ListenerLists[r] != null && y==0)
             ListenerLists[r].Add(val);
 
         return GetNoiseValue2D(x,y , --r) + val;
@@ -63,11 +65,20 @@ public class ValueNoise  {
     /// <param name="y">y Coordinate in range 0 - 1</param>
     /// <returns></returns>
     private float S1F(float x, float y) {
-        float truncX = x <= 1f ? x - Mathf.Floor(x) : (Mathf.FloorToInt(x)%2 != 0 ? 1 - (x - Mathf.Floor(x)) : x - Mathf.Floor(x)),
-              truncY = y <= 1f ? y - Mathf.Floor(y) : (Mathf.FloorToInt(y)%2 != 0 ? 1 - (y - Mathf.Floor(y)) : y - Mathf.Floor(y));
+        float truncX = x,
+              truncY = y;
+        if (x != 1f)
+            truncX = x <= 1f
+                ? x - Mathf.Floor(x)
+                : (Mathf.FloorToInt(x)%2 != 0 ? 1 - (x - Mathf.Floor(x)) : x - Mathf.Floor(x));
 
-        return S1(truncX*(AuxSize-1), truncY * (AuxSize - 1));
-        //return S1Gradient(truncX * (AuxSize - 1), truncY * (AuxSize - 1));
+        if (y != 1f)
+            truncY = y <= 1f 
+                ? y - Mathf.Floor(y) 
+                : (Mathf.FloorToInt(y) % 2 != 0 ? 1 - (y - Mathf.Floor(y)) : y - Mathf.Floor(y));
+
+        //return S1(truncX*(AuxSize-1), truncY * (AuxSize - 1));
+        return S1Gradient(truncX * (AuxSize - 1), truncY * (AuxSize - 1));
     }
 
 
@@ -122,10 +133,20 @@ public class ValueNoise  {
         if (seed != 0)
             Random.seed = seed;
 
-        for (int i = 0; i < _auxArray.GetUpperBound(0); i++) {
-            for (int j = 0; j < _auxArray.GetUpperBound(1); j++) {
+        for (int i = 0; i <= _auxArray.GetUpperBound(0); i++) {
+            for (int j = 0; j <= _auxArray.GetUpperBound(1); j++) {
                 _auxArray[i, j] = Random.value * 2 * MaxVal  - MaxVal;
             }
+        }
+    }
+
+
+    private void TestValueNoise() {
+        FillAuxArray2D();
+
+        for (int i = 0; i < AuxSize; i++) {
+            Assert.AreEqual(AuxFunc(i, 0), S1(i, 0));
+            Assert.AreEqual(AuxFunc(i, 0), S1F(i / (float)(AuxSize-1), 0), "expected: "+ AuxFunc(i, 0)+" actual: "+ S1F(i / (float)(AuxSize - 1), 0)+" with i: " +i+" and x: "+ i / (float)(AuxSize - 1));
         }
     }
 }

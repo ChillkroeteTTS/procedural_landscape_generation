@@ -30,7 +30,7 @@ public class NoiseWindow : MonoBehaviour {
     public int Id = 0;
 
     void OnGUI() {
-        windowRect = GUI.Window(Id, windowRect, DoMyWindow, "Noise");
+        windowRect = GUI.Window(Id, windowRect, DoMyWindow, Id != 0 ? "Noise created by "+(Id-1)+". recursion step" : "Resulting Noise");
     }
 
     void DoMyWindow(int windowID) {
@@ -40,6 +40,7 @@ public class NoiseWindow : MonoBehaviour {
               drawHeight = windowRect.height - 2* _offsetCoordSys;
 
         //Draw Coordinate system
+        GUI.Label(new Rect(_offsetCoordSys+drawWidth+_offsetCoordSys/3, windowRect.height-_offsetAbzysse-30/3, drawWidth, 30), "x");
         GUI.Label(new Rect(_offsetCoordSys, _offsetCoordSys - _offsetCoordSys / 2, drawWidth, 30), ""+(1 / Scale));
         GUI.Label(new Rect(_offsetCoordSys, windowRect.height - _offsetCoordSys - _offsetCoordSys / 2, drawWidth, 30), "" + (-1 / Scale));
         Drawing.DrawLine(new Vector2(_offsetCoordSys, _offsetCoordSys), new Vector2(_offsetCoordSys, windowRect.height- _offsetCoordSys), GridColor, LineWidth, true);
@@ -62,10 +63,12 @@ public class NoiseWindow : MonoBehaviour {
 
         // Draw aux values
         for (int i = 1; i <= AuxList.Count; i++) {
-            float x = i*(drawWidth/AuxList.Count),
-                lastX = (i-1) * (drawWidth / AuxList.Count);
-            Drawing.DrawLine(new Vector2(x, _offsetCoordSys*3), new Vector2(x, windowRect.height-_offsetCoordSys*3), GridColor, LineWidth-0.2f, true);
+            float x = _offsetCoordSys+i*(drawWidth/(AuxList.Count-1)),
+                lastX = _offsetCoordSys + (i-1) * (drawWidth / (AuxList.Count - 1));
+            //Draw Grid mark
+            Drawing.DrawLine(new Vector2(x, _offsetCoordSys*3), new Vector2(x, windowRect.height-_offsetCoordSys* 3), GridColor, LineWidth-0.2f, true);
 
+            //Draw AuxValue
             Drawing.DrawLine(new Vector2(lastX, windowRect.height - _offsetAbzysse), new Vector2(lastX, windowRect.height - _offsetAbzysse - AuxList[i-1] * drawHeight / 2f * Scale), AuxColor, LineWidth - 0.2f, true);
         }
 
