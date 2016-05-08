@@ -1,0 +1,13 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: arbeit-vorlage.aux
+A level-1 auxiliary file: Einleitung.aux
+A level-1 auxiliary file: Noise.aux
+The style file: alphadin_martin.bst
+Database file #1: bibliographie.bib
+Warning--empty publisher in fractalsAndChaos
+Warning--there's an address but no publisher in BurgerGradientNoise2008
+Warning--empty note in BurgerGradientNoise2008
+Warning--empty chapter in fadeFunction
+You can't pop an empty literal stack for entry fadeFunction
+while executing---line 2208 of file alphadin_martin.bst
+Warning--empty publisher in fadeFunction
+(There was 1 error message)

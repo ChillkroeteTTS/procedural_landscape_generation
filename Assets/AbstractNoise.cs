@@ -1,0 +1,76 @@
+﻿using System;
+using System.Collections.Generic;
+using JetBrains.Annotations;
+using UnityEngine;
+using UnityEngineInternal;
+using Random = UnityEngine.Random;
+
+public abstract class AbstractNoise
+{
+
+    public delegate float OneDAuxilaryFunction(int x);
+    public delegate float TwoDFadeFunction(float t);
+
+    public float MaxVal { get; protected set; }
+
+    public TwoDFadeFunction FadeFunction;
+
+    protected int AuxSize;
+
+    public List<List<float>> ListenerLists = new List<List<float>>();
+
+    public List<List<float>> AuxListener = new List<List<float>>();
+
+
+    public AbstractNoise(int seed=0, int auxSize=6, float maxVal=0.1f) {
+        AuxSize = auxSize;
+        MaxVal = maxVal;
+        FadeFunction = (x) => { return x * x * x * (x * (x * 6 - 15) + 10); };
+    }
+
+
+    public float GetNoiseValue2D(float x, float y, int r) {
+        if (r < 0) {
+            return 0;
+        }
+        float val = S1F(x*Mathf.Pow(2, r), y*Mathf.Pow(2, r))/Mathf.Pow(2, r);
+
+        if (r >= 0 && AuxListener[r] != null && x == 0 && y == 0)
+            for(int xAux=0; xAux <= (AuxSize-1)*(r+1); xAux++)
+                AuxListener[r].Add(GetAuxFuncFloat(xAux%AuxSize, 0) / Mathf.Pow(2, r));
+        if (r >= 0 && ListenerLists[r] != null && y==0)
+            ListenerLists[r].Add(val);
+
+        return GetNoiseValue2D(x,y , --r) + val;
+    }
+
+
+    protected abstract float GetAuxFuncFloat(int x, int y);
+    
+
+    /// <summary>
+    /// Function transformes the given coordinates to ones that fit to the noise function and calls it afterwards
+    /// </summary>
+    /// <param name="x">x Coordinate in range 0 - 1</param>
+    /// <param name="y">y Coordinate in range 0 - 1</param>
+    /// <returns></returns>
+    protected float S1F(float x, float y) {
+        float truncX = x,
+              truncY = y;
+        if (x != 1f)
+            truncX = x <= 1f
+                ? x - Mathf.Floor(x)
+                : (Mathf.FloorToInt(x)%2 != 0 ? 1 - (x - Mathf.Floor(x)) : x - Mathf.Floor(x));
+
+        if (y != 1f)
+            truncY = y <= 1f 
+                ? y - Mathf.Floor(y) 
+                : (Mathf.FloorToInt(y) % 2 != 0 ? 1 - (y - Mathf.Floor(y)) : y - Mathf.Floor(y));
+
+        return S1(truncX*(AuxSize-1), truncY * (AuxSize - 1));
+    }
+
+
+    protected abstract float S1(float x, float y);
+
+}

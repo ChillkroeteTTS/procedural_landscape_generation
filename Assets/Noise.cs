@@ -21,6 +21,8 @@ public class Noise : MonoBehaviour {
 
     public bool UseRandomSeed;
 
+    public bool ProcessingOutput = false;
+
     public int RecursionDepth;
 
     public int AuxSize = 6;
@@ -58,7 +60,8 @@ public class Noise : MonoBehaviour {
 
 
     private IEnumerator CalcHeightmap() {
-        _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 128;
+        _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 256;
+        //_heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 128;
         _heightMapWidth = gameObject.GetComponent<Terrain>().terrainData.heightmapWidth;
         _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapHeight;
         _heightmap = new float[_heightMapWidth, _heightMapHeight];
@@ -69,16 +72,23 @@ public class Noise : MonoBehaviour {
 
         //Calculate until Realtime is disabled or if not enabled at all just once
         while (RuntimeCalculation || cnt == 0) {
-            ValueNoise perlin = UseRandomSeed ? new ValueNoise(auxSize:AuxSize, maxVal: MaxHeight) : new ValueNoise(seed:Seed, auxSize: AuxSize, maxVal:MaxHeight);
-            
+            /*AbstractNoise perlin = UseRandomSeed 
+                                    ? new GradientNoise(auxSize:AuxSize, maxVal: MaxHeight) 
+                                    : new GradientNoise(seed:Seed, auxSize: AuxSize, maxVal:MaxHeight);*/
+            AbstractNoise perlin = UseRandomSeed 
+                                ? new ValueNoise(auxSize:AuxSize, maxVal: MaxHeight) 
+                                : new ValueNoise(seed:Seed, auxSize: AuxSize, maxVal:MaxHeight);
+
             //Destroy old NoiseWIndows
             foreach (NoiseWindow noiseWindow in _windows) {
                 Destroy(noiseWindow);
             }
 
-            //
+            // CLear window lists
             _windows.Clear();
             _mainWindow.ValueList.Clear();
+
+            // Create new Windows and bind them to noise
             for (int i = 0; i <= RecursionDepth; i++) {
                 NoiseWindow window = gameObject.AddComponent<NoiseWindow>();
                 window.Id = i+1;
@@ -99,20 +109,27 @@ public class Noise : MonoBehaviour {
             }
 
             int lastPercent = 0;
+            //Iterate through heighmap and fetch height values from noise function
             for (int x = 0; x < _heightMapWidth; x++) {
 
-                float processed = x/(float) _heightMapWidth*100f;
-                if (Mathf.FloorToInt(processed) > lastPercent) {
-                    lastPercent = Mathf.CeilToInt(processed);
-                    Debug.Log("processed " + processed + "%");
+                // Processing output
+                if (ProcessingOutput) {
+                    float processed = x/(float) _heightMapWidth*100f;
+                    if (Mathf.FloorToInt(processed) > lastPercent) {
+                        lastPercent = Mathf.CeilToInt(processed);
+                        Debug.Log("processed " + processed + "%");
+                    }
                 }
 
                 for (int y = 0; y < _heightMapHeight; y++) {
                     Profiler.BeginSample("AuxFunc");
                     float val = perlin.GetNoiseValue2D(x/(float) _heightMapWidth, y/(float) _heightMapHeight,
                         RecursionDepth);
+
+                    // Add perlin result to resulting noise window
                     if (x==0)
                         _mainWindow.ValueList.Add(val);
+
                     _heightmap[x, y] = val + perlin.MaxVal;
                     //Debug.Log(_heightmap[x, y]);
                     Profiler.EndSample();

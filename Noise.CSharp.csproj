@@ -63,8 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AbstractNoise.cs" />
     <Compile Include="Assets\CameraRotate.cs" />
     <Compile Include="Assets\Drawing.cs" />
+    <Compile Include="Assets\GradientNoise.cs" />
     <Compile Include="Assets\Noise.cs" />
     <Compile Include="Assets\NoiseWindow.cs" />
     <Compile Include="Assets\ValueNoise.cs" />
