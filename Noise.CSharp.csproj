@@ -69,6 +69,7 @@
     <Compile Include="Assets\GradientNoise.cs" />
     <Compile Include="Assets\Noise.cs" />
     <Compile Include="Assets\NoiseWindow.cs" />
+    <Compile Include="Assets\RandomFromDistributions\Scripts\RandomFromDistribution.cs" />
     <Compile Include="Assets\ValueNoise.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

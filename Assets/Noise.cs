@@ -60,7 +60,7 @@ public class Noise : MonoBehaviour {
 
 
     private IEnumerator CalcHeightmap() {
-        _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 256;
+        _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 511;
         //_heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 128;
         _heightMapWidth = gameObject.GetComponent<Terrain>().terrainData.heightmapWidth;
         _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapHeight;
@@ -76,8 +76,8 @@ public class Noise : MonoBehaviour {
                                     ? new GradientNoise(auxSize:AuxSize, maxVal: MaxHeight) 
                                     : new GradientNoise(seed:Seed, auxSize: AuxSize, maxVal:MaxHeight);*/
             AbstractNoise perlin = UseRandomSeed 
-                                ? new ValueNoise(auxSize:AuxSize, maxVal: MaxHeight) 
-                                : new ValueNoise(seed:Seed, auxSize: AuxSize, maxVal:MaxHeight);
+                                ? new GradientNoise(auxSize:AuxSize, maxVal: MaxHeight) 
+                                : new GradientNoise(seed:Seed, auxSize: AuxSize, maxVal:MaxHeight);
 
             //Destroy old NoiseWIndows
             foreach (NoiseWindow noiseWindow in _windows) {
