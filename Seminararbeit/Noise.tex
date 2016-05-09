@@ -1,58 +1,44 @@
 \chapter{Noise}
+Synthetisch erzeugtes Rauschen \emph{(engl. Noise)} erweist sich als hilfreiches Mittel zur Erzeugung von zufällig erscheinenden Strukturen.
+Als wohl bekannteste Implementierung ist hier die Implementierung von Ken Perlin\cite{PERLIN1985} zur Erzeugung einer Marmortextur auf einer Vase zu nennen\footnote{Auch als \emph{Perlin-Noise} bezeichnete Implementierung von Gradient Noise in 3-D}.
+
+Neben umfangreichen Anpassungsmöglichkeiten durch verschiedene Parameter ist die Performance dieses Verfahrens ein entscheidender Grund für die Nutzung. Noise verbraucht extrem wenig Speicher, ist relativ einfach zu berechnen und ist zu jeder Zeit an einer beliebigen Stelle auswertbar, was es auch für Echtzeitanwendungen geeignet macht.\cite{H.Hauser2010}
+
+Dieses Kapitel soll ein grundlegendes Verständnis über Noise-Funktionen bieten. Dazu werden zuerst grundlegende Komponenten, welche jeder Implementierung zugrunde liegen, erläutert. Anschließend werden \emph{Value-}\ref{Value-Noise}, \emph{Gradient-Noise}\ref{Gradient-Noise} sowie \emph{Fractal-Noise}\ref{Fractal-Noise} erklärt, bevor es einen Ausblick auf den \emph{Simplex-Noise}\ref{Simplex-Noise} Algorithmus gibt. 
+
 \section{Grundlagen}
-Noise bietet einige Eigenschaften, welche sich sehr gut zur Erzeugung prozedural erzeugtem Content eignen.
-Von einer einfach erzeugten Folge von Zufallszahlen grenzt sich eine Noise Funktion dadurch ab, dass sie eine Kontinuität aufweist.
-%Während bei Zufallszahlen die Differenz zwischen zwei nebeneinanderliegenden Punkten sehr groß
-Durch die, je nach Funktion verschiedenen, Parametern lassen sie sich sehr gut an das gewünschte Ergebnis anpassen. Neben dem geringen Speicherverbrauch einer Implementierung ist besonders die Auswertbarkeit an einer beliebigen Position der Funktion für jede Echtzeitanwendung von entscheidender Bedeutung.
-
-Ziel ist also eine Funktion der Form:
-
-\begin{math}
-	noise(x): \mathbb{R}^d \mapsto \mathbb{R}, d \in \mathbb{N}
-\end{math}
-
-Für die Erklärung in diesem Grundlagenkapitel gehen wir davon aus, dass wir eine eindimensionale Value-Noise Funktion erzeugen wollen.
-
-
 \subsection{Auxilary-Function}\label{auxFunc}
-Der erste Schritt zur Erzeugung von Noise ist in der Regel eine sog. \emph{Auxilary-Function}\cite{fractalsAndChaos} \begin{math}\mathbb S(k): {Z}^n \mapsto \mathbb{R}\end{math} wobei $n\in\mathbb{N}$ ein Skalarfeld mit Dimension $n$ beschreibt.
-Um mit der Funktion gut weiterarbeiten zu können sollten die Funktionswerte in zwischen -1 und 1 liegen.
+Der erste Schritt zur Erzeugung von Noise ist in der Regel eine sog. \emph{Auxilary-Function}\cite{fractalsAndChaos} der Form \begin{math}\mathbb aux: {Z}^n \mapsto [-1 - 1]\end{math}\label{auxFunc}.
+Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, sie muss also für jede Koordinate eines Gitterpunktes immer denselben Funktionswert liefern.}.
 
-Die Wahl der Auxilary-Function ist die erste Entscheidung, welches das Erscheinungsbild der Noise-Funktion entscheident beeinflusst.
-Hier muss für den jeweiligen Anwendungsfall unterschieden werden. Eine gleichverteilte Zufallsfunktion etwas hätte für eine Landschaft zur Folge, dass die Wahrscheinlichkeit für sehr hohe/tiefe Stellen unnatürlich hoch wäre. Hier bietet sich die Standartnormalverteilung an.
+Die Wahl der Auxilary Funktion ist entscheident für das spätere Erscheinungsbild der Noise-Funktion.
+Eine gleichverteilte Folge von pseudo zufällige Zahlen wie sie etwa die meisten in Programmiersprachen implementierten Zufallsgeneratoren bieten erfüllt zwar die Anforderungen der Deterministik der Funktion, kann allerdings zu unerwünscht starken Differenzen zwischen zwei Benachbarten Gitterpunkten führen. Im folgenden gehen wir von einer Standartnormalverteilung aus um die Wahrscheinlichkeit für Werte nahe den Intervalgrenzen zu verringern. 
 
 \subsection{Interpolation und Fade-Function}
-Um aufbauend auf der Auxilary-Function $S(k)$ eine Funktion $S_1(x): \mathbb{R}\mapsto\mathbb{R}$ zu definieren wird zwischen zwei nebeneinanderliegenden Werten $g=S(floor(x))$ und $h=S(ceil(x))$ interpoliert. Die Interpolation wird mit einer sog. Fade-Function\cite{fadeFunction} der Form $f(t, g, h)$ mit $t\in[0, 1]$ durchgeführt. Eine Funktion muss mindestens die Kriterien
+Um aufbauend auf der Auxilary-Function\ref{auxFunc} eine Funktion $S(\vec{x}): \mathbb{R}^n\mapsto\mathbb{R}, \vec{x}\in \mathbb{Z}^n$\label{S} zu definieren wird zwischen benachbarten Gitterpunkten lokal interpoliert. Dafür wird eine sogenannte Fade-Function\cite{fadeFunction} der Form $f(t): \mathbb{R}\mapsto\mathbb{R}$ mit $t\in[0, 1]$ definiert, welche den Übergang zwischen den Gitterpunkten steuert.
 
-$f(t_0)=0 \land f(t_1)=1$ 
-erfüllen, wünschenswert sind jedoch ebenfalls die Eigenschaften
-$f'(t_0)=0 \land f'(t_1)=0 \land f''(t_0)=0 \land f''(t_1)=0$ um einen möglichst stetigen Übergang zu schaffen.
-Der Erfinder des Perlin-Noise Algorithmus benutzt hierfür das Polynom $6x^5-15x^4+10x^3$\cite{BurgerGradientNoise2008}, welches alle genannten Eigenschaften hat und hier auch weiter genutzt werden soll.
+Um überhaupt eine stetige Noise-Funktion zu ermöglichen, muss 
+\begin{equation}
+f(0) = 0 \land f(1) = 1
+\end{equation} gelten.
+Damit der Übergang zwischen den Gitterpunkten möglichst glatt und damit natürlich wirkt, sollte jedoch eine Stetigkeit von $C^2$ und damit die Eigenschaften 
+\begin{equation}
+	f'(0) = f'(1) = 0 = f''(0) = f''(1)
+\end{equation} 
+gelten.
 
-Aus den obigen Überlegungen resultiert nun eine Funktion:
+Dafür wird im folgenden das Polynom $f(t) = 6t^5-15t^4+10t^3$ benutzt, welches auch in Perlins Referenzimplementierung Verwendung findet\cite{BurgerGradientNoise2008} und alle Eigenschaften erfüllt.
 
-\begin{equation}\label{s1}
-	S_1(x) = f(x-\lfloor{x}\rfloor, \lfloor{x}\rfloor, \lceil{x}\rceil).
-\end{equation}
+Da die mit $f(t)$ gebildete, interpolierte Funktion $S(\vec{x})$ definiert nun die Noise-Funktion.
 
-wobei man es sich anbietet diese über $x_f = x / n$ zu definieren wobei 
 
-n = Anzahl der Punkte in dem Skalarfeld aus \ref{auxFunc} ist. 
-Damit ergibt sich:
+\section{Value-Noise}\label{Value-Noise}
 
-\begin{equation}\label{eq:s1f}
-	S_{1f}(x_f) = S_1(x_f * n).
-\end{equation}
+\section{Gradient-Noise}\label{Gradient-Noise}
 
-\subsection{Erzeugung von fractal Noise}
-Ein großer Vorteil von Noise Funktionen ist, dass ihre Auflösung praktisch unbegrenzt ist. 
-Dies erreicht man indem die Noise-Funktion mit einer skalierten Version von sich selbst überlagert wird. Das Resultat wird auch \emph{fractal noise} genannt.
-Der Grad der Skalierung kann dabei frei gewählt werden, jedoch bietet sich eine Halbierung der Amplitude sowie eine Stauchung der ganzen Funktion um 2 an.
-Für \ref{eq:s1f} ergibt sich dabei dann folgender \emph{Value-Noise}:
-\begin{equation}\label{1dvaluenoise}
-	1dValueNoise(x)=\sum_{1}^{r} \frac{S_{1f}(x^r)}{2^r}
-\end{equation}
-wobei $r \in \mathbb{N}$ den Rekursionsfaktor angibt.
+\section{Fractal-Noise}\label{Fractal-Noise}
+
+\section{Ausblick: Simplex-Noise}\label{Simplex-Noise}
 
 
 

@@ -1,6 +1,6 @@
 % Encoding: UTF-8
 
-@Online{H.Hauser2010,
+@Online{stateOfTheArt,
   author = {H. Hauser, E. Reinhard},
   title  = {State of the Art in Procedural Noise Functions},
   date   = {2010},
@@ -32,18 +32,6 @@
   title     = {Improving noise},
   booktitle = {Proceedings of the 29th Annual Conference on Computer Graphics and Interactive Techniques},
   pages     = {681-682},
-}
-
-@InBook{,
-}
-
-@InBook{PERLIN1985,
-  author    = {PERLIN K},
-  title     = {An image synthesizer},
-  booktitle = {In Computer Graphics In Computer Graphics (Proceedings of ACM SIGGRAPH 85)},
-  year      = {1985},
-  edition   = {vol. 19},
-  pages     = {287– 296},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
