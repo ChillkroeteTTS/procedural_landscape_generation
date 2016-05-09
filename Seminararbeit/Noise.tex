@@ -4,18 +4,20 @@ Als wohl bekannteste Implementierung ist hier die Implementierung von Ken Perlin
 
 Neben umfangreichen Anpassungsmöglichkeiten durch verschiedene Parameter ist die Performance dieses Verfahrens ein entscheidender Grund für die Nutzung. Noise verbraucht extrem wenig Speicher, ist relativ einfach zu berechnen und ist zu jeder Zeit an einer beliebigen Stelle auswertbar, was es auch für Echtzeitanwendungen geeignet macht.\cite{H.Hauser2010}
 
-Dieses Kapitel soll ein grundlegendes Verständnis über Noise-Funktionen bieten. Dazu werden zuerst grundlegende Komponenten, welche jeder Implementierung zugrunde liegen, erläutert. Anschließend werden \emph{Value-}\ref{Value-Noise}, \emph{Gradient-Noise}\ref{Gradient-Noise} sowie \emph{Fractal-Noise}\ref{Fractal-Noise} erklärt, bevor es einen Ausblick auf den \emph{Simplex-Noise}\ref{Simplex-Noise} Algorithmus gibt. 
+Dieses Kapitel soll ein grundlegendes Verständnis über Noise-Funktionen bieten. Dazu werden zuerst grundlegende Komponenten, welche jeder Implementierung zugrunde liegen, erläutert. Anschließend werden \emph{Value-}\ref{Value-Noise}, \emph{Gradient-Noise}\ref{Gradient-Noise} sowie \emph{Fractal-Noise}\ref{Fractal-Noise} erklärt, bevor es einen Ausblick auf den \emph{Simplex-Noise}\ref{Simplex-Noise} Algorithmus gibt.
+
+Weitere ausführliche Beschreibung in \cite{BurgerGradientNoise2008} (Gradient-Noise) und in \cite{simplexNoise} (Simplex-Noise).
 
 \section{Grundlagen}
-\subsection{Auxilary-Function}\label{auxFunc}
-Der erste Schritt zur Erzeugung von Noise ist in der Regel eine sog. \emph{Auxilary-Function}\cite{fractalsAndChaos} der Form \begin{math}\mathbb aux: {Z}^n \mapsto [-1 - 1]\end{math}\label{auxFunc}.
+\subsection{Lattice-Function}\label{latticeFunc}
+Der erste Schritt zur Erzeugung von Noise ist in der Regel eine sogenannte \emph{Noise-Lattice(Rausch-Gitter)-Funktion}\cite{fractalsAndChaos} der Form \begin{math}l(\vec{k}): {Z}^n \mapsto [-1 - 1]\end{math}\label{latticeFunc}.
 Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, sie muss also für jede Koordinate eines Gitterpunktes immer denselben Funktionswert liefern.}.
 
-Die Wahl der Auxilary Funktion ist entscheident für das spätere Erscheinungsbild der Noise-Funktion.
+Die Wahl der Lattice Funktion ist entscheident für das spätere Erscheinungsbild der Noise-Funktion.
 Eine gleichverteilte Folge von pseudo zufällige Zahlen wie sie etwa die meisten in Programmiersprachen implementierten Zufallsgeneratoren bieten erfüllt zwar die Anforderungen der Deterministik der Funktion, kann allerdings zu unerwünscht starken Differenzen zwischen zwei Benachbarten Gitterpunkten führen. Im folgenden gehen wir von einer Standartnormalverteilung aus um die Wahrscheinlichkeit für Werte nahe den Intervalgrenzen zu verringern. 
 
 \subsection{Interpolation und Fade-Function}
-Um aufbauend auf der Auxilary-Function\ref{auxFunc} eine Funktion $S(\vec{x}): \mathbb{R}^n\mapsto\mathbb{R}, \vec{x}\in \mathbb{Z}^n$\label{S} zu definieren wird zwischen benachbarten Gitterpunkten lokal interpoliert. Dafür wird eine sogenannte Fade-Function\cite{fadeFunction} der Form $f(t): \mathbb{R}\mapsto\mathbb{R}$ mit $t\in[0, 1]$ definiert, welche den Übergang zwischen den Gitterpunkten steuert.
+Um aufbauend auf der Lattice-Funktion\ref{latticeFunc} eine Funktion $S(\vec{x}): \mathbb{R}^n\mapsto\mathbb{R}, \vec{x}\in \mathbb{Z}^n$\label{S} zu definieren wird zwischen benachbarten Gitterpunkten lokal interpoliert. Dafür wird eine sogenannte Fade-Function\cite{fadeFunction} der Form $f(t): \mathbb{R}\mapsto\mathbb{R}$ mit $t\in[0, 1]$ definiert, welche den Übergang zwischen den Gitterpunkten steuert.
 
 Um überhaupt eine stetige Noise-Funktion zu ermöglichen, muss 
 \begin{equation}
@@ -28,15 +30,67 @@ Damit der Übergang zwischen den Gitterpunkten möglichst glatt und damit natür
 gelten.
 
 Dafür wird im folgenden das Polynom $f(t) = 6t^5-15t^4+10t^3$ benutzt, welches auch in Perlins Referenzimplementierung Verwendung findet\cite{BurgerGradientNoise2008} und alle Eigenschaften erfüllt.
+\begin{figure}[!hbtp]%
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}
+			[ 
+				xlabel=$t$,
+				ylabel={$f(t) = 6t^5-15t^4+10t^3$},
+				ymin=0,
+				ymax=1,
+				xmin=0,
+				xmax=1,
+				restrict x to domain=0:1
+			] 
+			
+			\addplot[no markers, blue, smooth, domain = 0:1] {x * x * x * (x * (x * 6 - 15) + 10)}; 
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Fade-Function}
+\end{figure}
 
-Da die mit $f(t)$ gebildete, interpolierte Funktion $S(\vec{x})$ definiert nun die Noise-Funktion.
+Die mit $f(t)$ gebildete, interpolierende Funktion $S(\vec{x}) = noise(\vec{x})$ definiert nun - im einfachsten Fall - die Noise-Funktion.
 
 
 \section{Value-Noise}\label{Value-Noise}
+Value-Noise ist die wohl naivste Implementierung einer Noise-Funktion. Bei ihr werden die Gitterpunktwerte, welche durch die \emph{Lattice-Funktion}\ref{latticeFunc} erzeugt wurden, als Höhenwerte interpretiert.
+
+Untenstehend ist eine Implementierung in C\# für eine 2-Dimensionale Rauschfunktion zu sehen.
+Noise lässt sich problemlos in mehrere Dimensionen skalieren. Einzig die Interpolation der Werte muss hier angepasst werden. In der Implementierung ist zu sehen, wie die Gitterpunktwerte - ähnlich einer \emph{billinearen Interpolation} - mit der \emph{Fade-Function} interpoliert werden.
+
+\lstinputlisting[language=csh, title=Value-Noise Implementierung C\#]{data/valueNoise.cs}\label{valueNoise.cs}
 
 \section{Gradient-Noise}\label{Gradient-Noise}
+Der vorher erwähnte Value-Noise kann, je nach Parameterwahl, noch ein unruhiges Rauschen erzeugen. Um die Übergänge zwischen den Gitterpunktwerten noch sanfter und damit natürlicher aussehen zu lassen wurde der Gradient-Noise erfunden.
+Hier werden die Gitterpunktwerte nicht als Höhenwerte, Gradienten an den Nullstellen der Noise-Funktion gesehen.
+Es ergibt sich also:
+\begin{equation}
+noise(\vec{k}) = 0 \land 
+noise'(\vec{k}) = S(\vec{k}),  k \in \mathbb{Z}^n  .
+\end{equation}
+
+In der untenstehenden 2D C\# Implementierung ist zu sehen, wie zuerst ein Höhenwert für den aktuellen Punkt  $\vec{x}$ über das Skalarprodukt\footnote{engl. Dot-Product} zwischen dem Gradienten und der relativen Position $\begin{pmatrix}tx\\ty\end{pmatrix}  tx, ty\in [0-1]$ und anschließend über die bekannte Interpolation berechnet wird.
+
+\lstinputlisting[language=csh, title=Gradient-Noise Implementierung C\#]{data/gradientNoise.cs}
+ 
 
 \section{Fractal-Noise}\label{Fractal-Noise}
+Die bisher behandelten Noise-Funktionen erzeugen zwar natürlich erscheinende Zufallswerte, wenn man diese jedoch auf eine Heightmap überträgt wird deutlich, dass es ihr an Details fehlt um natürlich zu wirken.
+
+Um den Detailgrad der Noise-Funktion beliebig zu erhöhen, wird die Noise-Funktion mit einer gestauchten, in der Amplitude verringerten, Version ihrer selbst addiert. 
+Dieses Verfahren lässt sich beliebig oft anwenden, was einen beliebig hohen Detailgrad erlaubt.
+
+In \cite{Saupe} wird daher folgende Formel definiert:
+\begin{equation}
+	\mathbb{H}(\vec{x}) = \sum_{k=k_0}^{k_1}\frac{1}{r^{kH}}S(r^k\vec{x}).
+\end{equation}
+
+Wobei $H=2-D$ der Hurst-Exponent ist\cite{tuMuenchen} und $D=-\frac{log(\frac{1}{k1})}{log(r)}$\cite{fraktDim} die fraktale Dimension.
+
+Durch die Anpassung dieser Parameter lässt sich das Verhalten der Noise-Funktion gezielt steuern. Eine Implementierung in C\# findet sich unten.
+
+\lstinputlisting[language=csh, title=Fractal-Noise Implementierung C\#]{data/fractalNoise.cs}
 
 \section{Ausblick: Simplex-Noise}\label{Simplex-Noise}
 

@@ -1,6 +1,6 @@
 % Encoding: UTF-8
 
-@Online{stateOfTheArt,
+@Online{H.Hauser2010,
   author = {H. Hauser, E. Reinhard},
   title  = {State of the Art in Procedural Noise Functions},
   date   = {2010},
@@ -32,6 +32,49 @@
   title     = {Improving noise},
   booktitle = {Proceedings of the 29th Annual Conference on Computer Graphics and Interactive Techniques},
   pages     = {681-682},
+}
+
+@InBook{PERLIN1985,
+  author    = {PERLIN K},
+  title     = {An image synthesizer},
+  booktitle = {In Computer Graphics In Computer Graphics (Proceedings of ACM SIGGRAPH 85)},
+  year      = {1985},
+  edition   = {vol. 19},
+  pages     = {287– 296},
+}
+
+@WWW{tuMuenchen,
+  author       = {Jens Schneider, Tobias Boldte, Rudiger Westermann},
+  title        = {Real-Time Editing, Synthesis, and Rendering of Infinite Landscapes on GPUs},
+  year         = {2006},
+  url          = {http://wwwcg.in.tum.de/fileadmin/user_upload/Lehrstuehle/Lehrstuhl_XV/Research/Publications/2006/vmv06.pdf},
+  organization = {Computer Graphics \& Visualization Group Technische Universitat¨ Munchen},
+}
+
+@WWW{simplexNoise,
+  author       = {Stefan Gustavson},
+  title        = {Simplex noise demystified},
+  year         = {2005},
+  date         = {22.03.2005},
+  url          = {http://staffwww.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf},
+  organization = {Linköping University, Sweden},
+}
+
+@InProceedings{Saupe,
+  author    = {D Saupe},
+  title     = {Point evaluation of multi-variable random fractals},
+  booktitle = {Visualisierung in Mathematik und Naturwissenschaft, Bremer Computergraphik Tage},
+  year      = {1988},
+}
+
+@WWW{,
+  title = {Hurst Exponent},
+  url   = {https://www.wikiwand.com/en/Hurst_exponent},
+}
+
+@WWW{,
+  title = {Fraktale Dimension},
+  url   = {https://www.wikiwand.com/de/Fraktale_Dimension#/.C3.84hnlichkeits-Dimension},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

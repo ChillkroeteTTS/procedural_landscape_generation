@@ -11,25 +11,25 @@ using Random = UnityEngine.Random;
 public class ValueNoise : AbstractNoise {
     public delegate float TwoDAuxilaryFunction(int x, int y);
 
-    public TwoDAuxilaryFunction AuxFunc;
+    public TwoDAuxilaryFunction LatticeFunc;
 
-    private float[,] _auxArray;
+    private float[,] _latticeArray;
 
-    public ValueNoise(int seed = 0, int auxSize = 6, float maxVal = 0.1f) : base(seed, auxSize, maxVal) {
-        _auxArray = new float[AuxSize, AuxSize];
-        AuxFunc = GetFromAuxArray;
+    public ValueNoise(int seed = 0, int auxSize = 6) : base(seed, auxSize) {
+        _latticeArray = new float[AuxSize, AuxSize];
+        LatticeFunc = GetFromLatticeArray;
         if (seed == 0)
-            FillAuxArray2D();
+            FillLatticeArray2D();
         else
-            FillAuxArray2D(seed);
+            FillLatticeArray2D(seed);
         TestValueNoise();
     }
 
-    protected override float GetAuxFuncFloat(int x, int y) {
-        return AuxFunc(x, y);
+    protected override float GetLatticeFuncFloat(int x, int y) {
+        return LatticeFunc(x, y);
     }
 
-    protected override float S1(float x, float y) {
+    protected override float S(float x, float y) {
         int floorX = Mathf.FloorToInt(x),
             ceilX = Mathf.CeilToInt(x),
             floorY = Mathf.FloorToInt(y),
@@ -37,31 +37,28 @@ public class ValueNoise : AbstractNoise {
         float tx = x - floorX,
             ty = y - floorY;
 
-        float retVal = (FadeFunction(1 - ty)*
-                        (AuxFunc(floorX, floorY)*FadeFunction(1 - tx) + FadeFunction(tx)*AuxFunc(ceilX, floorY))
-                        +
-                        FadeFunction(ty)*
-                        (AuxFunc(floorX, ceilY)*FadeFunction(1 - tx) + FadeFunction(tx)*AuxFunc(ceilX, ceilY)));
-
-        //Debug.Log(String.Format("x: {0} y: {1} fadefunc for adjusted x: {2} and aux top left {3}  ->  {4}", 
-        //            tx, ty, FadeFunction(tx), _auxFunc(floorX, floorY), retVal));
+        float retVal = FadeFunction(1 - ty) *
+                       (LatticeFunc(floorX, floorY) * FadeFunction(1 - tx) + FadeFunction(tx) * LatticeFunc(ceilX, floorY))
+                       +
+                       FadeFunction(ty) *
+                       (LatticeFunc(floorX, ceilY)*FadeFunction(1 - tx) + FadeFunction(tx)*LatticeFunc(ceilX, ceilY));
 
         return retVal;
     }
 
 
-    private float GetFromAuxArray(int x, int y = 0) {
-        return _auxArray[x, y];
+    private float GetFromLatticeArray(int x, int y = 0) {
+        return _latticeArray[x, y];
     }
 
 
-    private void FillAuxArray2D(int seed = 0) {
+    private void FillLatticeArray2D(int seed = 0) {
         if (seed != 0)
             Random.seed = seed;
 
-        for (int i = 0; i <= _auxArray.GetUpperBound(0); i++) {
-            for (int j = 0; j <= _auxArray.GetUpperBound(1); j++) {
-                _auxArray[i, j] = Random.value * 2 * MaxVal - MaxVal;
+        for (int i = 0; i <= _latticeArray.GetUpperBound(0); i++) {
+            for (int j = 0; j <= _latticeArray.GetUpperBound(1); j++) {
+                _latticeArray[i, j] = Random.value * 2 - 1;
             }
         }
     }
@@ -69,8 +66,8 @@ public class ValueNoise : AbstractNoise {
 
     private void TestValueNoise() {
         for (int i = 0; i < AuxSize; i++) {
-            Assert.AreEqual(AuxFunc(i, 0), S1(i, 0));
-            Assert.AreEqual(AuxFunc(i, 0), S1F(i / (float)(AuxSize - 1), 0), "expected: " + AuxFunc(i, 0) + " actual: " + S1F(i / (float)(AuxSize - 1), 0) + " with i: " + i + " and x: " + i / (float)(AuxSize - 1));
+            Assert.AreEqual(LatticeFunc(i, 0), S(i, 0));
+            Assert.AreEqual(LatticeFunc(i, 0), S1F(i / (float)(AuxSize - 1), 0), "expected: " + LatticeFunc(i, 0) + " actual: " + S1F(i / (float)(AuxSize - 1), 0) + " with i: " + i + " and x: " + i / (float)(AuxSize - 1));
         }
     }
 }

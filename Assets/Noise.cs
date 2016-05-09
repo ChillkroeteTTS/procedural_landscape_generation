@@ -25,6 +25,8 @@ public class Noise : MonoBehaviour {
 
     public int RecursionDepth;
 
+    public float Lacunarity = 2;
+
     public int AuxSize = 6;
 
     public bool RuntimeCalculation = false;
@@ -60,11 +62,13 @@ public class Noise : MonoBehaviour {
 
 
     private IEnumerator CalcHeightmap() {
-        _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 511;
-        //_heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapResolution = 128;
-        _heightMapWidth = gameObject.GetComponent<Terrain>().terrainData.heightmapWidth;
-        _heightMapHeight = gameObject.GetComponent<Terrain>().terrainData.heightmapHeight;
+        TerrainData _terrainData = gameObject.GetComponent<Terrain>().terrainData;
+        //_heightMapHeight = _terrainData.heightmapResolution = 511;
+        _heightMapHeight = _terrainData.heightmapResolution = 128;
+        _heightMapWidth = _terrainData.heightmapWidth;
+        _heightMapHeight = _terrainData.heightmapHeight;
         _heightmap = new float[_heightMapWidth, _heightMapHeight];
+        _terrainData.SetHeights(0,0,_heightmap);
         Debug.Log(_heightMapWidth);
         int cnt = 0;
 
@@ -73,11 +77,11 @@ public class Noise : MonoBehaviour {
         //Calculate until Realtime is disabled or if not enabled at all just once
         while (RuntimeCalculation || cnt == 0) {
             /*AbstractNoise perlin = UseRandomSeed 
-                                    ? new GradientNoise(auxSize:AuxSize, maxVal: MaxHeight) 
-                                    : new GradientNoise(seed:Seed, auxSize: AuxSize, maxVal:MaxHeight);*/
+                                    ? new GradientNoise(auxSize:AuxSize) 
+                                    : new GradientNoise(seed:Seed, auxSize: AuxSize);*/
             AbstractNoise perlin = UseRandomSeed 
-                                ? new GradientNoise(auxSize:AuxSize, maxVal: MaxHeight) 
-                                : new GradientNoise(seed:Seed, auxSize: AuxSize, maxVal:MaxHeight);
+                                ? new GradientNoise(auxSize:AuxSize) 
+                                : new GradientNoise(seed:Seed, auxSize: AuxSize);
 
             //Destroy old NoiseWIndows
             foreach (NoiseWindow noiseWindow in _windows) {
@@ -95,7 +99,7 @@ public class Noise : MonoBehaviour {
                 window.windowRect.position += new Vector2(0, (window.windowRect.height+ window.windowRect.position.y)*(i+1));
                 _windows.Add(window);
                 perlin.ListenerLists.Add(window.ValueList);
-                perlin.AuxListener.Add(window.AuxList);
+                perlin.LatticeListener.Add(window.AuxList);
             }
 
             // Clear listener lists
@@ -103,7 +107,7 @@ public class Noise : MonoBehaviour {
                 list.Clear();
                 list.Capacity = _heightMapWidth;
             }
-            foreach (List<float> list in perlin.AuxListener) {
+            foreach (List<float> list in perlin.LatticeListener) {
                 list.Clear();
                 list.Capacity = _heightMapWidth;
             }
@@ -122,15 +126,18 @@ public class Noise : MonoBehaviour {
                 }
 
                 for (int y = 0; y < _heightMapHeight; y++) {
-                    Profiler.BeginSample("AuxFunc");
+                    Profiler.BeginSample("LatticeFunc");
                     float val = perlin.GetNoiseValue2D(x/(float) _heightMapWidth, y/(float) _heightMapHeight,
-                        RecursionDepth);
+                        RecursionDepth, Lacunarity);
+                    float[,] testArr = new float[1,1];
 
                     // Add perlin result to resulting noise window
-                    if (x==0)
+                    if (y==0)
                         _mainWindow.ValueList.Add(val);
 
-                    _heightmap[x, y] = val + perlin.MaxVal;
+                    //_heightmap[x, y] = (val + 1)/2f * MaxHeight;
+                    testArr[0, 0] = (val + 1) / 2f * MaxHeight;
+                    _terrainData.SetHeights(x, y, testArr);
                     //Debug.Log(_heightmap[x, y]);
                     Profiler.EndSample();
 
@@ -140,8 +147,9 @@ public class Noise : MonoBehaviour {
                 }
                 yield return null;
             }
-            gameObject.GetComponent<Terrain>().terrainData.SetHeights(0, 0, _heightmap);
+            //gameObject.GetComponent<Terrain>().terrainData.SetHeights(0, 0, _heightmap);
             cnt++;
+            Seed = Random.seed;
         }
     }
 

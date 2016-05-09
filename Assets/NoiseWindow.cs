@@ -14,7 +14,7 @@ public class NoiseWindow : MonoBehaviour {
 
     public Color LineColor = Color.HSVToRGB(0, 242, 144);
 
-    public float Scale = 22.3f;
+    public float Scale = 1f;
 
     [SerializeField]
     private float _offsetCoordSys = 19.2f;

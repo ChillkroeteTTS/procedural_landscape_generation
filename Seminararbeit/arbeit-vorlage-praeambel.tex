@@ -3,6 +3,7 @@
 \pdfminorversion=5
 \pdfobjcompresslevel=1
 % Allgemeines
+
 \usepackage[automark]{scrpage2} % Kopf- und Fußzeilen
 \usepackage{amsmath,marvosym} % Mathesachen
 \usepackage[T1]{fontenc} % Ligaturen, richtige Umlaute im PDF
@@ -11,6 +12,10 @@
 \usepackage{mathpazo} % Palatino für Mathemodus
 %\usepackage{mathpazo,tgpagella} % auch sehr schöne Schriften
 \usepackage{setspace} % Zeilenabstand
+\usepackage{pgfplots} % Graph plotting
+\usepackage{chngcntr} % Nummerierung
+\counterwithin{figure}{section}
+
 \onehalfspacing % 1,5 Zeilen
 % Schriften-Größen
 \setkomafont{chapter}{\Huge\rmfamily} % Überschrift der Ebene
@@ -73,7 +78,9 @@
 	breaklines       = true,
 	postbreak        = ,
 	prebreak         = \raisebox{-.8ex}[0ex][0ex]{\Righttorque},
+	numberbychapter = false
 }
+
 % linksbündige Fußboten
 \deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
 

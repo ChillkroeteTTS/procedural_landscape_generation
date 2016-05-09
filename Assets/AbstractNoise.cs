@@ -11,41 +11,46 @@ public abstract class AbstractNoise
     public delegate float OneDAuxilaryFunction(int x);
     public delegate float TwoDFadeFunction(float t);
 
-    public float MaxVal { get; protected set; }
-
     public TwoDFadeFunction FadeFunction;
 
     protected int AuxSize;
 
     public List<List<float>> ListenerLists = new List<List<float>>();
 
-    public List<List<float>> AuxListener = new List<List<float>>();
+    public List<List<float>> LatticeListener = new List<List<float>>();
 
 
-    public AbstractNoise(int seed=0, int auxSize=6, float maxVal=0.1f) {
+    public AbstractNoise(int seed=0, int auxSize=6) {
         AuxSize = auxSize;
-        MaxVal = maxVal;
         FadeFunction = (x) => { return x * x * x * (x * (x * 6 - 15) + 10); };
     }
 
 
-    public float GetNoiseValue2D(float x, float y, int r) {
-        if (r < 0) {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="x">x coordinate[0-1]</param>
+    /// <param name="y">y coordinate[0-1]</param>
+    /// <param name="k">Fractal steps</param>
+    /// <param name="r">Lacunarity</param>
+    /// <returns></returns>
+    public float GetNoiseValue2D(float x, float y, int k, float r=2) {
+        if (k < 0) {
             return 0;
         }
-        float val = S1F(x*Mathf.Pow(2, r), y*Mathf.Pow(2, r))/Mathf.Pow(2, r);
+        float val = S1F(x*Mathf.Pow(r, k), y*Mathf.Pow(r, k))/Mathf.Pow(r, k);
 
-        if (r >= 0 && AuxListener[r] != null && x == 0 && y == 0)
-            for(int xAux=0; xAux <= (AuxSize-1)*(r+1); xAux++)
-                AuxListener[r].Add(GetAuxFuncFloat(xAux%AuxSize, 0) / Mathf.Pow(2, r));
-        if (r >= 0 && ListenerLists[r] != null && y==0)
-            ListenerLists[r].Add(val);
+        if (k >= 0 && LatticeListener[k] != null && x == 0 && y == 0)
+            for(int xAux=0; xAux <= (AuxSize-1)*(k+1); xAux++)
+                LatticeListener[k].Add(GetLatticeFuncFloat(xAux%AuxSize, 0) / Mathf.Pow(2, k));
+        if (k >= 0 && ListenerLists[k] != null && y==0)
+            ListenerLists[k].Add(val);
 
-        return GetNoiseValue2D(x,y , --r) + val;
+        return GetNoiseValue2D(x,y , --k, r) + val;
     }
 
 
-    protected abstract float GetAuxFuncFloat(int x, int y);
+    protected abstract float GetLatticeFuncFloat(int x, int y);
     
 
     /// <summary>
@@ -67,10 +72,10 @@ public abstract class AbstractNoise
                 ? y - Mathf.Floor(y) 
                 : (Mathf.FloorToInt(y) % 2 != 0 ? 1 - (y - Mathf.Floor(y)) : y - Mathf.Floor(y));
 
-        return S1(truncX*(AuxSize-1), truncY * (AuxSize - 1));
+        return S(truncX*(AuxSize-1), truncY * (AuxSize - 1));
     }
 
 
-    protected abstract float S1(float x, float y);
+    protected abstract float S(float x, float y);
 
 }

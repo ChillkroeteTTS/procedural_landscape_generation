@@ -4,7 +4,7 @@
 \BOOKMARK [0][-]{chapter.1}{Einleitung}{}% 4
 \BOOKMARK [0][-]{chapter.2}{Noise}{}% 5
 \BOOKMARK [1][-]{section.2.1}{Grundlagen}{chapter.2}% 6
-\BOOKMARK [2][-]{subsection.2.1.1}{Auxilary-Function}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.1}{Lattice-Function}{section.2.1}% 7
 \BOOKMARK [2][-]{subsection.2.1.2}{Interpolation und Fade-Function}{section.2.1}% 8
 \BOOKMARK [1][-]{section.2.2}{Value-Noise}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.3}{Gradient-Noise}{chapter.2}% 10
@@ -16,4 +16,4 @@
 \BOOKMARK [0][-]{chapter.4}{Zusammenfassung}{}% 16
 \BOOKMARK [0][-]{appendix.A}{Anhang}{}% 17
 \BOOKMARK [1][-]{section.A.1}{Quelltexte}{appendix.A}% 18
-\BOOKMARK [0][-]{chapter*.11}{Literaturverzeichnis}{}% 19
+\BOOKMARK [0][-]{chapter*.12}{Literaturverzeichnis}{}% 19
