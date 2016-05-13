@@ -27,6 +27,8 @@ public class Noise : MonoBehaviour {
 
     public float Lacunarity = 2;
 
+    public float H = 1;
+
     public int AuxSize = 6;
 
     public bool RuntimeCalculation = false;
@@ -43,9 +45,15 @@ public class Noise : MonoBehaviour {
     private List<GameObject> _spheres;
     [SerializeField] private NoiseWindow _mainWindow;
 
+    public Vector2 c1 = new Vector2(0.35f, 0.16f);
+    public Vector2 c2 = new Vector2(-.07f, 0.13f);
+    public Vector2 c3 = new Vector2(0.11f, 0.17f);
+    public Vector2 r0 = new Vector2(1f, 0f);
+    public Vector2 t0 = new Vector2(0f, 0f);
+
     // Use this for initialization
     void Start() {
-        TestBillinearInterpolation();
+        Interpolation.TestBillinearInterpolation();
         //CalcHeightmap();
     }
 
@@ -77,8 +85,8 @@ public class Noise : MonoBehaviour {
         //Calculate until Realtime is disabled or if not enabled at all just once
         while (RuntimeCalculation || cnt == 0) {
             /*AbstractNoise perlin = UseRandomSeed 
-                                    ? new GradientNoise(auxSize:AuxSize) 
-                                    : new GradientNoise(seed:Seed, auxSize: AuxSize);*/
+                                    ? new ValueNoise(auxSize:AuxSize) 
+                                    : new ValueNoise(seed:Seed, auxSize: AuxSize);*/
             AbstractNoise perlin = UseRandomSeed 
                                 ? new GradientNoise(auxSize:AuxSize) 
                                 : new GradientNoise(seed:Seed, auxSize: AuxSize);
@@ -127,91 +135,44 @@ public class Noise : MonoBehaviour {
 
                 for (int y = 0; y < _heightMapHeight; y++) {
                     Profiler.BeginSample("LatticeFunc");
-                    float val = perlin.GetNoiseValue2D(x/(float) _heightMapWidth, y/(float) _heightMapHeight,
-                        RecursionDepth, Lacunarity);
+                    float val = perlin.GetNoiseValue2D(x/(float) _heightMapWidth, y/(float) _heightMapHeight, RecursionDepth, Lacunarity, H);
+                    /*float val = perlin.GetNoiseValue2DDomainWarped(x / (float)_heightMapWidth, y / (float)_heightMapHeight,
+                                                                   RecursionDepth, Lacunarity, H, c1, c2, c3, r0, t0);*/
                     float[,] testArr = new float[1,1];
 
                     // Add perlin result to resulting noise window
                     if (y==0)
                         _mainWindow.ValueList.Add(val);
 
-                    //_heightmap[x, y] = (val + 1)/2f * MaxHeight;
+                    //Heightmap[x, y] = (val + 1)/2f * MaxHeight;
                     testArr[0, 0] = (val + 1) / 2f * MaxHeight;
                     _terrainData.SetHeights(x, y, testArr);
-                    //Debug.Log(_heightmap[x, y]);
+                    //Debug.Log(Heightmap[x, y]);
                     Profiler.EndSample();
 
                     /* Profiler.BeginSample("AuxFuncOpt");
-                    _heightmap[x, y] = GetAuxFuncValueOpt(auxArr, 10, 10, x / _heightMapWidth, y / _heightMapHeight);
+                    Heightmap[x, y] = GetAuxFuncValueOpt(auxArr, 10, 10, x / _heightMapWidth, y / _heightMapHeight);
                     Profiler.EndSample();*/
                 }
                 yield return null;
             }
-            //gameObject.GetComponent<Terrain>().terrainData.SetHeights(0, 0, _heightmap);
+            //gameObject.GetComponent<Terrain>().terrainData.SetHeights(0, 0, Heightmap);
             cnt++;
-            Seed = Random.seed;
         }
     }
 
 
-
-
-    private void FillRnd(ref float[,] arr, int width, int height, float range) {
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                arr[x, y] = Random.Range(0f, range);
+    private void NormalizeHeightfield() {
+        float min = _heightmap[0, 0], max = _heightmap[0, 0];
+        foreach (float val in _heightmap) {
+            min = val < min ? val : min;
+            max = val > max ? val : max;
+        }
+        for (int x = 0; x < _heightMapWidth; x++) {
+            for (int y = 0; y < _heightMapHeight; y++) {
+                _heightmap[x, y] = (_heightmap[x, y] / (max - min) + 1) / 2f * MaxHeight;
             }
         }
-    }
-
-
-    private float[,] CreateAuxArray() {
-        float[,] auxArr = new float[10, 10];
-        FillRnd(ref auxArr, 10, 10, MaxHeight);
-        return auxArr;
-    }
-
-
-    private float GetAuxFuncValue(float[,] rndArr, int width, int height, float x, float y) {
-        Assert.IsTrue(x <= 1f);
-        Assert.IsTrue(y <= 1f);
-        Assert.IsTrue(y >= 0);
-        Assert.IsTrue(x >= 0);
-        
-        // Map x to 0 until width-1;  0 until height-1
-        x = x*(width - 1);
-        y = y*(height - 1);
-
-        int floorX = Math.Max(0, Mathf.FloorToInt(x)),
-            ceilX = Math.Min(width, Mathf.FloorToInt(x + 1f)),
-            floorY = Math.Max(0, Mathf.FloorToInt(y)),
-            ceilY = Math.Min(height, Mathf.FloorToInt(y + 1f));
-
-        float q1 = rndArr[floorX, floorY],
-              q2 = rndArr[ceilX, floorY],
-              q3 = rndArr[floorX,ceilY],
-              q4 = rndArr[ceilX, ceilY];
-
-        return BillinearInterpolation(q1, q2, q3, q4,
-            (x - floorX) /(ceilX - floorX),
-            (y - floorY) /(ceilY - floorY));
-    }
-
-
-    private float BillinearInterpolation(float q1, float q2, float q3, float q4, float tx, float ty) {
-        //return (q1*(1-tx) + tx*q2)*(1-ty) + ty*(q3*(1-tx) + tx*q4);
-        return (q1 * (1 - tx) + tx * q2) * (1 - ty) + ty * (q3 * (1 - tx) + tx * q4);
-    }
-
-
-    private void TestBillinearInterpolation() {
-        Assert.IsTrue(Math.Abs(50 - BillinearInterpolation(0f, 100f, 0f, 100f, 0.5f, 0.5f)) < Mathf.Epsilon);
-        Assert.IsTrue(Math.Abs(50 - BillinearInterpolation(0f, 100f, 0f, 100f, 0.5f, 0f)) < Mathf.Epsilon);
-        Assert.IsTrue(Math.Abs(100 - BillinearInterpolation(0f, 100f, 0f, 100f, 1f, 0.5f)) < Mathf.Epsilon);
-        Assert.IsTrue(Math.Abs(0 - BillinearInterpolation(0f, 100f, 0f, 100f, 0, 0f)) < Mathf.Epsilon);
-        Assert.IsTrue(Math.Abs(100 - BillinearInterpolation(0f, 100f, 0f, 100f, 1, 1f)) < Mathf.Epsilon);
-        Assert.IsTrue(Math.Abs(25 - BillinearInterpolation(0f, 100f, 0f, 100f, 0.25f, 0f)) < Mathf.Epsilon);
-        Assert.IsTrue(Math.Abs(25 - BillinearInterpolation(100f, 0f, 0f, 100f, 1f, 0.25f)) < Mathf.Epsilon);
-        Assert.IsTrue(Math.Abs(25 - BillinearInterpolation(0f, 100f, 0f, 100f, 0.25f, 0.25f)) < Mathf.Epsilon);
+        GetComponent<Terrain>().terrainData.SetHeights(0, 0, _heightmap);
     }
 }

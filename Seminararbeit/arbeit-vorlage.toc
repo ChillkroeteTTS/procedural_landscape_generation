@@ -7,15 +7,3 @@
 \contentsline {chapter}{\numberline {2}Noise}{2}{chapter.2}
 \contentsline {section}{\numberline {2.1}Grundlagen}{2}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Lattice-Function}{2}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Interpolation und Fade-Function}{3}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Value-Noise}{4}{section.2.2}
-\contentsline {section}{\numberline {2.3}Gradient-Noise}{5}{section.2.3}
-\contentsline {section}{\numberline {2.4}Fractal-Noise}{5}{section.2.4}
-\contentsline {section}{\numberline {2.5}Ausblick: Simplex-Noise}{6}{section.2.5}
-\contentsline {chapter}{\numberline {3}weiteres Kapitel}{7}{chapter.3}
-\contentsline {section}{\numberline {3.1}eine Sektion}{7}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}jetzt geht es noch tiefer}{8}{subsection.3.1.1}
-\contentsline {chapter}{\numberline {4}Zusammenfassung}{13}{chapter.4}
-\contentsline {chapter}{\numberline {A}Anhang}{14}{appendix.A}
-\contentsline {section}{\numberline {A.1}Quelltexte}{14}{section.A.1}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{17}{chapter*.12}
