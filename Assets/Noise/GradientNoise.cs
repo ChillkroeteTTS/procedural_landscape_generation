@@ -62,23 +62,26 @@ public class GradientNoise : AbstractNoise {
     private void FillLatticeArray(int seed = 0) {
         if (seed != 0)
             Random.seed = seed;
+        Seed = Random.seed;
 
         for (int i = 0; i <= _latticeArray.GetUpperBound(0); i++) {
             for (int j = 0; j <= _latticeArray.GetUpperBound(1); j++) {
-                if (i == _latticeArray.GetUpperBound(0))
+                _latticeArray[i, j] = new Vector2(Random.value * 2 - 1,
+                                            Random.value * 2 - 1);
+                if (i == _latticeArray.GetUpperBound(0)) {
                     _latticeArray[i, j] = _latticeArray[0, j];
-                else if (j == _latticeArray.GetUpperBound(1))
+                }
+                if (j == _latticeArray.GetUpperBound(1)) {
                     _latticeArray[i, j] = _latticeArray[i, 0];
-                else if (i == _latticeArray.GetUpperBound(0)
-                         && j == _latticeArray.GetUpperBound(1))
+                }
+                if (i == _latticeArray.GetUpperBound(0)
+                    && j == _latticeArray.GetUpperBound(1)) {
                     _latticeArray[i, j] = _latticeArray[0, 0];
-                else
-                    /*_latticeArray[i, j] = new Vector2(Random.value * 2 - 1,
-                                              Random.value * 2 - 1);*/
-                    _latticeArray[i, j] = new Vector2(RandomFromDistribution.RandomRangeNormalDistribution(-1f, 1f,
+                }
+                    /*_latticeArray[i, j] = new Vector2(RandomFromDistribution.RandomRangeNormalDistribution(-1f, 1f,
                     RandomFromDistribution.ConfidenceLevel_e._999),
                                                       RandomFromDistribution.RandomRangeNormalDistribution(-1f, 1f,
-                    RandomFromDistribution.ConfidenceLevel_e._999));
+                    RandomFromDistribution.ConfidenceLevel_e._999));*/
             }
         }
     }

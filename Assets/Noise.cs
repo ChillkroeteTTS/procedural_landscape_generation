@@ -19,6 +19,8 @@ public class Noise : MonoBehaviour {
 
     public int Seed;
 
+    public int CurrentSeed;
+
     public bool UseRandomSeed;
 
     public bool ProcessingOutput = false;
@@ -72,7 +74,7 @@ public class Noise : MonoBehaviour {
     private IEnumerator CalcHeightmap() {
         TerrainData _terrainData = gameObject.GetComponent<Terrain>().terrainData;
         //_heightMapHeight = _terrainData.heightmapResolution = 511;
-        _heightMapHeight = _terrainData.heightmapResolution = 128;
+        //_heightMapHeight = _terrainData.heightmapResolution = 128;
         _heightMapWidth = _terrainData.heightmapWidth;
         _heightMapHeight = _terrainData.heightmapHeight;
         _heightmap = new float[_heightMapWidth, _heightMapHeight];
@@ -135,7 +137,7 @@ public class Noise : MonoBehaviour {
 
                 for (int y = 0; y < _heightMapHeight; y++) {
                     Profiler.BeginSample("LatticeFunc");
-                    float val = perlin.GetNoiseValue2D(x/(float) _heightMapWidth, y/(float) _heightMapHeight, RecursionDepth, Lacunarity, H);
+                    float val = perlin.GetNoiseValue2D(x/(float) (_heightMapWidth-1), y/(float) (_heightMapHeight-1), RecursionDepth, Lacunarity, H, perlin.NoiseFuncRidged);
                     /*float val = perlin.GetNoiseValue2DDomainWarped(x / (float)_heightMapWidth, y / (float)_heightMapHeight,
                                                                    RecursionDepth, Lacunarity, H, c1, c2, c3, r0, t0);*/
                     float[,] testArr = new float[1,1];
@@ -158,6 +160,7 @@ public class Noise : MonoBehaviour {
             }
             //gameObject.GetComponent<Terrain>().terrainData.SetHeights(0, 0, Heightmap);
             cnt++;
+            CurrentSeed = perlin.Seed;
         }
     }
 

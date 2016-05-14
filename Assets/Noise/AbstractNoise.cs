@@ -14,9 +14,13 @@ public abstract class AbstractNoise
 
     public delegate float TransformDelegate(float height, float val, float k);
 
+    public delegate Vector2 NoiseCalcFunction(float x, float y, int k, float lacunarity, float h, NoiseCalcFunction noiseCalcFunc);
+
     public TwoDFadeFunction FadeFunction;
 
     public TransformDelegate TransformFunction;
+
+    public NoiseCalcFunction NoiseFunction;
 
     protected int AuxSize;
 
@@ -24,6 +28,7 @@ public abstract class AbstractNoise
 
     public List<List<float>> LatticeListener = new List<List<float>>();
 
+    public int Seed;
 
     public AbstractNoise(int seed=0, int auxSize=6) {
         AuxSize = auxSize;
@@ -44,31 +49,28 @@ public abstract class AbstractNoise
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="x">x coordinate[0-1]</param>
-    /// <param name="y">y coordinate[0-1]</param>
-    /// <param name="k">Fractal steps</param>
-    /// <param name="Lacunarity">Lacunarity</param>
-    /// <returns></returns>
-    public float GetNoiseValue2D(float x, float y, int k, float Lacunarity, float h) {
-        if (k < 0) {
-            return 0;
-        }
-        float val = S1F(x*Mathf.Pow(Lacunarity, k), y*Mathf.Pow(Lacunarity, k))/Mathf.Pow(Lacunarity, k*h),
-              currHeight = GetNoiseValue2D(x, y, --k, Lacunarity, h);
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="k"></param>
+    /// <param name="lacunarity"></param>
+    /// <param name="h"></param>
+    /// <param name="noiseCalcFunc"></param>
+    /// <returns>x value is current iteration value and y is current height</returns>
+    public Vector2 NoiseFuncPlain(float x, float y, int k, float lacunarity, float h, NoiseCalcFunction noiseCalcFunc) {
+        float val = S1F(x * Mathf.Pow(lacunarity, k), y * Mathf.Pow(lacunarity, k)) / Mathf.Pow(lacunarity, k * h),
+              currHeight = GetNoiseValue2D(x, y, --k, lacunarity, h, noiseCalcFunc);
 
-        val = TransformFunction(currHeight, val, k);
-
-
-        // Value tracking
-        if (k >= 0 && LatticeListener[k] != null && x == 0 && y == 0)
-            for(int xAux=0; xAux <= (AuxSize-1)*(k+1); xAux++)
-                LatticeListener[k].Add(GetLatticeFuncFloat(xAux%AuxSize, 0) / Mathf.Pow(2, k));
-        if (k >= 0 && ListenerLists[k] != null && y==0)
-            ListenerLists[k].Add(val);
-
-        return currHeight + val;
+        return new Vector2(val, currHeight);
     }
 
+
+    public Vector2 NoiseFuncRidged(float x, float y, int k, float lacunarity, float h, NoiseCalcFunction noiseCalcFunc) {
+        float val = S1F(x * Mathf.Pow(lacunarity, k), y * Mathf.Pow(lacunarity, k)) / (Mathf.Pow(lacunarity, k) * Mathf.Pow(lacunarity, (1+2*h)/2)),
+              currHeight = GetNoiseValue2D(x, y, --k, lacunarity, h, noiseCalcFunc);
+
+        //return new Vector2(1 - Mathf.Abs(val), currHeight);
+        return new Vector2(val, currHeight);
+    }
 
 
     /// <summary>
@@ -77,36 +79,39 @@ public abstract class AbstractNoise
     /// <param name="x">x coordinate[0-1]</param>
     /// <param name="y">y coordinate[0-1]</param>
     /// <param name="k">Fractal steps</param>
-    /// <param name="r">Lacunarity</param>
+    /// <param name="lacunarity">Lacunarity</param>
+    /// <param name="noiseCalcFunc"></param>
     /// <returns></returns>
-    public float GetNoiseValue2DDomainWarped(float x, float y, int kmax, float lacunarity, float h, Vector2 c1, Vector2 c2, Vector2 c3, Vector2 r0, Vector2 t0) {
-        float rough0 = 1/lacunarity, // General roughness value
-            resHeight = 0.0001f;
-        Vector2 ri = r0;
-
-        for (int k = 0; k <= kmax; k++) {
-            float roughI = resHeight*rough0; //Height dependent roughness
-            Vector2 rNext = (c1*roughI + c2 + ri).normalized,
-                    tNext = c3 * resHeight / roughI;
-            float s1X = rNext.x*x - rNext.y*y + tNext.x,
-                s1Y = rNext.y*x + rNext.x*y + tNext.y;
-            //Debug.Log(s1X + " " + s1Y);
-            float val = S1F(s1X * Mathf.Pow(lacunarity, k), s1Y * Mathf.Pow(lacunarity, k)) / Mathf.Pow(lacunarity, k*h); // calc val for current frequency
-
-
-            // Value Tracking
-            if (k >= 0 && LatticeListener[k] != null && x == 0 && y == 0)
-                for (int xAux = 0; xAux <= (AuxSize - 1) * (k + 1); xAux++)
-                    LatticeListener[k].Add(GetLatticeFuncFloat(xAux % AuxSize, 0) / Mathf.Pow(2, k));
-            if (k >= 0 && ListenerLists[k] != null && y == 0)
-                ListenerLists[k].Add(val);
-
-            resHeight += val;
+    public float GetNoiseValue2D(float x, float y, int k, float lacunarity, float h, NoiseCalcFunction noiseCalcFunc) {
+        if (k < 0) {
+            return 0;
         }
+        Vector2 val = noiseCalcFunc(x , y, k, lacunarity, h, noiseCalcFunc);
+
+
+        // Value tracking
+        if (k >= 0 && LatticeListener[k] != null && x == 0 && y == 0)
+            for(int xAux=0; xAux <= (AuxSize-1)*(k+1); xAux++)
+                LatticeListener[k].Add(GetLatticeFuncFloat(xAux%AuxSize, 0) / Mathf.Pow(2, k*h));
+        if (k >= 0 && ListenerLists[k] != null && y==0)
+            ListenerLists[k].Add(val.x);
+
+        return val.x + val.y;
+    }
 
 
 
-        return resHeight;
+    /// <summary>
+    /// After https://graphics.tudelft.nl/Publications-new/2008/Car08/Thesis-Giliam-Final.pdf p. 124,
+    /// uses a wrong derivative of perlin noise to create a turbulence function.
+    /// </summary>
+    /// <param name="n">Perlin value for current </param>
+    /// <param name="lambdaX">X Coord transformed</param>
+    /// <param name="lambdaY">Y Coord transformed</param>
+    /// <param name="k">Rec depth</param>
+    /// <returns>Turbulence factor</returns>
+    private float TurbulenceWithWrongDerivative(float n, float lambdaX, float lambdaY, float k) {
+        return 0;
     }
 
 
