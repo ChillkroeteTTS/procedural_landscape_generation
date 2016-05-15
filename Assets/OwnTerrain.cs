@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using UnityEditor;
 
 public class OwnTerrain : MonoBehaviour {
 
     public float Size;
 
     public int Resolution;
+
+    public int LatticeSize = 3;
 
     public float[,] _heightmap;
 
@@ -24,6 +27,10 @@ public class OwnTerrain : MonoBehaviour {
     [SerializeField]
     private Vector3[] _normals;
 
+    private Material _terrainMat;
+
+    private Texture2D _latticeTex;
+
     public float[,] Heightmap {
         get { return _heightmap; }
         set {
@@ -37,6 +44,9 @@ public class OwnTerrain : MonoBehaviour {
         _mesh = new Mesh();
         gameObject.AddComponent<MeshFilter>().mesh = _mesh;
         gameObject.AddComponent<MeshRenderer>();
+
+        _terrainMat = new Material(Shader.Find("Custom/OwnTerrain"));
+        gameObject.GetComponent<MeshRenderer>().material = _terrainMat;
         _mesh.name = "MyTerrain";
     }
 	
@@ -48,6 +58,14 @@ public class OwnTerrain : MonoBehaviour {
 
 
     private void Build() {
+        //Set shader properties
+        _terrainMat.SetFloat("_TerrainSize", Resolution);
+        Destroy(_latticeTex);
+        _latticeTex = new Texture2D(LatticeSize, LatticeSize);
+        _latticeTex.filterMode = FilterMode.Point;
+        FillLatticeTex();
+        _terrainMat.SetTexture("_LatticeTex", _latticeTex);
+
         _heightmap = new float[Resolution,Resolution];
         _mesh.Clear();
         _vertices = new Vector3[Resolution*Resolution];
@@ -98,6 +116,17 @@ public class OwnTerrain : MonoBehaviour {
         _mesh.uv = _uv;
         _mesh.triangles = _triangles;
         _mesh.normals = _normals;
+    }
+
+    private void FillLatticeTex() {
+        for (int x = 0; x < LatticeSize; x++) {
+            for (int y = 0; y < LatticeSize; y++) {
+                float val1 = Random.value,
+                    val2 = Random.value;
+                _latticeTex.SetPixel(x, y, new Color(val1, val2, 0));
+            }
+        }
+        _latticeTex.Apply();
     }
 
 
