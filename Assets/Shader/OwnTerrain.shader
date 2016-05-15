@@ -7,6 +7,7 @@
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Metallic("Metallic", Range(0,1)) = 0.0
 
+
 		_TerrainSize("Terrain Size", Float) = 200
 		_Height("Height", Float) = 200
 		_LatticeSize("Lattice Size", Float) = 3
@@ -20,7 +21,7 @@
 		Tags{ "RenderType" = "Opaque" }
 		LOD 200
 		CGPROGRAM
-		#pragma surface surf Standard fullforwardshadows
+		#pragma surface surf Standard fullforwardshadows vertex:vert
 		#include "FractalNoise.cginc"
 		#pragma target 4.0
 
@@ -45,11 +46,7 @@
 			o.Alpha = c.a;
 		}
 
-		/* OwnTErrain Shader*/
-		struct v2f {
-			fixed4 uv : TEXCOORD0;
-			float4 pos : SV_POSITION;
-		};
+		/* Onw Shader */
 
 		float _Height;
 
@@ -68,34 +65,20 @@
 
 
 		/********** SHADER ****************/
+		struct vertIn {
+			float4 vertex : POSITION; // vertex position input
+			float3 normal : NORMAL;
+			float4 texcoord : TEXCOORD0;
+		};
 
-		v2f vert(
-			float4 vertex : POSITION, // vertex position input
-			uint vid : SV_VertexID, // vertex ID, needs to be uint
-			float4 texCoord : TEXCOORD0
-			)
+		void vert(inout appdata_base v)
 		{
-			float f = (float)vid;
-			v2f o;
-
 			//Calc pos
-			o.pos = mul(UNITY_MATRIX_MVP, float4(vertex.x, _Height * GetFractalNoiseHeight(_LatticeTex, _LatticeSize, texCoord.x, texCoord.y, _k, _Lacunarity, _h)
-												,vertex.z, vertex.w));
-			//o.pos = mul(UNITY_MATRIX_MVP, float4(vertex.x, 0.2
-			//									,vertex.z, vertex.w));
-
-
-			//o.color = float4(simpleCalc(f), 0, 0, 0);
-			o.uv = float4(texCoord.xy, 0, 0);
-			return o;
-		}
-
-
-		fixed4 frag(v2f i) : SV_Target
-		{
-			fixed4 col = tex2D(_MainTex, i.uv.xy); 
-			//return i.color;
-			return col;
+			v.vertex += float4(0, 
+								_Height * GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.texcoord.x, v.texcoord.y, _k, _Lacunarity, _h),
+								0,0);
+			v.normal = normalize(cross(normalize(float3(0, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.texcoord.x, v.texcoord.y, _k, _Lacunarity, _h, false), 1)),
+									normalize(float3(1, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.texcoord.x, v.texcoord.y, _k, _Lacunarity, _h, true), 0))));
 		}
 		ENDCG
 	}
