@@ -103,9 +103,12 @@
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shader\FractalNoise.cginc" />
+    <None Include="Assets\Shader\FractalNoiseBase.cginc" />
     <None Include="Assets\Shader\NewSurfaceShader.shader" />
+    <None Include="Assets\Shader\OwnNoise.cginc" />
     <None Include="Assets\Shader\OwnTerrain.shader" />
+    <None Include="Assets\Shader\PerlinNoise.cginc" />
+    <None Include="Assets\Shader\RidgedNoise.cginc" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />

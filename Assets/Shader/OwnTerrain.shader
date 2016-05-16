@@ -9,7 +9,7 @@
 
 
 		_TerrainSize("Terrain Size", Float) = 200
-		_Height("Height", Float) = 200
+		_Height("Height", Float) = 100
 		_LatticeSize("Lattice Size", Float) = 3
 		_k("k", Float) = 8
 		_Lacunarity("Lacunarity", Float) = 2
@@ -22,7 +22,9 @@
 		LOD 200
 		CGPROGRAM
 		#pragma surface surf Standard fullforwardshadows vertex:vert
-		#include "FractalNoise.cginc"
+		//#include "PerlinNoise.cginc"
+		#include "OwnNoise.cginc"
+		//#include "RidgedNoise.cginc"
 		#pragma target 4.0
 
 		/* Surface Shader */

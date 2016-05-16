@@ -65,6 +65,7 @@ public class OwnTerrain : MonoBehaviour {
         _latticeTex.filterMode = FilterMode.Point;
         FillLatticeTex();
         _terrainMat.SetTexture("_LatticeTex", _latticeTex);
+        _terrainMat.SetColor("_Color", Color.gray);
 
         _heightmap = new float[Resolution,Resolution];
         _mesh.Clear();
