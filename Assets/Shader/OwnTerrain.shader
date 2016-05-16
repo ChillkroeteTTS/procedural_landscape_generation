@@ -2,10 +2,14 @@
 {
 	Properties
 	{
-		_MainTex ("Texture", 2D) = "white" {}
+		_WaterTex("WaterTed", 2D) = "white" {}
+		_SandTex("SandTex", 2D) = "white" {}
+		_GrassTex("GrassTex", 2D) = "white" {}
+		_MountainTex("MountainTex", 2D) = "white" {}
+		_PeakTex("PeakTex", 2D) = "white" {}
 		_LightPos("LightPos", Vector) = (0,0,0)
-		_Mambient("Mambient", Float) = 0
-		_Mdiff("Mdiff", Float) = 0
+		_Mambient("Mambient", Float) = 0.2
+		_Mdiff("Mdiff", Float) = 0.8
 		_Mspec("Mspec", Float) = 0
 		_TerrainSize("Terrain Size", Float) = 200
 		_Height("Height", Float) = 100
@@ -53,7 +57,14 @@
 			sampler2D _LatticeTex;
 
 			sampler2D _MainTex;
+
 			
+			sampler2D _WaterTex;
+			float4 _WaterTex_ST;
+			sampler2D _SandTex;
+			sampler2D _GrassTex;
+			sampler2D _MountainTex;
+			sampler2D _PeakTex;
 			#include "UnityCG.cginc"
 			#include "Helper.cginc"
 
@@ -62,6 +73,7 @@
 				float4 vertex : POSITION;
 				float3 normal : NORMAL;
 				float2 uv : TEXCOORD0;
+				uint id : SV_VertexID;
 			};
 
 			struct v2f
@@ -85,7 +97,10 @@
 				o.vertex = mul(UNITY_MATRIX_MVP, objSpaceVert);
 
 				o.normal = normalize(cross(normalize(float3(0, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, false), 1)),
-					normalize(float3(1, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, true), 0))));
+						   normalize(float3(1, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, true), 0))));
+
+				o.uv = TRANSFORM_TEX(float2(v.id % _TerrainSize / (_TerrainSize-1),
+							  v.id / _TerrainSize / (_TerrainSize - 1)), _WaterTex);
 
 				//float3 toLight = normalize(WorldSpaceLightDir(objSpaceVert));
 				float3 toLight = normalize(float3(_LightPos.x, _LightPos.y, _LightPos.z) - o.vertex);
@@ -100,9 +115,9 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				// sample the texture
-				//fixed4 col = tex2D(_MainTex, i.uv);
+				fixed4 col = tex2D(_WaterTex, i.uv);
 				//fixed4 col = fixed4(i.normal.x, i.normal.y, i.normal.z, 1);
-				fixed4 col = i.color;
+				//fixed4 col = i.color;
 				// apply fog
 				//UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;
