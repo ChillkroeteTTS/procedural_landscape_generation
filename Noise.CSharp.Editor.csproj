@@ -104,9 +104,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\FractalNoiseBase.cginc" />
-    <None Include="Assets\Shader\NewSurfaceShader.shader" />
+    <None Include="Assets\Shader\Helper.cginc" />
     <None Include="Assets\Shader\OwnNoise.cginc" />
     <None Include="Assets\Shader\OwnTerrain.shader" />
+    <None Include="Assets\Shader\OwnTerrainSurface.shader" />
     <None Include="Assets\Shader\PerlinNoise.cginc" />
     <None Include="Assets\Shader\RidgedNoise.cginc" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

@@ -1,13 +1,12 @@
 ﻿Shader "Custom/OwnTerrain"
 {
-	Properties{
-		/* Surface properties*/
-		_Color("Color", Color) = (1,1,1,1)
-		_MainTex("Albedo (RGB)", 2D) = "white" {}
-		_Glossiness("Smoothness", Range(0,1)) = 0.5
-		_Metallic("Metallic", Range(0,1)) = 0.0
-
-
+	Properties
+	{
+		_MainTex ("Texture", 2D) = "white" {}
+		_LightPos("LightPos", Vector) = (0,0,0)
+		_Mambient("Mambient", Float) = 0
+		_Mdiff("Mdiff", Float) = 0
+		_Mspec("Mspec", Float) = 0
 		_TerrainSize("Terrain Size", Float) = 200
 		_Height("Height", Float) = 100
 		_LatticeSize("Lattice Size", Float) = 3
@@ -16,73 +15,99 @@
 		_h("h", Float) = 1
 		_LatticeTex("Lattice Tex", 2D) = "white" {}
 	}
-	SubShader
+		SubShader
 	{
-		Tags{ "RenderType" = "Opaque" }
-		LOD 200
-		CGPROGRAM
-		#pragma surface surf Standard fullforwardshadows vertex:vert
-		//#include "PerlinNoise.cginc"
-		#include "OwnNoise.cginc"
-		//#include "RidgedNoise.cginc"
-		#pragma target 4.0
+		LOD 100
 
-		/* Surface Shader */
-		sampler2D _MainTex;
-
-		struct Input {
-			float2 uv_MainTex;
-		};
-
-		half _Glossiness;
-		half _Metallic;
-		fixed4 _Color;
-
-		void surf(Input IN, inout SurfaceOutputStandard o) {
-			// Albedo comes from a texture tinted by color
-			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
-			o.Albedo = c.rgb;
-			// Metallic and smoothness come from slider variables
-			o.Metallic = _Metallic;
-			o.Smoothness = _Glossiness;
-			o.Alpha = c.a;
-		}
-
-		/* Onw Shader */
-
-		float _Height;
-
-		float _TerrainSize;
-
-		float _LatticeSize;
-
-		float _k;
-
-		float _Lacunarity;
-
-		float _h;
-
-		sampler2D _LatticeTex;
-
-
-
-		/********** SHADER ****************/
-		struct vertIn {
-			float4 vertex : POSITION; // vertex position input
-			float3 normal : NORMAL;
-			float4 texcoord : TEXCOORD0;
-		};
-
-		void vert(inout appdata_base v)
+		Pass
 		{
-			//Calc pos
-			v.vertex += float4(0, 
-								_Height * GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.texcoord.x, v.texcoord.y, _k, _Lacunarity, _h),
-								0,0);
-			v.normal = normalize(cross(normalize(float3(0, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.texcoord.x, v.texcoord.y, _k, _Lacunarity, _h, false), 1)),
-									normalize(float3(1, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.texcoord.x, v.texcoord.y, _k, _Lacunarity, _h, true), 0))));
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+			// make fog work
+			#pragma multi_compile_fog
+			//#include "PerlinNoise.cginc"
+			#include "OwnNoise.cginc"
+			//#include "RidgedNoise.cginc"
+			#pragma target 4.0
+			float4 _LightPos;
+			float _Mambient;
+			float _Mdiff;
+			float _Mspec;
+			fixed4 _Color;
+
+			/* Onw Shader */
+
+			float _Height;
+
+			float _TerrainSize;
+
+			float _LatticeSize;
+
+			float _k;
+
+			float _Lacunarity;
+
+			float _h;
+
+			sampler2D _LatticeTex;
+
+			sampler2D _MainTex;
+			
+			#include "UnityCG.cginc"
+			#include "Helper.cginc"
+
+			struct appdata
+			{
+				float4 vertex : POSITION;
+				float3 normal : NORMAL;
+				float2 uv : TEXCOORD0;
+			};
+
+			struct v2f
+			{
+				float2 uv : TEXCOORD0;
+				UNITY_FOG_COORDS(1)
+				float4 vertex : SV_POSITION;
+				float3 normal : NORMAL;
+				fixed4 color : TEXCOORD1;
+			};
+
+			float4 _MainTex_ST;
+			
+			v2f vert (appdata v)
+			{
+				v2f o;
+				float val = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h);
+				float4 objSpaceVert = float4(v.vertex.x,
+											_Height * val,
+											v.vertex.z, v.vertex.w);
+				o.vertex = mul(UNITY_MATRIX_MVP, objSpaceVert);
+
+				o.normal = normalize(cross(normalize(float3(0, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, false), 1)),
+					normalize(float3(1, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, true), 0))));
+
+				//float3 toLight = normalize(WorldSpaceLightDir(objSpaceVert));
+				float3 toLight = normalize(float3(_LightPos.x, _LightPos.y, _LightPos.z) - o.vertex);
+				float i = dot(toLight, o.normal) * _Mdiff * 1 + _Mambient;
+				float3 currentColor = float3((val+1)/2, 149/255.0, 22/255.0);
+				//float3 currentColor = float3(0.5, 0.5, 0.5);
+				o.color =  i*fixed4(currentColor.r, currentColor.g, currentColor.z, 0);
+				UNITY_TRANSFER_FOG(o,o.vertex);
+				return o;
+			}
+			
+			fixed4 frag (v2f i) : SV_Target
+			{
+				// sample the texture
+				//fixed4 col = tex2D(_MainTex, i.uv);
+				//fixed4 col = fixed4(i.normal.x, i.normal.y, i.normal.z, 1);
+				fixed4 col = i.color;
+				// apply fog
+				//UNITY_APPLY_FOG(i.fogCoord, col);
+				return col;
+			}
+			ENDCG
 		}
-		ENDCG
 	}
-	FallBack "Diffuse"
 }

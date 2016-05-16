@@ -7,6 +7,8 @@ public class OwnTerrain : MonoBehaviour {
 
     public float Size;
 
+    public GameObject Light;
+
     public int Resolution;
 
     public int LatticeSize = 3;
@@ -60,11 +62,12 @@ public class OwnTerrain : MonoBehaviour {
     private void Build() {
         //Set shader properties
         _terrainMat.SetFloat("_TerrainSize", Resolution);
-        Destroy(_latticeTex);
+         Destroy(_latticeTex);
         _latticeTex = new Texture2D(LatticeSize, LatticeSize);
         _latticeTex.filterMode = FilterMode.Point;
         FillLatticeTex();
         _terrainMat.SetTexture("_LatticeTex", _latticeTex);
+        _terrainMat.SetVector("_LightPos", new Vector4(Light.transform.position.x, Light.transform.position.y, Light.transform.position.z, 0));
         _terrainMat.SetColor("_Color", Color.gray);
 
         _heightmap = new float[Resolution,Resolution];
