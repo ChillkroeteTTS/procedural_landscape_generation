@@ -7,6 +7,7 @@
 		_GrassTex("GrassTex", 2D) = "white" {}
 		_MountainTex("MountainTex", 2D) = "white" {}
 		_PeakTex("PeakTex", 2D) = "white" {}
+		_TexHeightScale("TexHeightScale", Float) = 1
 		_LightPos("LightPos", Vector) = (0,0,0)
 		_Mambient("Mambient", Float) = 0.2
 		_Mdiff("Mdiff", Float) = 0.8
@@ -65,6 +66,7 @@
 			sampler2D _GrassTex;
 			sampler2D _MountainTex;
 			sampler2D _PeakTex;
+			float _TexHeightScale;
 			#include "UnityCG.cginc"
 			#include "Helper.cginc"
 
@@ -86,6 +88,28 @@
 			};
 
 			float4 _MainTex_ST;
+
+			fixed4 getTexColor(float2 uv, uint index) {
+				if (index == 0)
+					return tex2Dlod(_WaterTex, fixed4(uv.x, uv.y, 0, 0));
+				if (index == 1)
+					return tex2Dlod(_SandTex, fixed4(uv.x, uv.y, 0, 0));
+				if (index == 2)
+					return tex2Dlod(_GrassTex, fixed4(uv.x, uv.y, 0, 0));
+				if (index == 3)
+					return tex2Dlod(_MountainTex, fixed4(uv.x, uv.y, 0, 0));
+				if (index >= 4)
+					return tex2Dlod(_PeakTex, fixed4(uv.x, uv.y, 0, 0));
+				return fixed4(1, 1, 1, 1);
+			}
+
+			fixed4 mapHeightToColor(float2 uv, float t) {
+				fixed4 color1 = getTexColor(uv, (uint)floor(t * 4)),
+					   color2 = getTexColor(uv, (uint)floor(t * 4) +1);
+				
+				return interpolateColor(color1, color2, t * 5 - floor(t * 4));
+			}
+
 			
 			v2f vert (appdata v)
 			{
@@ -99,15 +123,13 @@
 				o.normal = normalize(cross(normalize(float3(0, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, false), 1)),
 						   normalize(float3(1, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, true), 0))));
 
-				o.uv = TRANSFORM_TEX(float2(v.id % _TerrainSize / (_TerrainSize-1),
-							  v.id / _TerrainSize / (_TerrainSize - 1)), _WaterTex);
-
 				//float3 toLight = normalize(WorldSpaceLightDir(objSpaceVert));
 				float3 toLight = normalize(float3(_LightPos.x, _LightPos.y, _LightPos.z) - o.vertex);
 				float i = dot(toLight, o.normal) * _Mdiff * 1 + _Mambient;
-				float3 currentColor = float3((val+1)/2, 149/255.0, 22/255.0);
-				//float3 currentColor = float3(0.5, 0.5, 0.5);
-				o.color =  i*fixed4(currentColor.r, currentColor.g, currentColor.z, 0);
+				fixed4 currentColor = fixed4(0, 0, 0, 1);
+
+				o.color =  i*mapHeightToColor(v.uv, ((val+1) /2) / _TexHeightScale);
+				
 				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
 			}
@@ -115,9 +137,9 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				// sample the texture
-				fixed4 col = tex2D(_WaterTex, i.uv);
+				//fixed4 col = tex2D(_WaterTex, i.uv);
 				//fixed4 col = fixed4(i.normal.x, i.normal.y, i.normal.z, 1);
-				//fixed4 col = i.color;
+				fixed4 col = i.color;
 				// apply fog
 				//UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;

@@ -11,3 +11,8 @@ float3 HSVtoRGB(in float3 HSV)
 	float3 RGB = HUEtoRGB(HSV.x);
 	return ((RGB - 1) * HSV.y + 1) * HSV.z;
 }
+
+
+fixed4 interpolateColor(fixed4 color1, fixed4 color2, float t) {
+	return color1 * (t - 1) + color2 * t;
+}
