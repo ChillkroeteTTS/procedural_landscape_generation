@@ -137,16 +137,16 @@ public class Noise : MonoBehaviour {
 
                 for (int y = 0; y < _heightMapHeight; y++) {
                     Profiler.BeginSample("LatticeFunc");
-                    float val = perlin.GetNoiseValue2D(x/(float) (_heightMapWidth-1), y/(float) (_heightMapHeight-1), RecursionDepth, Lacunarity, H, perlin.NoiseFuncRidged);
+                    float val = perlin.GetNoiseValue2D(x/(float) (_heightMapWidth-1), y/(float) (_heightMapHeight-1), RecursionDepth, Lacunarity, H, perlin.NoiseFuncPlain);
                     /*float val = perlin.GetNoiseValue2DDomainWarped(x / (float)_heightMapWidth, y / (float)_heightMapHeight,
                                                                    RecursionDepth, Lacunarity, H, c1, c2, c3, r0, t0);*/
                     float[,] testArr = new float[1,1];
 
                     // Add perlin result to resulting noise window
-                    if (y==0)
+                    if (x==0)
                         _mainWindow.ValueList.Add(val);
 
-                    //Heightmap[x, y] = (val + 1)/2f * MaxHeight;
+                    //Heightmap[x, y] = (val + 1)/2f * MaxHeight;s
                     testArr[0, 0] = (val + 1) / 2f * MaxHeight;
                     _terrainData.SetHeights(x, y, testArr);
                     //Debug.Log(Heightmap[x, y]);

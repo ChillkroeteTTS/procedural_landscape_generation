@@ -91,7 +91,7 @@
 				UNITY_FOG_COORDS(1)
 				float4 vertex : SV_POSITION;
 				float3 normal : NORMAL;
-				fixed4 color : TEXCOORD1;
+				fixed4 color : TEXCOORD2;
 				float val : Float;
 			};
 
@@ -162,7 +162,7 @@
 				//fixed4 col = fixed4(i.normal.x, i.normal.y, i.normal.z, 1);
 				//fixed4 col = i.color;
 				// apply fog
-				//UNITY_APPLY_FOG(i.fogCoord, col);
+				UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;
 			}
 			ENDCG

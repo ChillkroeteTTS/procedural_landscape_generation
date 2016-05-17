@@ -15,6 +15,8 @@ public class OwnTerrain : MonoBehaviour {
 
     public float[,] _heightmap;
 
+    public bool IsControlled = false;
+
     private Mesh _mesh;
 
     [SerializeField]
@@ -31,7 +33,7 @@ public class OwnTerrain : MonoBehaviour {
 
     private Material _terrainMat;
 
-    private Texture2D _latticeTex;
+    public Texture2D LatticeTex;
 
     public float[,] Heightmap {
         get { return _heightmap; }
@@ -54,19 +56,24 @@ public class OwnTerrain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetKeyDown(KeyCode.R))
-            Build();
+	    if (!IsControlled) {
+	        if (Input.GetKeyDown(KeyCode.R))
+	            Build();
+	    }
 	}
 
 
-    private void Build() {
+    public void Build() {
         //Set shader properties
         _terrainMat.SetFloat("_TerrainSize", Resolution);
-         Destroy(_latticeTex);
-        _latticeTex = new Texture2D(LatticeSize, LatticeSize);
-        _latticeTex.filterMode = FilterMode.Point;
-        FillLatticeTex();
-        _terrainMat.SetTexture("_LatticeTex", _latticeTex);
+        if (!IsControlled) {
+            Destroy(LatticeTex);
+            LatticeTex = new Texture2D(LatticeSize, LatticeSize);
+            FillLatticeTex();
+        }
+        LatticeTex.filterMode = FilterMode.Point;
+        _terrainMat.SetTexture("_LatticeTex", LatticeTex);
+        _terrainMat.SetFloat("_LatticeSize", LatticeSize);
         _terrainMat.SetVector("_LightPos", new Vector4(Light.transform.position.x, Light.transform.position.y, Light.transform.position.z, 0));
         _terrainMat.SetColor("_Color", Color.gray);
 
@@ -106,7 +113,7 @@ public class OwnTerrain : MonoBehaviour {
 
         //UV coordinates
         for (int i = 0; i < _uv.Length; i++) {
-            _uv[i] = new Vector2(i % Resolution / (float)Resolution, (i / Resolution) / (float)Resolution);
+            _uv[i] = new Vector2(i % Resolution / (float)(Resolution-1), (i / Resolution) / (float)(Resolution-1));
         }
 
         // Normals
@@ -127,10 +134,10 @@ public class OwnTerrain : MonoBehaviour {
             for (int y = 0; y < LatticeSize; y++) {
                 float val1 = Random.value,
                     val2 = Random.value;
-                _latticeTex.SetPixel(x, y, new Color(val1, val2, 0));
+                LatticeTex.SetPixel(x, y, new Color(val1, val2, 0));
             }
         }
-        _latticeTex.Apply();
+        LatticeTex.Apply();
     }
 
 

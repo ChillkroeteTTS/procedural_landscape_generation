@@ -73,6 +73,7 @@
     <Compile Include="Assets\Drawing.cs" />
     <Compile Include="Assets\Interpolation.cs" />
     <Compile Include="Assets\Midpoint_Displacement.cs" />
+    <Compile Include="Assets\MultipleTerrainController.cs" />
     <Compile Include="Assets\Noise.cs" />
     <Compile Include="Assets\Noise\AbstractNoise.cs" />
     <Compile Include="Assets\Noise\GradientNoise.cs" />

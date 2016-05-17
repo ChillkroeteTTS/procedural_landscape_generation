@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/NoiseLandscape.unity
+- path: Assets/BIG.unity
   isLoaded: 1
   isActive: 1
