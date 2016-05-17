@@ -47,7 +47,7 @@ public class OwnTerrain : MonoBehaviour {
         gameObject.AddComponent<MeshFilter>().mesh = _mesh;
         gameObject.AddComponent<MeshRenderer>();
 
-        _terrainMat = new Material(Shader.Find("Custom/OwnTerrain"));
+        _terrainMat = Instantiate(Resources.Load<Material>("ShaderUser"));
         gameObject.GetComponent<MeshRenderer>().material = _terrainMat;
         _mesh.name = "MyTerrain";
     }
