@@ -17,6 +17,11 @@ public class OwnTerrain : MonoBehaviour {
 
     public bool IsControlled = false;
 
+    public string MatString = "ShaderUser";
+
+    public Vector2 LatticeRangeX;
+    public Vector2 LatticeRangeY;
+
     private Mesh _mesh;
 
     [SerializeField]
@@ -24,6 +29,8 @@ public class OwnTerrain : MonoBehaviour {
 
     [SerializeField]
     private Vector2[] _uv;
+
+    [SerializeField] private Vector2[] _latticeUv;
 
     [SerializeField]
     private int[] _triangles;
@@ -48,9 +55,6 @@ public class OwnTerrain : MonoBehaviour {
         _mesh = new Mesh();
         gameObject.AddComponent<MeshFilter>().mesh = _mesh;
         gameObject.AddComponent<MeshRenderer>();
-
-        _terrainMat = Instantiate(Resources.Load<Material>("ShaderUser"));
-        gameObject.GetComponent<MeshRenderer>().material = _terrainMat;
         _mesh.name = "MyTerrain";
     }
 	
@@ -64,6 +68,9 @@ public class OwnTerrain : MonoBehaviour {
 
 
     public void Build() {
+        Destroy(_terrainMat);
+        _terrainMat = Instantiate(Resources.Load<Material>(MatString));
+        gameObject.GetComponent<MeshRenderer>().material = _terrainMat;
         //Set shader properties
         _terrainMat.SetFloat("_TerrainSize", Resolution);
         if (!IsControlled) {
@@ -87,11 +94,11 @@ public class OwnTerrain : MonoBehaviour {
         int cnt = 0;
 
         // Create Vertices
-        for (int x = 0; x < _heightmap.GetLength(0); x++) {
-            for (int z = 0; z < _heightmap.GetLength(1); z++) {
-                _vertices[cnt++] = new Vector3(-Size/2f + Size/Resolution * x,
+        for (int z = 0; z < _heightmap.GetLength(0); z++) {
+            for (int x = 0; x < _heightmap.GetLength(1); x++) {
+                _vertices[cnt++] = new Vector3(-Size/2f + Size/(Resolution-1) * x,
                                               _heightmap[x, z],
-                                              - Size / 2f + Size / Resolution * z);
+                                              - Size / 2f + Size / (Resolution-1) * z);
             }
         }
 
@@ -102,12 +109,12 @@ public class OwnTerrain : MonoBehaviour {
             //first triangle
             int resMinOne = Resolution - 1;
             _triangles[cnt]     = i % resMinOne + (i / resMinOne) * Resolution;
-            _triangles[cnt + 1] = _triangles[cnt] + 1;
-            _triangles[cnt + 2] = i % resMinOne + (i / resMinOne + 1) * Resolution;
+            _triangles[cnt + 2] = _triangles[cnt] + 1;
+            _triangles[cnt + 1] = i % resMinOne + (i / resMinOne + 1) * Resolution;
 
             //second triangle
             _triangles[cnt + 3] = _triangles[cnt + 1];
-            _triangles[cnt + 4] = _triangles[cnt + 2] + 1;
+            _triangles[cnt + 4] = _triangles[cnt + 1] + 1;
             _triangles[cnt + 5] = _triangles[cnt + 2];
         }
 
@@ -125,6 +132,18 @@ public class OwnTerrain : MonoBehaviour {
         //_mesh.vertices = new Vector3[] {new Vector3(-1, 0, 0), new Vector3(1, 0, 1), new Vector3(1, 0, 0), };
         //_mesh.triangles = new int[] {0, 1, 2};
         _mesh.uv = _uv;
+        if (!IsControlled)
+            _mesh.uv2 = _uv;
+        else {
+            // Determine specific lattice coordinates for this terrain and assign them
+            _latticeUv = new Vector2[_vertices.Length];
+            for (int i = 0; i < _latticeUv.Length; i++) {
+                // Map uv coord for current pixel [0-1] to assigned range [LatticeRange[0] - LatticeRange[1]]
+                _latticeUv[i] = new Vector2(LatticeRangeX[0] + (LatticeRangeX[1] - LatticeRangeX[0]) * _uv[i].x,
+                                           LatticeRangeY[0] + (LatticeRangeY[1] - LatticeRangeY[0]) * _uv[i].y);
+            }
+            _mesh.uv2 = _latticeUv;
+        }
         _mesh.triangles = _triangles;
         _mesh.normals = _normals;
     }

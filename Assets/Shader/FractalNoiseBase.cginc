@@ -61,10 +61,58 @@ inline float S(sampler2D latticeArray, float latticeSize, float x, float y, bool
 	}
 }
 
+
+
 /*
 x && y € [0-1]*/
 float S1F(sampler2D latticeArray, float latticeSize, float x, float y, bool derive = false, bool deriveAfterX = true) {
 	float truncX = x - floor(x),
 		truncY = y - floor(y);
 	return S(latticeArray, latticeSize, (x-floor(x))*(latticeSize - 1), (y - floor(y)) * (latticeSize - 1), derive, deriveAfterX);
+}
+
+
+
+inline float SValueNoise(sampler2D latticeArray, float latticeSize, float x, float y, bool derive = false, bool deriveAfterX = true) {
+	float floorX = floor(x),
+		ceilX = ceil(x),
+		floorY = floor(y),
+		ceilY = ceil(y),
+		tx = x - floorX,
+		ty = y - floorY;
+	float2 G00 = LatticeFunc(latticeArray, latticeSize, floorX, floorY), G10 = LatticeFunc(latticeArray, latticeSize, ceilX, floorY),
+		G01 = LatticeFunc(latticeArray, latticeSize, floorX, ceilY), G11 = LatticeFunc(latticeArray, latticeSize, ceilX, ceilY);
+	if (!derive) {
+		//Calc slopes
+
+		float retVal = (FadeFunction(1 - ty) *
+			(G00.x * FadeFunction(1 - tx) + G10.x * FadeFunction(tx))
+			+
+			FadeFunction(ty) *
+			(G01.x * FadeFunction(1 - tx) + G11.x * FadeFunction(tx)));
+
+		//return (LatticeFunc(latticeArray, latticeSize, x, y).x + 1) / 2;
+		return retVal;
+	}
+	else {
+		float w = deriveAfterX ? FadeFunction(ty) : FadeFunction(tx);
+		return deriveAfterX
+			?
+			(G00.x + (G01.x - G00.x)*w) +
+			(-G10.x + (G10.y - G00.y)*ty + (G01.y - G11.x - G11.y + G10.x + (G00.y - G01.y + G11.y - G10.y)*ty)*w)*wDerivative(tx) +
+			(G10.x - G00.x + (G00.x - G01.x + G11.x - G10.x)*w)*twDerivative(tx)
+			:
+			(G00.y + (G10.y - G00.y)*w) +
+			(-G01.y + (G01.x - G00.x)*tx + (G10.x - G11.y - G11.x + G01.y + (G00.x - G10.x + G11.x - G01.x)*tx)*w)*wDerivative(ty) +
+			(G01.y - G00.y + (G00.y - G10.y + G11.y - G01.y)*w)*twDerivative(ty);
+	}
+}
+
+
+/*
+x && y € [0-1]*/
+float S1FValueNoise(sampler2D latticeArray, float latticeSize, float x, float y, bool derive = false, bool deriveAfterX = true) {
+	float truncX = x - floor(x),
+		truncY = y - floor(y);
+	return SValueNoise(latticeArray, latticeSize, (x - floor(x))*(latticeSize - 1), (y - floor(y)) * (latticeSize - 1), derive, deriveAfterX);
 }

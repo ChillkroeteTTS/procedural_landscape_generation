@@ -37,4 +37,14 @@ inline float GetFractalNoiseHeight(sampler2D latticeArray, float latticeSize, fl
 
 inline float GetFractalNoiseDerivative(sampler2D latticeArray, float latticeSize, float x, float y, int kmax, float lacunarity, float h, bool deriveAfterX) {
 	return NoiseFuncPlain(latticeArray, latticeSize, x, y, kmax, lacunarity, h, true, deriveAfterX);
+	/*float offset = 0.0001;
+	return (NoiseFuncPlain(latticeArray, latticeSize,
+			x + deriveAfterX ? + offset : 0,
+			y + !deriveAfterX ? + offset : 0,
+			kmax, lacunarity, h)
+		-
+		NoiseFuncPlain(latticeArray, latticeSize,
+			x + deriveAfterX ?  -offset : 0,
+			y + !deriveAfterX ? -offset : 0,
+			kmax, lacunarity, h)) / (offset*2);*/
 }

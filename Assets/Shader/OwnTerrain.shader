@@ -33,8 +33,10 @@
 			// make fog work
 			#pragma multi_compile_fog
 			//#include "PerlinNoise.cginc"
+			///#include "Multifractal.cginc"
 			#include "OwnNoise.cginc"
 			//#include "RidgedNoise.cginc"
+			//#include "RidgedMultifractalNoise.cginc"
 			#pragma target 4.0
 			float4 _LightPos;
 			float _Mambient;
@@ -82,6 +84,7 @@
 				float4 vertex : POSITION;
 				float3 normal : NORMAL;
 				float2 uv : TEXCOORD0;
+				float2 uvLatticeTexture : TEXCOORD1;
 				uint id : SV_VertexID;
 			};
 
@@ -134,21 +137,34 @@
 			v2f vert (appdata v)
 			{
 				v2f o;
-				float val = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h);
+				float offset = 0.00001;
+				float val = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
+					   valBeforeX = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x- offset, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
+					   valAfterX = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x + offset, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
+					valBeforeY = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x, v.uvLatticeTexture.y - offset, _k, _Lacunarity, _h),
+					valAfterY = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x, v.uvLatticeTexture.y + offset, _k, _Lacunarity, _h);
 				float4 objSpaceVert = float4(v.vertex.x,
 											_Height * val,
 											v.vertex.z, v.vertex.w);
 				o.vertex = mul(UNITY_MATRIX_MVP, objSpaceVert);
 
-				o.normal = normalize(cross(normalize(float3(0, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, false), 1)),
-						   normalize(float3(1, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, true), 0))));
 
-				o.uv = TRANSFORM_TEX(float2(v.id % _TerrainSize / (_TerrainSize - 1),
-					v.id / _TerrainSize / (_TerrainSize - 1)), _GrassTex);
+
+				/*o.normal = normalize(cross(normalize(float3(0, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, false), 1)),
+						   normalize(float3(1, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, true), 0))));*/
+				o.normal = normalize(cross(
+					normalize(float3(offset * 2, valAfterX - valBeforeX, 0)),
+					normalize(float3(0, valAfterY - valBeforeY, offset * 2))
+					)
+					);
+
+				o.uv = v.uv;
+				//o.uv = v.uvLatticeTexture;
 
 				//float3 toLight = normalize(WorldSpaceLightDir(objSpaceVert));
 				float3 toLight = normalize(float3(_LightPos.x, _LightPos.y, _LightPos.z) - o.vertex);
-				float i = dot(toLight, o.normal) * _Mdiff * 1 + _Mambient;
+				float i = min(1, dot(toLight, o.normal) * _Mdiff * 1 + _Mambient);
+
 				o.color = fixed4(i, i, i, 1);
 				o.val = val;
 				UNITY_TRANSFER_FOG(o,o.vertex);
@@ -159,6 +175,7 @@
 			{
 				// sample the texture
 				fixed4 col = i.color * mapHeightToColor(i.uv,  ((i.val + 1) / 2 - _TexHeightMin) / (_TexHeightMax- _TexHeightMin));
+				//fixed col = tex2D(_LatticeTex,  fixed4(i.uv.x, i.uv.y, 0, 0))
 				//fixed4 col = fixed4(i.normal.x, i.normal.y, i.normal.z, 1);
 				//fixed4 col = i.color;
 				// apply fog
