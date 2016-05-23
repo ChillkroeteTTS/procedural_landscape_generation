@@ -4,7 +4,8 @@ inline float NoiseFuncPlain(sampler2D latticeArray, float latticeSize, float x, 
 
 	float currHeight = 0,
 		derX = 0,
-		derZ = 0;
+		derZ = 0,
+		angle = radians(40);;
 	//currHeight = NoiseFuncPlain(latticeArray, latticeSize, x, y, --k, lacunarity, h);
 	for (int k = 0; k < kmax; k++) {
 		/*if (currHeight >= 0 || k <=3) {
@@ -14,13 +15,20 @@ inline float NoiseFuncPlain(sampler2D latticeArray, float latticeSize, float x, 
 		}*/
 
 		float minSlopeForAllOctaves = 0.6;
+		float newX = x * pow(lacunarity, k),
+			newY = y * pow(lacunarity, k),
+			newCos = cos(angle*min(currHeight*currHeight, 1)),
+			newSin = sin(angle*min(currHeight*currHeight, 1));
+
+		newX = (newX * newCos - newSin * newY);
+		newY = (newX * newSin + newY * newCos);
 				
 		/*if (abs(derX) > minSlopeForAllOctaves || abs(derZ) > minSlopeForAllOctaves
 			|| k <= min(1, pow(FadeFunction(((currHeight + 1) / 2) / 1.1), 1.5)) * (kmax-1)) {*/
 		if (k <= min(1, pow(FadeFunction(((currHeight + 1) / 2) / 1.1), 1.5)) * (kmax-1) * max(1, abs(derZ) / minSlopeForAllOctaves) * max(1, abs(derZ) / minSlopeForAllOctaves)) {/**/
-			float val = S1F(latticeArray, latticeSize, x*pow(lacunarity, k), y * pow(lacunarity, k)) / (!derive ? pow(lacunarity, k * h) : 1);
-			derX += S1F(latticeArray, latticeSize, x*pow(lacunarity, k), y * pow(lacunarity, k), derive, true);
-			derZ += S1F(latticeArray, latticeSize, x*pow(lacunarity, k), y * pow(lacunarity, k), derive, false);
+			float val = S1F(latticeArray, latticeSize, newX, y * pow(lacunarity, k)) / (!derive ? pow(lacunarity, k * h) : 1);
+			derX += S1F(latticeArray, latticeSize, newX,newY, derive, true);
+			derZ += S1F(latticeArray, latticeSize, newX, newY, derive, false);
 			currHeight += FadeFunction((currHeight +1) / 2) * val;
 		}
 	}

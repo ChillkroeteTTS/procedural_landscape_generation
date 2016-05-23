@@ -83,7 +83,6 @@ inline float SValueNoise(sampler2D latticeArray, float latticeSize, float x, flo
 	float2 G00 = LatticeFunc(latticeArray, latticeSize, floorX, floorY), G10 = LatticeFunc(latticeArray, latticeSize, ceilX, floorY),
 		G01 = LatticeFunc(latticeArray, latticeSize, floorX, ceilY), G11 = LatticeFunc(latticeArray, latticeSize, ceilX, ceilY);
 	if (!derive) {
-		//Calc slopes
 
 		float retVal = (FadeFunction(1 - ty) *
 			(G00.x * FadeFunction(1 - tx) + G10.x * FadeFunction(tx))
@@ -96,15 +95,7 @@ inline float SValueNoise(sampler2D latticeArray, float latticeSize, float x, flo
 	}
 	else {
 		float w = deriveAfterX ? FadeFunction(ty) : FadeFunction(tx);
-		return deriveAfterX
-			?
-			(G00.x + (G01.x - G00.x)*w) +
-			(-G10.x + (G10.y - G00.y)*ty + (G01.y - G11.x - G11.y + G10.x + (G00.y - G01.y + G11.y - G10.y)*ty)*w)*wDerivative(tx) +
-			(G10.x - G00.x + (G00.x - G01.x + G11.x - G10.x)*w)*twDerivative(tx)
-			:
-			(G00.y + (G10.y - G00.y)*w) +
-			(-G01.y + (G01.x - G00.x)*tx + (G10.x - G11.y - G11.x + G01.y + (G00.x - G10.x + G11.x - G01.x)*tx)*w)*wDerivative(ty) +
-			(G01.y - G00.y + (G00.y - G10.y + G11.y - G01.y)*w)*twDerivative(ty);
+		return 0;
 	}
 }
 

@@ -33,12 +33,14 @@
 			// make fog work
 			#pragma multi_compile_fog
 			//#include "PerlinNoise.cginc"
-			///#include "Multifractal.cginc"
+			//#include "HybridMultiFractal.cginc"
+			//#include "HMFDomainWarped.cginc"
+			//#include "Multifractal.cginc"
 			#include "OwnNoise.cginc"
 			//#include "RidgedNoise.cginc"
 			//#include "RidgedMultifractalNoise.cginc"
 			#pragma target 4.0
-			float4 _LightPos;
+			float3 _LightPos;
 			float _Mambient;
 			float _Mdiff;
 			float _Mspec;
@@ -100,9 +102,9 @@
 
 			fixed4 getTexColor(float2 ntuv, uint index) {
 				fixed2 uv = TRANSFORM_TEX(ntuv, _GrassTex);
-				if (index == 0)  {
+				if (index <= 0)  {
 					uv = TRANSFORM_TEX(ntuv, _WaterTex);
-					return tex2D(_WaterTex, fixed4(uv.x, uv.y, 4, 4));
+					return tex2D(_WaterTex, fixed4(uv.x, uv.y, 0, 0));
 				}
 				if (index == 1) {
 					uv = TRANSFORM_TEX(ntuv, _SandTex);
@@ -125,6 +127,7 @@
 			 /*
 			 t: [0-1]*/
 			fixed4 mapHeightToColor(float2 uv, float t) {
+				t = min(max(0, t), 1);
 				float tInRange = t * 4;
 				fixed4 color1 = getTexColor(uv, (uint)floor(tInRange)),
 					   color2 = getTexColor(uv, (uint)floor(tInRange) +1);
@@ -146,8 +149,8 @@
 				float4 objSpaceVert = float4(v.vertex.x,
 											_Height * val,
 											v.vertex.z, v.vertex.w);
+				float4 worldSpaceVert = mul(_Object2World, objSpaceVert);
 				o.vertex = mul(UNITY_MATRIX_MVP, objSpaceVert);
-
 
 
 				/*o.normal = normalize(cross(normalize(float3(0, -GetFractalNoiseDerivative(_LatticeTex, _LatticeSize, v.uv.x, v.uv.y, _k, _Lacunarity, _h, false), 1)),
@@ -162,10 +165,12 @@
 				//o.uv = v.uvLatticeTexture;
 
 				//float3 toLight = normalize(WorldSpaceLightDir(objSpaceVert));
-				float3 toLight = normalize(float3(_LightPos.x, _LightPos.y, _LightPos.z) - o.vertex);
+				float3 toLight = normalize(_LightPos - worldSpaceVert);
 				float i = min(1, dot(toLight, o.normal) * _Mdiff * 1 + _Mambient);
 
+
 				o.color = fixed4(i, i, i, 1);
+				//o.color = fixed4(toLight.x, toLight.y, toLight.z, 1);
 				o.val = val;
 				UNITY_TRANSFER_FOG(o,o.vertex);
 				return o;
