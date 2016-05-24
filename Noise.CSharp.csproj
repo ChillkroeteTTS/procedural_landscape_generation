@@ -85,7 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\FractalNoiseBase.cginc" />
+    <None Include="Assets\Shader\HMFDomainWarped.cginc" />
     <None Include="Assets\Shader\Helper.cginc" />
+    <None Include="Assets\Shader\HybridMultiFractal.cginc" />
     <None Include="Assets\Shader\Multifractal.cginc" />
     <None Include="Assets\Shader\OwnNoise.cginc" />
     <None Include="Assets\Shader\OwnTerrain.shader" />
