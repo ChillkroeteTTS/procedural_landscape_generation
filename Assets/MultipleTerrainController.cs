@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 public class MultipleTerrainController : MonoBehaviour {
 
@@ -28,6 +30,12 @@ public class MultipleTerrainController : MonoBehaviour {
 
     [SerializeField]
     private string _matString = "ShaderUser";
+
+    [SerializeField]
+    private float _t;
+
+    [SerializeField]
+    private float _secScale;
 
     // Use this for initialization
     void Start () {
@@ -75,6 +83,7 @@ public class MultipleTerrainController : MonoBehaviour {
 
     // Update is called once per frame
 	void Update () {
+        _t = (_t+Time.deltaTime / _secScale) % 1.0f;
 	    if (Input.GetKeyDown(KeyCode.R)) {
 	        Water.transform.localScale = new Vector3(_prefabTerr.Size / 2 * NoOfPatches * 1.5f, 0, _prefabTerr.Size / 2 * NoOfPatches * 1.5f);
             Destroy(_latticeTex);
@@ -87,8 +96,11 @@ public class MultipleTerrainController : MonoBehaviour {
                 terr.LatticeSize = _latticeSize;
                 terr.LatticeTex = _latticeTex;
 	            terr.MatString = _matString;
-                terr.Build();
+                terr.Build(_t);
 	        }
 	    }
+	    foreach (GameObject terrain in _terrains) {
+	        terrain.GetComponent<OwnTerrain>().UpdateTime(_t);
+        }
 	}
 }

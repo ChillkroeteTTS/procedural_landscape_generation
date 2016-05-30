@@ -17,6 +17,8 @@ public class Noise : MonoBehaviour {
         }
     }
 
+    public bool ValueNoise = true;
+
     public int Seed;
 
     public int CurrentSeed;
@@ -74,7 +76,7 @@ public class Noise : MonoBehaviour {
     private IEnumerator CalcHeightmap() {
         TerrainData _terrainData = gameObject.GetComponent<Terrain>().terrainData;
         //_heightMapHeight = _terrainData.heightmapResolution = 511;
-        //_heightMapHeight = _terrainData.heightmapResolution = 128;
+        _heightMapHeight = _terrainData.heightmapResolution = 68;
         _heightMapWidth = _terrainData.heightmapWidth;
         _heightMapHeight = _terrainData.heightmapHeight;
         _heightmap = new float[_heightMapWidth, _heightMapHeight];
@@ -86,13 +88,18 @@ public class Noise : MonoBehaviour {
 
         //Calculate until Realtime is disabled or if not enabled at all just once
         while (RuntimeCalculation || cnt == 0) {
-            /*AbstractNoise perlin = UseRandomSeed 
-                                    ? new ValueNoise(auxSize:AuxSize) 
-                                    : new ValueNoise(seed:Seed, auxSize: AuxSize);*/
-            AbstractNoise perlin = UseRandomSeed 
-                                ? new GradientNoise(auxSize:AuxSize) 
-                                : new GradientNoise(seed:Seed, auxSize: AuxSize);
+            AbstractNoise perlin;
+            if (ValueNoise) {
+                perlin = UseRandomSeed
+                    ? new ValueNoise(auxSize: AuxSize)
+                    : new ValueNoise(seed: Seed, auxSize: AuxSize);
+            }
+            else {
+                perlin = UseRandomSeed 
+                    ? new GradientNoise(auxSize:AuxSize) 
+                    : new GradientNoise(seed:Seed, auxSize: AuxSize);
 
+            }
             //Destroy old NoiseWIndows
             foreach (NoiseWindow noiseWindow in _windows) {
                 Destroy(noiseWindow);

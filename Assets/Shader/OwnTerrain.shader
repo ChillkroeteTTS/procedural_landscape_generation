@@ -20,6 +20,7 @@
 		_Lacunarity("Lacunarity", Float) = 2
 		_h("h", Float) = 1
 		_LatticeTex("Lattice Tex", 2D) = "white" {}
+		_Timer("Timer", Float) = 0
 	}
 		SubShader
 	{
@@ -32,11 +33,11 @@
 			#pragma fragment frag
 			// make fog work
 			#pragma multi_compile_fog
-			//#include "PerlinNoise.cginc"
+			#include "PerlinNoise.cginc"
 			//#include "HybridMultiFractal.cginc"
 			//#include "HMFDomainWarped.cginc"
 			//#include "Multifractal.cginc"
-			#include "OwnNoise.cginc"
+			//#include "OwnNoise.cginc"
 			//#include "RidgedNoise.cginc"
 			//#include "RidgedMultifractalNoise.cginc"
 			#pragma target 4.0
@@ -59,6 +60,8 @@
 			float _Lacunarity;
 
 			float _h;
+
+			float _Timer;
 
 			sampler2D _LatticeTex;
 
@@ -141,7 +144,7 @@
 			{
 				v2f o;
 				float offset = 0.00001;
-				float val = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
+				float val = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x + _Timer, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
 					   valBeforeX = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x- offset, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
 					   valAfterX = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x + offset, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
 					valBeforeY = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x, v.uvLatticeTexture.y - offset, _k, _Lacunarity, _h),

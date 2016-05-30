@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/MidPointDisplacement.unity
+- path: Assets/NoiseLandscape.unity
   isLoaded: 1
   isActive: 1

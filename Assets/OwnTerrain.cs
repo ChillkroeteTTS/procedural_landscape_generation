@@ -67,7 +67,7 @@ public class OwnTerrain : MonoBehaviour {
 	}
 
 
-    public void Build() {
+    public void Build(float time=0f) {
         Destroy(_terrainMat);
         _terrainMat = Instantiate(Resources.Load<Material>(MatString));
         gameObject.GetComponent<MeshRenderer>().material = _terrainMat;
@@ -83,6 +83,7 @@ public class OwnTerrain : MonoBehaviour {
         _terrainMat.SetFloat("_LatticeSize", LatticeSize);
         _terrainMat.SetVector("_LightPos", new Vector4(Light.transform.position.x, Light.transform.position.y, Light.transform.position.z, 0));
         _terrainMat.SetColor("_Color", Color.gray);
+        _terrainMat.SetFloat("_Timer", time);
 
         _heightmap = new float[Resolution,Resolution];
         _mesh.Clear();
@@ -146,6 +147,13 @@ public class OwnTerrain : MonoBehaviour {
         }
         _mesh.triangles = _triangles;
         _mesh.normals = _normals;
+    }
+
+
+    public void UpdateTime(float time) {
+        Material mat = gameObject.GetComponent<Renderer>().material;
+        mat.SetFloat("_Timer", time);
+        gameObject.GetComponent<Renderer>().material = mat;
     }
 
     private void FillLatticeTex() {
