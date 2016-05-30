@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/BIG.unity
+- path: Assets/MidPointDisplacement.unity
   isLoaded: 1
   isActive: 1

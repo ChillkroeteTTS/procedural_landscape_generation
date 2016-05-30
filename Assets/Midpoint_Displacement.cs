@@ -50,10 +50,11 @@ public class Midpoint_Displacement : MonoBehaviour {
         _heightmapSize = Terrain.terrainData.heightmapResolution;
         Heightmap = new float[_heightmapSize, _heightmapSize];
         RndDelegate rnd = RndFunc;
-        Heightmap[0, 0] = rnd();
-        Heightmap[_heightmapSize-1, _heightmapSize-1] = rnd();
-        Heightmap[0, _heightmapSize-1] = rnd();
-        Heightmap[_heightmapSize-1, 0] = rnd();
+        Heightmap[0, 0] = (rnd() + 1)/2;
+        Heightmap[_heightmapSize-1, _heightmapSize-1] = (rnd() + 1) / 2;
+        Heightmap[0, _heightmapSize-1] = (rnd() + 1) /2;
+        Heightmap[_heightmapSize-1, 0] = (rnd() + 1) /2;
+        UpdateTerrainHeightmap();
         yield return DiamondSquare(0, 0, Heightmap.GetUpperBound(0), Heightmap.GetUpperBound(1), RndFunc, R, 0);
         if (!UseSteps)
             UpdateTerrainHeightmap();
@@ -69,7 +70,18 @@ public class Midpoint_Displacement : MonoBehaviour {
 
         Heightmap[xCenter, yCenter] = Interpolation.BillinearInterpolation(Heightmap[left, top], Heightmap[right, top],
                                              Heightmap[left, bottom], Heightmap[right, bottom], 0.5f, 0.5f)
-                                      + rnd() /Mathf.Pow(r, recStep);
+                                      + rnd() /Mathf.Pow(r, recStep+1);
+
+        if (UseSteps) {
+            _goOn = false;
+            while (!_goOn) {
+                yield return null;
+            }
+            UpdateTerrainHeightmap();
+            _goOn = false;
+        } else {
+            yield return null;
+        }
 
         //Square step
         Heightmap[left, yCenter] = Interpolation.LinearInterpolation(Heightmap[left, top], Heightmap[left, bottom], 0.5f) + rnd()  / Mathf.Pow(r, recStep+1);
@@ -82,6 +94,7 @@ public class Midpoint_Displacement : MonoBehaviour {
             while (!_goOn) {
                 yield return null;
             }
+            UpdateTerrainHeightmap();
             _goOn = false;
         }
         else {
@@ -93,7 +106,8 @@ public class Midpoint_Displacement : MonoBehaviour {
             yield return DiamondSquare(xCenter, top, right, yCenter, rnd, r, recStep+1); // Top right
             yield return DiamondSquare(left, yCenter, xCenter, bottom, rnd, r, recStep+1); // bottom left
             yield return DiamondSquare(xCenter, yCenter, right, bottom, rnd, r, recStep+1); // bottom left
-            UpdateTerrainHeightmap();
+            if (!UseSteps)
+                UpdateTerrainHeightmap();
         }
     }
 
@@ -108,6 +122,6 @@ public class Midpoint_Displacement : MonoBehaviour {
     }
 
     private float RndFunc() {
-        return Random.value * 2 - 1 ;
+        return Random.value * 2 - 1;
     }
 }
