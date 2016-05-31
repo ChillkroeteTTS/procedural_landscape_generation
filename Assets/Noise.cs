@@ -150,7 +150,7 @@ public class Noise : MonoBehaviour {
                     float[,] testArr = new float[1,1];
 
                     // Add perlin result to resulting noise window
-                    if (x==0)
+                    if (y==0)
                         _mainWindow.ValueList.Add(val);
 
                     //Heightmap[x, y] = (val + 1)/2f * MaxHeight;s
