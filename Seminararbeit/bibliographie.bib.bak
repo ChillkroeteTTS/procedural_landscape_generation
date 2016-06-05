@@ -72,9 +72,42 @@
   url   = {https://www.wikiwand.com/en/Hurst_exponent},
 }
 
-@WWW{,
+@WWW{fraktDim,
   title = {Fraktale Dimension},
   url   = {https://www.wikiwand.com/de/Fraktale_Dimension#/.C3.84hnlichkeits-Dimension},
+}
+
+@InBook{fourierSaupe,
+  author    = {Saupe, D.},
+  title     = {Algorithms for random fractals},
+  booktitle = {The science of fractal images},
+  year      = {1988},
+}
+
+@Book{texturingAndModeling,
+  author = {David S. Ebert, F. Kenton Musgrave, Darwyn Peachey, Ken Perlin, Steven Worley},
+  title  = {Texturing \& Modeling: A Procedural Approach, Third Edition},
+  year   = {2003},
+}
+
+@Article{DiamondSquare,
+  author     = {Fournier, Alain and Fussell, Don and Carpenter, Loren},
+  title      = {Computer Rendering of Stochastic Models},
+  year       = {1982},
+  volume     = {25},
+  number     = {6},
+  month      = jun,
+  pages      = {371--384},
+  issn       = {0001-0782},
+  doi        = {10.1145/358523.358553},
+  url        = {http://doi.acm.org/10.1145/358523.358553},
+  acmid      = {358553},
+  address    = {New York, NY, USA},
+  issue_date = {June 1982},
+  journal    = {Commun. ACM},
+  keywords   = {fractals, stochastic models, terrain models},
+  numpages   = {14},
+  publisher  = {ACM},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

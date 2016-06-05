@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.3)  31 MAY 2016 10:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.3)  5 JUN 2016 13:14
 entering extended mode
 **./arbeit-vorlage.tex
 (arbeit-vorlage.tex
@@ -1140,31 +1140,45 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 ("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\hypcap.sty"
 Package: hypcap 2011/02/16 v1.11 Adjusting the anchors of captions (HO)
 )
+("D:\Program Files\MiKTeX 2.9\tex\latex\footmisc\footmisc.sty"
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks44
+\footnotemargin=\dimen261
+\c@pp@next@reset=\count161
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
 ("D:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
-\lst@mode=\count161
+\lst@mode=\count162
 \lst@gtempboxa=\box73
-\lst@token=\toks44
-\lst@length=\count162
-\lst@currlwidth=\dimen261
-\lst@column=\count163
-\lst@pos=\count164
-\lst@lostspace=\dimen262
-\lst@width=\dimen263
-\lst@newlines=\count165
-\lst@lineno=\count166
-\lst@maxwidth=\dimen264
+\lst@token=\toks45
+\lst@length=\count163
+\lst@currlwidth=\dimen262
+\lst@column=\count164
+\lst@pos=\count165
+\lst@lostspace=\dimen263
+\lst@width=\dimen264
+\lst@newlines=\count166
+\lst@lineno=\count167
+\lst@maxwidth=\dimen265
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count167
-\lst@skipnumbers=\count168
+\c@lstnumber=\count168
+\lst@skipnumbers=\count169
 \lst@framebox=\box74
 )
 ("D:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 87.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 89.
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ppl.fd"
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -1185,7 +1199,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 12.0pt
 (typearea)              \footskip       = 62.9806pt
 (typearea)              \baselineskip   = 17.99446pt
-(typearea)              on input line 87.
+(typearea)              on input line 89.
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrhack.sty"
 Package: scrhack 2015/10/03 v3.19a KOMA-Script package 
@@ -1234,31 +1248,31 @@ L3 Module: l3tl 2016/03/26 v6465 L3 Token lists
 L3 Module: l3str 2016/03/24 v6441 L3 Strings
 L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
 L3 Module: l3int 2016/03/24 v6441 L3 Integers
-\c_max_int=\count169
-\l_tmpa_int=\count170
-\l_tmpb_int=\count171
-\g_tmpa_int=\count172
-\g_tmpb_int=\count173
+\c_max_int=\count170
+\l_tmpa_int=\count171
+\l_tmpb_int=\count172
+\g_tmpa_int=\count173
+\g_tmpb_int=\count174
 L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
 L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
-\g__prg_map_int=\count174
+\g__prg_map_int=\count175
 L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
 L3 Module: l3token 2016/04/03 v6470 L3 Experimental token manipulation
 L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
 L3 Module: l3msg 2016/03/26 v6464 L3 Messages
 L3 Module: l3file 2016/03/25 v6458 L3 File and I/O operations
-\l_iow_line_count_int=\count175
-\l__iow_target_count_int=\count176
-\l__iow_current_line_int=\count177
-\l__iow_current_word_int=\count178
-\l__iow_current_indentation_int=\count179
+\l_iow_line_count_int=\count176
+\l__iow_target_count_int=\count177
+\l__iow_current_line_int=\count178
+\l__iow_current_word_int=\count179
+\l__iow_current_indentation_int=\count180
 L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
-\c_zero_dim=\dimen265
-\c_max_dim=\dimen266
-\l_tmpa_dim=\dimen267
-\l_tmpb_dim=\dimen268
-\g_tmpa_dim=\dimen269
-\g_tmpb_dim=\dimen270
+\c_zero_dim=\dimen266
+\c_max_dim=\dimen267
+\l_tmpa_dim=\dimen268
+\l_tmpb_dim=\dimen269
+\g_tmpa_dim=\dimen270
+\g_tmpb_dim=\dimen271
 \c_zero_skip=\skip61
 \c_max_skip=\skip62
 \l_tmpa_skip=\skip63
@@ -1272,18 +1286,18 @@ L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
 \g_tmpa_muskip=\muskip16
 \g_tmpb_muskip=\muskip17
 L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
-\g__keyval_level_int=\count180
-\l_keys_choice_int=\count181
+\g__keyval_level_int=\count181
+\l_keys_choice_int=\count182
 L3 Module: l3fp 2016/03/26 v6465 L3 Floating points
-\c__fp_leading_shift_int=\count182
-\c__fp_middle_shift_int=\count183
-\c__fp_trailing_shift_int=\count184
-\c__fp_big_leading_shift_int=\count185
-\c__fp_big_middle_shift_int=\count186
-\c__fp_big_trailing_shift_int=\count187
-\c__fp_Bigg_leading_shift_int=\count188
-\c__fp_Bigg_middle_shift_int=\count189
-\c__fp_Bigg_trailing_shift_int=\count190
+\c__fp_leading_shift_int=\count183
+\c__fp_middle_shift_int=\count184
+\c__fp_trailing_shift_int=\count185
+\c__fp_big_leading_shift_int=\count186
+\c__fp_big_middle_shift_int=\count187
+\c__fp_big_trailing_shift_int=\count188
+\c__fp_Bigg_leading_shift_int=\count189
+\c__fp_Bigg_middle_shift_int=\count190
+\c__fp_Bigg_trailing_shift_int=\count191
 L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
 \c_empty_box=\box75
 \l_tmpa_box=\box76
@@ -1292,13 +1306,13 @@ L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
 \g_tmpb_box=\box79
 L3 Module: l3coffins 2016/03/24 v6440 L3 Coffin code layer
 \l__coffin_internal_box=\box80
-\l__coffin_internal_dim=\dimen271
-\l__coffin_offset_x_dim=\dimen272
-\l__coffin_offset_y_dim=\dimen273
-\l__coffin_x_dim=\dimen274
-\l__coffin_y_dim=\dimen275
-\l__coffin_x_prime_dim=\dimen276
-\l__coffin_y_prime_dim=\dimen277
+\l__coffin_internal_dim=\dimen272
+\l__coffin_offset_x_dim=\dimen273
+\l__coffin_offset_y_dim=\dimen274
+\l__coffin_x_dim=\dimen275
+\l__coffin_y_dim=\dimen276
+\l__coffin_x_prime_dim=\dimen277
+\l__coffin_y_prime_dim=\dimen278
 \c_empty_coffin=\box81
 \l__coffin_aligned_coffin=\box82
 \l__coffin_aligned_internal_coffin=\box83
@@ -1307,47 +1321,47 @@ L3 Module: l3coffins 2016/03/24 v6440 L3 Coffin code layer
 \l__coffin_display_coffin=\box86
 \l__coffin_display_coord_coffin=\box87
 \l__coffin_display_pole_coffin=\box88
-\l__coffin_display_offset_dim=\dimen278
-\l__coffin_display_x_dim=\dimen279
-\l__coffin_display_y_dim=\dimen280
+\l__coffin_display_offset_dim=\dimen279
+\l__coffin_display_x_dim=\dimen280
+\l__coffin_display_y_dim=\dimen281
 L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
 L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
 L3 Module: l3candidates 2016/03/25 v6456 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen281
-\l__box_bottom_dim=\dimen282
-\l__box_left_dim=\dimen283
-\l__box_right_dim=\dimen284
-\l__box_top_new_dim=\dimen285
-\l__box_bottom_new_dim=\dimen286
-\l__box_left_new_dim=\dimen287
-\l__box_right_new_dim=\dimen288
+\l__box_top_dim=\dimen282
+\l__box_bottom_dim=\dimen283
+\l__box_left_dim=\dimen284
+\l__box_right_dim=\dimen285
+\l__box_top_new_dim=\dimen286
+\l__box_bottom_new_dim=\dimen287
+\l__box_left_new_dim=\dimen288
+\l__box_right_new_dim=\dimen289
 \l__box_internal_box=\box89
-\l__coffin_bounding_shift_dim=\dimen289
-\l__coffin_left_corner_dim=\dimen290
-\l__coffin_right_corner_dim=\dimen291
-\l__coffin_bottom_corner_dim=\dimen292
-\l__coffin_top_corner_dim=\dimen293
-\l__coffin_scaled_total_height_dim=\dimen294
-\l__coffin_scaled_width_dim=\dimen295
+\l__coffin_bounding_shift_dim=\dimen290
+\l__coffin_left_corner_dim=\dimen291
+\l__coffin_right_corner_dim=\dimen292
+\l__coffin_bottom_corner_dim=\dimen293
+\l__coffin_top_corner_dim=\dimen294
+\l__coffin_scaled_total_height_dim=\dimen295
+\l__coffin_scaled_width_dim=\dimen296
 L3 Module: l3luatex 2016/03/26 v6465 L3 Experimental LuaTeX-specific functions
 )
 ("D:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
 File: l3pdfmode.def 2016/03/26 v6465 L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count191
+\l__driver_color_stack_int=\count192
 ))
 Package: xpatch 2012/10/02 v0.3 Extending etoolbox patching commands
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
 Package: xparse 2016/04/20 v6476 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count192
-\l__xparse_m_args_int=\count193
-\l__xparse_mandatory_args_int=\count194
-\l__xparse_processor_int=\count195
-\l__xparse_v_nesting_int=\count196
+\l__xparse_current_arg_int=\count193
+\l__xparse_m_args_int=\count194
+\l__xparse_mandatory_args_int=\count195
+\l__xparse_processor_int=\count196
+\l__xparse_v_nesting_int=\count197
 )
 ("D:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count197
+\etb@tempcnta=\count198
 )
 .................................................
 . LaTeX info: "xparse/define-command"
@@ -1534,7 +1548,7 @@ Package scrhack Info: \landscape patched to make \textheight change optional on
  input line 91.
 \scrh@LT@textheight=\skip67
 )))
-(arbeit-vorlage.aux (Einleitung.aux)
+(arbeit-vorlage.aux (Einleitung.aux) (DiamondSquare.aux) (FourierSynthesis.aux)
 
 LaTeX Warning: Label `latticeFunc' multiply defined.
 
@@ -1558,17 +1572,17 @@ LaTeX Font Info:    ... okay on input line 3.
  ABD: EveryShipout initializing macros
 ("D:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count198
-\scratchdimen=\dimen296
+\scratchcounter=\count199
+\scratchdimen=\dimen297
 \scratchbox=\box90
-\nofMPsegments=\count199
-\nofMParguments=\count266
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count267
-\MPscratchDim=\dimen297
-\MPnumerator=\count268
-\makeMPintoPDFobject=\count269
-\everyMPtoPDFconversion=\toks46
+\nofMPsegments=\count266
+\nofMParguments=\count267
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count268
+\MPscratchDim=\dimen298
+\MPnumerator=\count269
+\makeMPintoPDFobject=\count270
+\everyMPtoPDFconversion=\toks47
 )
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
@@ -1584,7 +1598,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count270
+\c@section@level=\count271
 )
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
@@ -1615,7 +1629,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hypcap package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count271
+\c@lstlisting=\count272
 Package scrhack Info: undefining \float@addtolists on input line 3.
 LaTeX Font Info:    Try loading font information for OT1+ppl on input line 27.
 ("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ppl.fd"
@@ -1726,33 +1740,14 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 39
 \openout7 = `arbeit-vorlage.lot'.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 41.
+(babel)             in language  on input line 42.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 41.
+(babel)             in language  on input line 42.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 41.
+(babel)             in language  on input line 42.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 41.
+(babel)             in language  on input line 42.
  [4
-
-
-]
-chapter without number
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 41.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 41.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 42.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
-[5
 
 
 ]
@@ -1764,29 +1759,104 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 4.
-("D:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 12.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 12.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 12.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 15.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 15.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 15.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 15.
+[1
+
+
+
+])
+Overfull \hbox (105.43352pt too wide) in paragraph at lines 22--42
+\T1/ppl/m/n/12 (-20) ex-pli-zi-ten Al-go-rith-men, wäh-rend die Rausch-funk-tio
+-nen im-pli-zit aus-wert-bar sind. 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 42.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 42.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 42.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 42.
+[2]
+\openout2 = `DiamondSquare.aux'.
+
+ (DiamondSquare.tex
+chapter 2.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+<images/Diamond_Square.png, id=154, 1927.2pt x 411.5375pt>
+File: images/Diamond_Square.png Graphic file (type png)
+
+<use images/Diamond_Square.png>
+Package pdftex.def Info: images/Diamond_Square.png used on input line 10.
+(pdftex.def)             Requested size: 469.47052pt x 100.2467pt.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 11.
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 44.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 44.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 44.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
- [1
+(babel)             in language  on input line 44.
+ [3
+
+
+
+
+ <./images/Diamond_Square.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 44.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 44.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 44.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 44.
+ [4]
+\openout2 = `FourierSynthesis.aux'.
+
+
+(FourierSynthesis.tex
+chapter 3.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1.
+)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 46.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 46.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 46.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 46.
+ [5
+
 
 
 
 ] (Noise.tex
-chapter 2.
+chapter 4.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1794,7 +1864,7 @@ Package babel Info: Redefining ngerman shorthand "~
 
 Overfull \hbox (58.34827pt too wide) in paragraph at lines 7--8
 \T1/ppl/m/n/12 (-20) klärt, be-vor es einen Aus-blick auf den \T1/ppl/m/it/12 (
--20) Simplex-Noise[]\T1/ppl/m/n/12 (-20) 2.5[] Al-go-rith-mus gibt. 
+-20) Simplex-Noise[]\T1/ppl/m/n/12 (-20) 4.5[] Al-go-rith-mus gibt. 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
@@ -1821,7 +1891,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 15.
-[2
+[6
 
 
 
@@ -1846,8 +1916,6 @@ Overfull \hbox (68.4826pt too wide) in paragraph at lines 25--27
 plm/m/it/12 C[]$ \T1/ppl/m/n/12 (-20) und da-mit die Ei-gen-schaf-ten 
  []
 
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 50.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 56.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1860,12 +1928,22 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 58.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 58.
-[3] ("D:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+[7] ("D:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-(data/valueNoise.cs
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 62.
+
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ (data/valueNoise.cs
 LaTeX Font Info:    Try loading font information for U+mvs on input line 1.
- ("D:\Program Files\MiKTeX 2.9\tex\latex\marvosym\umvs.fd")
+
+("D:\Program Files\MiKTeX 2.9\tex\latex\marvosym\umvs.fd")
 ("D:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-mvs.cfg"
 File: mt-mvs.cfg 2006/07/05 v1.1 microtype config. file: Marvosym Euro (RS)
 ))
@@ -1881,7 +1959,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 68.
- [4]
+ [8]
 (data/gradientNoise.cs)
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 78.
@@ -1895,158 +1973,81 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 83.
- [5] (data/fractalNoise.cs)
+ [9] (data/fractalNoise.cs)
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 95.
 )
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 58.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 58.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 58.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 58.
- [6]
-chapter 3.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 58.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 58.
-
-Overfull \hbox (62.5147pt too wide) in paragraph at lines 59--60
-\T1/ppl/m/n/12 (-20) zeigt, was noch nie je-mand ge-se-hen hat. Es lohnt sich a
-l-so, dran-zu-blei-ben. 
- []
-
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 61.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 61.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 63.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 63.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 63.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 63.
-[7
-
-
-] <images/bild.pdf, id=254, 415.35217pt x 271.05566pt>
+<images/bild.pdf, id=263, 415.35217pt x 271.05566pt>
 File: images/bild.pdf Graphic file (type pdf)
  <use images/bild.pdf>
-Package pdftex.def Info: images/bild.pdf used on input line 65.
+Package pdftex.def Info: images/bild.pdf used on input line 50.
 (pdftex.def)             Requested size: 455.24408pt x 297.09093pt.
 
-Overfull \hbox (18.03021pt too wide) in paragraph at lines 70--72
+Overfull \hbox (18.03021pt too wide) in paragraph at lines 55--57
 \T1/ppl/m/n/12 (-20) ist all-seits be-kannt und be-darf wohl kei-ner wei-te-ren
  Er-läu-te-rung. 
  []
 
 
-Overfull \hbox (104.47833pt too wide) in paragraph at lines 73--74
+Overfull \hbox (104.47833pt too wide) in paragraph at lines 58--59
 \T1/ppl/m/n/12 (-20) Hieran sieht man den Vor-teil des autoref-Befehls und das 
 so Links er-stellt wer-den. 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 93.
+(babel)             in language  on input line 78.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 93.
+(babel)             in language  on input line 78.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 96.
+(babel)             in language  on input line 81.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 96.
+(babel)             in language  on input line 81.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 96.
+(babel)             in language  on input line 81.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 96.
-[8 <./images/bild.pdf>] <images/schwein1.pdf, id=294, 184.1316pt x 184.1316pt>
+(babel)             in language  on input line 81.
+[10]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 81.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 81.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 81.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 81.
+ [11 <./images/bild.pdf>]
+<images/schwein1.pdf, id=312, 184.1316pt x 184.1316pt>
 File: images/schwein1.pdf Graphic file (type pdf)
 
 <use images/schwein1.pdf>
-Package pdftex.def Info: images/schwein1.pdf used on input line 100.
+Package pdftex.def Info: images/schwein1.pdf used on input line 85.
 (pdftex.def)             Requested size: 230.04312pt x 230.04874pt.
- <images/schwein2.png, id=295, 445.665pt x 445.665pt>
+ <images/schwein2.png, id=313, 445.665pt x 445.665pt>
 File: images/schwein2.png Graphic file (type png)
 
 <use images/schwein2.png>
-Package pdftex.def Info: images/schwein2.png used on input line 102.
+Package pdftex.def Info: images/schwein2.png used on input line 87.
 (pdftex.def)             Requested size: 230.04312pt x 230.04706pt.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 95.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
- [9]
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 112.
-
-
-("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsppl.fd"
-File: omsppl.fd 
-)
-LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 121.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 121.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 121.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 121.
- [10 <./images/schwein1.pdf> <./images/schwein2.png>]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 143.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 143.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 143.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 143.
- [11]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 143.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 143.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 143.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 143.
- [12]
-chapter 4.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 143.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 143.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 149.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 149.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 149.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 149.
-[13
-
-
-]
+(babel)             in language  on input line 95.
+ [12 <./images/schwein1.pdf> <./images/schwein2.png>]
 chapter A.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 151.
+(babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 151.
+(babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 152.
+(babel)             in language  on input line 98.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 152.
+(babel)             in language  on input line 98.
 ("D:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -2054,7 +2055,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 153.
+nput line 99.
  (code/cpu.c
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <6> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 6.
@@ -2067,7 +2068,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 89.
 
-[14
+[13
 
 
 
@@ -2080,111 +2081,144 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 191.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 191.
- [15])
+ [14])
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 154.
+(babel)             in language  on input line 100.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 154.
+(babel)             in language  on input line 100.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 154.
+(babel)             in language  on input line 100.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 154.
- [16] (arbeit-vorlage.bbl
+(babel)             in language  on input line 100.
+ [15] (arbeit-vorlage.bbl
 chapter without number
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
 
-Underfull \hbox (badness 6316) in paragraph at lines 43--49
+Underfull \hbox (badness 6236) in paragraph at lines 57--63
 []\T1/ppl/m/n/12 (+20) Jens Schnei-der, Ru-di-ger W. To-bi-as Bold-te B. To-bi-
 as Bold-te:  \T1/ppl/m/it/12 (+20) Real-
  []
 
 
-Underfull \hbox (badness 6493) in paragraph at lines 43--49
+Underfull \hbox (badness 6380) in paragraph at lines 57--63
 \T1/ppl/m/it/12 (+20) Time Editing, Syn-the-sis, and Ren-de-ring of In-fi-ni-te
  Lands-ca-pes on GPUs\T1/ppl/m/n/12 (+20) .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--49
+Underfull \hbox (badness 10000) in paragraph at lines 57--63
 []$\T1/cmtt/m/n/12 http : / / wwwcg . in . tum . de / fileadmin / user _ upload
  / Lehrstuehle / Lehrstuhl _$
  []
 
-)
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 161.
+(babel)             in language  on input line 71.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 161.
+(babel)             in language  on input line 71.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 161.
+(babel)             in language  on input line 71.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 161.
- [17
+(babel)             in language  on input line 71.
+[16
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
+])
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 107.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 107.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 107.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 107.
+ [17]
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 114.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 114.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 114.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 114.
 [18
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
- (arbeit-vorlage.aux (Einleitung.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 168.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 114.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
+ (arbeit-vorlage.aux (Einleitung.aux) (DiamondSquare.aux)
+(FourierSynthesis.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
 Package rerunfilecheck Info: File `arbeit-vorlage.out' has not changed.
-(rerunfilecheck)             Checksum: 8EC932CC8F100332A7FCD7F6A44E3E2A;1126.
+(rerunfilecheck)             Checksum: 2363F0550470ED3784F69CEFF4299A78;1111.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 168.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
  ) 
 Here is how much of TeX's memory you used:
- 41993 strings out of 493634
- 914517 string characters out of 3143745
- 1416907 words of memory out of 3000000
- 44167 multiletter control sequences out of 15000+200000
- 66241 words of font info for 225 fonts, out of 3000000 for 9000
+ 42115 strings out of 493634
+ 916497 string characters out of 3143745
+ 1419607 words of memory out of 3000000
+ 44246 multiletter control sequences out of 15000+200000
+ 64623 words of font info for 237 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 75i,13n,100p,10525b,2159s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi450\
-ecit0800.pk> <C:\Users\Tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
-ec\dpi450\ectt0800.pk>{D:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.
-enc} <C:\Users\Tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ectt1200.pk><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx1
-2.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><D
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr7.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpa
-zo/fplmbb.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmr.pf
-b><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><D:/Program 
-Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><D:/Program Files/MiKTeX 2
-.9/fonts/type1/urw/palatino/uplr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1
-/urw/palatino/uplri8a.pfb>
-Output written on arbeit-vorlage.pdf (23 pages, 257414 bytes).
+ 75i,12n,100p,10525b,2161s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+ <C:\Users\Tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ec
+tt1200.pk> <C:\Users\Tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
+\dpi450\ecit0800.pk> <C:\Users\Tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
+knappen\ec\dpi450\ectt0800.pk>{D:/Program Files/MiKTeX 2.9/fonts/enc/dvips/font
+name/8r.enc}<D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.
+pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr7.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpazo
+/fplmbb.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmr.pfb>
+<D:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><D:/Program Fi
+les/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><D:/Program Files/MiKTeX 2.9
+/fonts/type1/urw/palatino/uplr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/u
+rw/palatino/uplri8a.pfb>
+Output written on arbeit-vorlage.pdf (22 pages, 349022 bytes).
 PDF statistics:
- 876 PDF objects out of 1000 (max. 8388607)
- 656 compressed objects within 7 object streams
- 345 named destinations out of 1000 (max. 500000)
- 50356 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 887 PDF objects out of 1000 (max. 8388607)
+ 665 compressed objects within 7 object streams
+ 349 named destinations out of 1000 (max. 500000)
+ 48817 words of extra memory for PDF output out of 51595 (max. 10000000)
 
