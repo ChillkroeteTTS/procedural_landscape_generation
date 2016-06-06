@@ -1,1 +1,17 @@
 \chapter{Fourier-Spektralsynthese}
+Bei der Spektralsynthese wird das Höhenfeld in der Frequenz-Domäne modelliert und durch die inverse Fourier Transformation in ein Höhenfeld in der Raum-Domäne umgewandelt. 
+
+Als ersten Schritt sollten sich Gedanken darüber gemacht werden, welche Frequenzanteile für einen plausiblen Eindruck notwendig sind und wie stark diese ausgeprägt sein sollten. Eine Landschaft etwa hat Niederfrequente Anteile mit großer Amplitude die Hügel und Täler formen und Höherfrequente Anteile mit niedriger Amplitude durch die unregelmäßigkeiten und die Rauheit des Bodens simuliert wird.
+
+Um das Höhenfeld zu modellieren wird weißes Rauschen erzeugt welches im Anschluss durch einen beliebigen Filter die ungewünschten Frequenzanteile entfernt bzw. deren Amplitude verringert.
+%TODO QUellen hinzufügen
+Weißes Rauschen bezeichnet ein Signal welches aus im der Frequenz-Domäne allen Frequenzen eine konstante Amplitude zuordnet. Für den Zweck der Höhenfeldsynthese reicht uns eine Annäherung vollkommen aus. Dazu wird in der Raum-Domäne ein Bild erzeugt in dem der Farbwert für einen Pixel durch einen einfachen, C-ähnlichen Pseudozufallsgenerator erzeugt wird. Dieses verhält sich, in die Frequenz-Domäne übertragen, ähnlich wie weißes Rauschen.
+
+Der Filter den wir nun auf dieses Rauschen anwenden bestimmt entscheidend das Aussehen des späteren Höhenfeldes. Plausible Ergebnisse lassen sich mit dem Filter $f=1/f^\mathbb{b}$%TODO beta
+erzeugen. Das resultierende Frequenz Bild entspricht bei $beta=2$ dem von Fractale-Brownian Motion\footnote{Auch Pinkes-Rauschen}.
+In %TODO Bilder
+sieht man das in 3D visualisierte Ergebnis des resultierenden Höhenfeldes.
+
+Die Spektralsynthese ist sehr flexibel anpassbar, da sich mit der Änderung des Filters beliebig viele Effekte mit wenig Implementierungsaufwand erzeugen lassen.
+
+%TODO Bilder 

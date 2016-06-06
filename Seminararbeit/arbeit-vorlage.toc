@@ -4,7 +4,7 @@
 \contentsline {chapter}{\nonumberline Tabellenverzeichnis}{IV}{chapter*.3}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Implizite vs. explizite Funktionen}{2}{section.1.1}
-\contentsline {chapter}{\numberline {2}Diamon-Square Algorithmus}{3}{chapter.2}
+\contentsline {chapter}{\numberline {2}Diamond-Square Algorithmus}{3}{chapter.2}
 \contentsline {chapter}{\numberline {3}Fourier-Spektralsynthese}{5}{chapter.3}
 \contentsline {chapter}{\numberline {4}Noise}{6}{chapter.4}
 \contentsline {section}{\numberline {4.1}Grundlagen}{6}{section.4.1}

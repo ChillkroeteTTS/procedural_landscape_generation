@@ -4,17 +4,15 @@ Als wohl bekannteste Implementierung ist hier die Implementierung von Ken Perlin
 
 Neben umfangreichen Anpassungsmöglichkeiten durch verschiedene Parameter ist die Performance dieses Verfahrens ein entscheidender Grund für die Nutzung. Noise verbraucht extrem wenig Speicher, ist relativ einfach zu berechnen und ist zu jeder Zeit an einer beliebigen Stelle auswertbar, was es auch für Echtzeitanwendungen geeignet macht.\cite{H.Hauser2010}
 
-Dieses Kapitel soll ein grundlegendes Verständnis über Noise-Funktionen bieten. Dazu werden zuerst grundlegende Komponenten, welche jeder Implementierung zugrunde liegen, erläutert. Anschließend werden \emph{Value-}\ref{Value-Noise}, \emph{Gradient-Noise}\ref{Gradient-Noise} sowie \emph{Fractal-Noise}\ref{Fractal-Noise} erklärt, bevor es einen Ausblick auf den \emph{Simplex-Noise}\ref{Simplex-Noise} Algorithmus gibt.
+Dieses Kapitel soll ein grundlegendes Verständnis über Noise-Funktionen bieten. Dazu werden zuerst grundlegende Komponenten, welche jeder Implementierung zugrunde liegen, erläutert. Anschließend werden \emph{Value-}\ref{Value-Noise}, \emph{Gradient-Noise}\ref{Gradient-Noise} sowie \emph{Fractal-Noise}\ref{Fractal-Noise} erklärt, bevor es einen Ausblick auf verschieden Abwandlungen von \emph{Fractal Noise} gibt.
 
-Weitere ausführliche Beschreibung in \cite{BurgerGradientNoise2008} (Gradient-Noise) und in \cite{simplexNoise} (Simplex-Noise).
+Weitere ausführliche Beschreibung in \cite{BurgerGradientNoise2008} (Gradient-Noise) und in \cite{simplexNoise} zu \emph{Simplex-Noise} welches eine, besonders in höheren Dimensionen, performantere Implementierung von Perlin Noise darstellt.
 
 \section{Grundlagen}
 \subsection{Lattice-Function}\label{latticeFunc}
-Der erste Schritt zur Erzeugung von Noise ist in der Regel eine sogenannte \emph{Noise-Lattice(Rausch-Gitter)-Funktion}\cite{fractalsAndChaos} der Form \begin{math}l(\vec{k}): {Z}^n \mapsto [-1 - 1]\end{math}\label{latticeFunc}.
-Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, sie muss also für jede Koordinate eines Gitterpunktes immer denselben Funktionswert liefern.}.
+Der erste Schritt zur Erzeugung von Noise ist in der Regel eine sogenannte \emph{Lattice(Gitter)-Funktion}\cite{fractalsAndChaos} der Form \begin{math}l(\vec{k}): {Z}^n \mapsto [-1 - 1]\end{math}\label{latticeFunc}.
+Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, sie muss also für jede Koordinate eines Gitterpunktes immer denselben Funktionswert liefern.}. Perlin verwendet bei seiner Implementierung eine Hashfunktion die auf ein, mit zufälligen Werten gefülltes, Array zugreift. Ein Zugriff auf dieses Array mittels simpler Modulo Operation hätte zur Folge, dass sich im Höhenfeld wiederkehrende Strukturen zeigen würden, sobald die Funktion über den Rahmen des Arrays hinausgreift.
 
-Die Wahl der Lattice Funktion ist entscheident für das spätere Erscheinungsbild der Noise-Funktion.
-Eine gleichverteilte Folge von pseudo zufällige Zahlen wie sie etwa die meisten in Programmiersprachen implementierten Zufallsgeneratoren bieten erfüllt zwar die Anforderungen der Deterministik der Funktion, kann allerdings zu unerwünscht starken Differenzen zwischen zwei Benachbarten Gitterpunkten führen. Im folgenden gehen wir von einer Standartnormalverteilung aus um die Wahrscheinlichkeit für Werte nahe den Intervalgrenzen zu verringern. 
 
 \subsection{Interpolation und Fade-Function}
 Um aufbauend auf der Lattice-Funktion\ref{latticeFunc} eine Funktion $S(\vec{x}): \mathbb{R}^n\mapsto\mathbb{R}, \vec{x}\in \mathbb{Z}^n$\label{S} zu definieren wird zwischen benachbarten Gitterpunkten lokal interpoliert. Dafür wird eine sogenannte Fade-Function\cite{fadeFunction} der Form $f(t): \mathbb{R}\mapsto\mathbb{R}$ mit $t\in[0, 1]$ definiert, welche den Übergang zwischen den Gitterpunkten steuert.
@@ -23,7 +21,7 @@ Um überhaupt eine stetige Noise-Funktion zu ermöglichen, muss
 \begin{equation}
 f(0) = 0 \land f(1) = 1
 \end{equation} gelten.
-Damit der Übergang zwischen den Gitterpunkten möglichst glatt und damit natürlich wirkt, sollte jedoch eine Stetigkeit von $C^2$ und damit die Eigenschaften 
+Damit der Übergang zwischen den Gitterpunkten möglichst glatt und damit natürlich wirkt, sollte jedoch eine Stetigkeit von $C^2$ an den Übergängen und damit die Eigenschaften 
 \begin{equation}
 	f'(0) = f'(1) = 0 = f''(0) = f''(1)
 \end{equation} 
@@ -76,13 +74,14 @@ In der untenstehenden 2D C\# Implementierung ist zu sehen, wie zuerst ein Höhen
  
 
 \section{Fractal-Noise}\label{Fractal-Noise}
+%TODO Wieso Fractal? Was ist ein Fraktal?
 Die bisher behandelten Noise-Funktionen erzeugen zwar natürlich erscheinende Zufallswerte, wenn man diese jedoch auf eine Heightmap überträgt wird deutlich, dass es ihr an Details fehlt um natürlich zu wirken.
 
 Um den Detailgrad der Noise-Funktion beliebig zu erhöhen, wird die Noise-Funktion mit einer gestauchten, in der Amplitude verringerten, Version ihrer selbst addiert. 
 Dieses Verfahren lässt sich beliebig oft anwenden, was einen beliebig hohen Detailgrad erlaubt.
 
 In \cite{Saupe} wird daher folgende Formel definiert:
-\begin{equation}
+\begin{equation} \label{eq.fractalnoise}
 	\mathbb{H}(\vec{x}) = \sum_{k=k_0}^{k_1}\frac{1}{r^{kH}}S(r^k\vec{x}).
 \end{equation}
 
@@ -92,7 +91,18 @@ Durch die Anpassung dieser Parameter lässt sich das Verhalten der Noise-Funktio
 
 \lstinputlisting[language=csh, title=Fractal-Noise Implementierung C\#]{data/fractalNoise.cs}
 
-\section{Ausblick: Simplex-Noise}\label{Simplex-Noise}
+\section{Noise-Variationen}\label{NoiseVariationen}
+Die in \ref{eq.fractalnoise} beschriebene Funktion lässt sich beliebig erweitern und anpassen um bestimmte Effekte zu erzielen. Im folgenden sollen daher einige bekannte und für Landschaften passende Erweiterungen erläutert werden. Diese Auflistung ist nur als eine Auswahl zu verstehen. Es gibt noch zahlreiche weitere Implementierungen wie z.B. Convolution oder auch sparse Convolution-Noise\cite{texturingAndModeling} %TODO wenigstens Kapitel
+welche allerdings keinen 
+
+\subsection{Turbulence-Noise}
+
+\subsection{Ridged-Noise}
+
+\subsection{Multifractal}
+
+
+%TODO Auflistung und Bilder der Ergebnisse
 
 
 

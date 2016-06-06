@@ -5,8 +5,8 @@ Die synthetische Erzeugung von Höhendaten zur Darstellung von möglichst realis
 Als bekanntestes Beispiel ist hier sicherlich das Spiel Minecraft vom Studio Mojang zu nennen, welches einen großteil seiner Faszination aus der komplett prozedural erzeugten veränderbaren Landschaft zieht.
 
 Im folgenden werden 3 bewährte Algorithmen für diesen Zweck vorstellen und darauf eingegangen, für welchen Zweck sie besonders geeignet sind.
-In Hinblick auf das Einsatzgebiet von Computerspielen sollen sie dabei insbesondere auf die Möglichkeit zur effektiven Speicherung von sehr großen Landschaften untersucht werden.
-Zuerst wird der Diamond-Square Algorithmus\cite{DiamondSquare} vorgestellt, welchen man verallgemeinert auch als einen \emph{Polygon unterteilungs Algorithmus} bezeichnen kann. Danach wird kurz die Spektalsynthese mit der Fourier-Methode erläutert bevor es eine kurze Einführung in die Welt der Rauschfunktionen gibt.
+Zuerst wird der Diamond-Square Algorithmus\cite{DiamondSquare} vorgestellt, welchen man verallgemeinert auch als einen \emph{Polygon unterteilungs Algorithmus} bezeichnen kann. Danach wird kurz die Spektalsynthese mit der Fourier-Methode erläutert bevor es eine kurze Einführung in die Welt der Rauschfunktionen gibt. 
+Der Diamond-Square Algorithmus sowie verschiedene Rauschfunktionen sind in dem diesem Dokument beiliegendem Unity-Projekt in C\# bzw. HLSL\footnote{High Level Shading Language} implementiert und lassen sich durch Unity auf Windows, Unix und Mac OS basierten Betriebssystemen kompilieren.
 Neben der Synthese von Landschaften sind diese Algorithmen vielseitig einsetzbar. Insbesondere bei der bereits erwähnten Kategorie der Rauschfunktionen ist davon auszugehen, dass sie auch in proprietärer 3D-Software sowie Computerspielen immer noch als wichtiger Algorithmus genutzt wird. Dies liegt vor allem an ihrer einfachen Anpass sowie Skalierbarkeit in mehreren Dimensionen durch die auch Wolken, Feuer, Rauchverwirbelung und sogar Fellverteilung dargestellt werden kann\cite{texturingAndModeling}.
 
 \section{Implizite vs. explizite Funktionen}
