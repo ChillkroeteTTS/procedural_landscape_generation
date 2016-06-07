@@ -2,21 +2,20 @@
 
 inline float NoiseFuncPlain(sampler2D latticeArray, float latticeSize, float x, float y, int kmax, float lacunarity, float h, bool derive = false, bool deriveAfterX = true) {
 
-	float offset = 0.5, 
+	float offset = 0.48, 
 		currHeight = S1F(latticeArray, latticeSize, x, y, derive, deriveAfterX) + offset,
 		weight = currHeight*currHeight;
 	//currHeight = NoiseFuncPlain(latticeArray, latticeSize, x, y, --k, lacunarity, h);
 
-	float angle = radians(10);
-
 	for (int k = 1; k < kmax; k++) {
+		float angle = radians(20*min(currHeight*currHeight, 1));
 		// Clamp weight 
 		weight = min(1, weight);
 
 		float newX = x * pow(lacunarity, k),
 			newY = y * pow(lacunarity, k),
-			newCos = cos(angle*min(currHeight*currHeight, 1)),
-			newSin = sin(angle*min(currHeight*currHeight, 1));
+			newCos = cos(angle),
+			newSin = sin(angle);
 
 
 		newX = (newX * newCos - newSin * newY);
@@ -27,7 +26,7 @@ inline float NoiseFuncPlain(sampler2D latticeArray, float latticeSize, float x, 
 
 		currHeight += weight * val;
 
-		weight *= val * 1.15;
+		weight *= val * 1.5;
 	}
 
 	return currHeight;

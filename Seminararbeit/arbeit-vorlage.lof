@@ -1,12 +1,17 @@
 \select@language {ngerman}
 \select@language {ngerman}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1.1}{\ignorespaces Gegen\IeC {\"u}berstellung einer Heightfield als Textur(links) und der resultierenden Landschaft. Bildquelle: http://tinyurl.com/zu7gond\relax }}{3}{figure.caption.4}
+\contentsline {figure}{\numberline {1.1.2}{\ignorespaces Gerenderte Voxellandschaft mit \IeC {\"U}berh\IeC {\"a}ngen. Bildquelle: http://tinyurl.com/jq8vta8\relax }}{4}{figure.caption.5}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.0.1}{\ignorespaces 2 Rekursionschritte des Diamond Square Algorithmus bei einem quadratischen H\IeC {\"o}henfeld mit der Aufl\IeC {\"o}sung 5x5\relax }}{3}{figure.caption.4}
+\contentsline {figure}{\numberline {2.0.1}{\ignorespaces 2 Rekursionschritte des Diamond Square Algorithmus bei einem quadratischen H\IeC {\"o}henfeld mit der Aufl\IeC {\"o}sung 5x5\relax }}{6}{figure.caption.6}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.0.1}{\ignorespaces Durch Spektralsynthese erzeugte H\IeC {\"o}henfelder in 3D gerendert. Bilder entnommen von: http://tinyurl.com/z6lfzmv\relax }}{10}{figure.caption.7}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1.1}{\ignorespaces Fade-Function\relax }}{8}{figure.caption.5}
-\contentsline {figure}{\numberline {4.5.1}{\ignorespaces Test-Bild}}{11}{figure.caption.6}
-\contentsline {figure}{\numberline {4.5.2}{\ignorespaces Zwei Bilder werden mit dem \LaTeX -Paket subcaption nebeneinander angezeigt\relax }}{12}{figure.caption.8}
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1.1}{\ignorespaces Fade-Function\relax }}{14}{figure.caption.8}
+\contentsline {figure}{\numberline {4.4.1}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus fraktalem Perlin-Noise entstanden ist.\relax }}{17}{figure.caption.9}
+\contentsline {figure}{\numberline {4.5.1}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Ridged Noise entstanden ist\relax }}{19}{figure.caption.10}
+\contentsline {figure}{\numberline {4.5.2}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Ridged-Multifractal-Noise mit $o=0.2$ entstanden ist.\relax }}{21}{figure.caption.11}
+\contentsline {figure}{\numberline {4.5.3}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Hybrid-Multifractal-Noise mit $o=0.5$ entstanden ist.\relax }}{22}{figure.caption.12}
+\contentsline {figure}{\numberline {4.5.4}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Domain Mapped Multifractal-Noise mit $o=0.48$ und $\alpha =20$ entstanden ist.\relax }}{24}{figure.caption.13}
 \addvspace {10\p@ }

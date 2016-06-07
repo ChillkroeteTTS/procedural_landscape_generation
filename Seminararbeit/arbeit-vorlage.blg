@@ -14,6 +14,10 @@ Warning--entry type for "fraktDim" isn't style-file defined
 --line 75 of file bibliographie.bib
 Warning--entry type for "displacementNStuff" isn't style-file defined
 --line 113 of file bibliographie.bib
+Warning--entry type for "whiteNoise" isn't style-file defined
+--line 119 of file bibliographie.bib
+Warning--entry type for "fbmFromFourier" isn't style-file defined
+--line 124 of file bibliographie.bib
 Too many commas in name 1 of "David S. Ebert, F. Kenton Musgrave, Darwyn Peachey, Ken Perlin, Steven Worley" for entry texturingAndModeling
 while executing---line 2135 of file alphadin_martin.bst
 Too many commas in name 1 of "David S. Ebert, F. Kenton Musgrave, Darwyn Peachey, Ken Perlin, Steven Worley" for entry texturingAndModeling
@@ -22,8 +26,10 @@ Too many commas in name 1 of "David S. Ebert, F. Kenton Musgrave, Darwyn Peachey
 while executing---line 2135 of file alphadin_martin.bst
 Too many commas in name 1 of "David S. Ebert, F. Kenton Musgrave, Darwyn Peachey, Ken Perlin, Steven Worley" for entry texturingAndModeling
 while executing---line 2135 of file alphadin_martin.bst
+Warning--to sort, need author or key in whiteNoise
 Warning--to sort, need author or key in fraktDim
 Warning--empty publisher in fractalsAndChaos
+Warning--there's no year in fbm
 Warning--there's an address but no publisher in BurgerGradientNoise2008
 Warning--empty note in BurgerGradientNoise2008
 Too many commas in name 1 of "David S. Ebert, F. Kenton Musgrave, Darwyn Peachey, Ken Perlin, Steven Worley" for entry texturingAndModeling

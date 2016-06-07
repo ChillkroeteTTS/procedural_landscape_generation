@@ -1,5 +1,6 @@
 #include "FractalNoiseBase.cginc"
 
+
 inline float NoiseFuncPlain(sampler2D latticeArray, float latticeSize, float x, float y, int kmax, float lacunarity, float h, bool derive = false, bool deriveAfterX = true) {
 
 	float currHeight = 1,

@@ -33,9 +33,9 @@
 			#pragma fragment frag
 			// make fog work
 			#pragma multi_compile_fog
-			#include "PerlinNoise.cginc"
+			//#include "PerlinNoise.cginc"
 			//#include "HybridMultiFractal.cginc"
-			//#include "HMFDomainWarped.cginc"
+			#include "HMFDomainWarped.cginc"
 			//#include "Multifractal.cginc"
 			//#include "OwnNoise.cginc"
 			//#include "RidgedNoise.cginc"
@@ -143,12 +143,13 @@
 			v2f vert (appdata v)
 			{
 				v2f o;
-				float offset = 0.00001;
-				float val = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x + _Timer, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
-					   valBeforeX = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x- offset, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
-					   valAfterX = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x + offset, v.uvLatticeTexture.y, _k, _Lacunarity, _h),
-					valBeforeY = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x, v.uvLatticeTexture.y - offset, _k, _Lacunarity, _h),
-					valAfterY = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x, v.uvLatticeTexture.y + offset, _k, _Lacunarity, _h);
+				float offset = 1/250.0, //250 = resolution
+				latticeScale = 2/_LatticeSize; //4 = Part of the lattice thats used for the terrain 
+				float val = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, (v.uvLatticeTexture.x + _Timer)*latticeScale, v.uvLatticeTexture.y*latticeScale, _k, _Lacunarity, _h),
+					   valBeforeX = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, (v.uvLatticeTexture.x - offset)*latticeScale, v.uvLatticeTexture.y*latticeScale, _k, _Lacunarity, _h),
+					   valAfterX = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, (v.uvLatticeTexture.x + offset)*latticeScale, v.uvLatticeTexture.y*latticeScale, _k, _Lacunarity, _h),
+					valBeforeY = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x*latticeScale, (v.uvLatticeTexture.y - offset)*latticeScale, _k, _Lacunarity, _h),
+					valAfterY = GetFractalNoiseHeight(_LatticeTex, _LatticeSize, v.uvLatticeTexture.x*latticeScale, (v.uvLatticeTexture.y + offset)*latticeScale, _k, _Lacunarity, _h);
 				float4 objSpaceVert = float4(v.vertex.x,
 											_Height * val,
 											v.vertex.z, v.vertex.w);

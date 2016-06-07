@@ -110,4 +110,23 @@
   publisher  = {ACM},
 }
 
+@WWW{displacementNStuff,
+  author = {Eddie Russell},
+  title  = {Elliminate Texture Confusion: Bump, Normal and Displacement Maps},
+  url    = {http://blog.digitaltutors.com/bump-normal-and-displacement-maps/},
+}
+
+@WWW{whiteNoise,
+  title = {Weißes Rauschen - white noise},
+  url   = {http://www.itwissen.info/definition/lexikon/Weisses-Rauschen-white-noise.html},
+}
+
+@BookInBook{fbmFromFourier,
+  author    = {R.F. VOSS},
+  title     = {Random fractals: self-affinity in noise, music, mountains, and clouds},
+  booktitle = {Phyica. D 38, 1-3},
+  year      = {1989},
+  pages     = {362-371},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}

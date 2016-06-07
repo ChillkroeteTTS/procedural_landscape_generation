@@ -1,20 +1,30 @@
 \select@language {ngerman}
 \select@language {ngerman}
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{III}{chapter*.2}
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{IV}{chapter*.3}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{IV}{chapter*.2}
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{V}{chapter*.3}
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Implizite vs. explizite Funktionen}{2}{section.1.1}
-\contentsline {chapter}{\numberline {2}Diamond-Square Algorithmus}{3}{chapter.2}
-\contentsline {chapter}{\numberline {3}Fourier-Spektralsynthese}{5}{chapter.3}
-\contentsline {chapter}{\numberline {4}Noise}{6}{chapter.4}
-\contentsline {section}{\numberline {4.1}Grundlagen}{6}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Lattice-Function}{6}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Interpolation und Fade-Function}{7}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Value-Noise}{8}{section.4.2}
-\contentsline {section}{\numberline {4.3}Gradient-Noise}{9}{section.4.3}
-\contentsline {section}{\numberline {4.4}Fractal-Noise}{9}{section.4.4}
-\contentsline {section}{\numberline {4.5}Ausblick: Simplex-Noise}{10}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}jetzt geht es noch tiefer}{11}{subsection.4.5.1}
-\contentsline {chapter}{\numberline {A}Anhang}{13}{appendix.A}
-\contentsline {section}{\numberline {A.1}Quelltexte}{13}{section.A.1}
-\contentsline {chapter}{\nonumberline Literaturverzeichnis}{16}{chapter*.10}
+\contentsline {section}{\numberline {1.1}Datenstrukturen zur Landschaftsspeicherung: H\IeC {\"o}henfelder vs. Voxel}{2}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}H\IeC {\"o}henfelder}{2}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Voxel}{3}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Implizite vs. explizite Funktionen}{5}{section.1.2}
+\contentsline {chapter}{\numberline {2}Diamond-Square Algorithmus}{6}{chapter.2}
+\contentsline {subsection}{\numberline {2.0.1}Der Algorithmus}{6}{subsection.2.0.1}
+\contentsline {subsection}{\numberline {2.0.2}Flexibilit\IeC {\"a}t}{7}{subsection.2.0.2}
+\contentsline {subsection}{\numberline {2.0.3}Bewertung im Rahmen der Fragestellung}{7}{subsection.2.0.3}
+\contentsline {chapter}{\numberline {3}Fourier-Spektralsynthese}{9}{chapter.3}
+\contentsline {subsection}{\numberline {3.0.1}Der Algorithmus}{9}{subsection.3.0.1}
+\contentsline {subsection}{\numberline {3.0.2}Flexibilit\IeC {\"a}t}{10}{subsection.3.0.2}
+\contentsline {subsection}{\numberline {3.0.3}Bewertung im Rahmen der Fragestellung}{10}{subsection.3.0.3}
+\contentsline {chapter}{\numberline {4}Noise}{12}{chapter.4}
+\contentsline {section}{\numberline {4.1}Grundlagen}{13}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Lattice-Function}{13}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Interpolation und Fade-Function}{13}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Value-Noise}{14}{section.4.2}
+\contentsline {section}{\numberline {4.3}Gradient-Noise}{15}{section.4.3}
+\contentsline {section}{\numberline {4.4}Fractal-Noise}{16}{section.4.4}
+\contentsline {section}{\numberline {4.5}Noise-Variationen}{18}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Ridged-Noise}{18}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Multifraktal/heterogenes Terrain}{20}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Hybrid-Multifractal}{22}{subsection.4.5.3}
+\contentsline {subsection}{\numberline {4.5.4}Domain/Range Mapping}{23}{subsection.4.5.4}
+\contentsline {chapter}{\nonumberline Literaturverzeichnis}{25}{chapter*.14}

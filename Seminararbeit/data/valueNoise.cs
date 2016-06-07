@@ -1,4 +1,4 @@
-public float S1(float x, float y) {
+public float ValueNoise(float x, float y) {
     int floorX = Mathf.FloorToInt(x),
         ceilX = Mathf.CeilToInt(x),
         floorY = Mathf.FloorToInt(y),

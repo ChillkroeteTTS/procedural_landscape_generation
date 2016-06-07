@@ -1,18 +1,28 @@
 \BOOKMARK [0][-]{chapter*.2}{Abbildungsverzeichnis}{}% 1
 \BOOKMARK [0][-]{chapter*.3}{Tabellenverzeichnis}{}% 2
 \BOOKMARK [0][-]{chapter.1}{Einleitung}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Implizite vs. explizite Funktionen}{chapter.1}% 4
-\BOOKMARK [0][-]{chapter.2}{Diamond-Square Algorithmus}{}% 5
-\BOOKMARK [0][-]{chapter.3}{Fourier-Spektralsynthese}{}% 6
-\BOOKMARK [0][-]{chapter.4}{Noise}{}% 7
-\BOOKMARK [1][-]{section.4.1}{Grundlagen}{chapter.4}% 8
-\BOOKMARK [2][-]{subsection.4.1.1}{Lattice-Function}{section.4.1}% 9
-\BOOKMARK [2][-]{subsection.4.1.2}{Interpolation und Fade-Function}{section.4.1}% 10
-\BOOKMARK [1][-]{section.4.2}{Value-Noise}{chapter.4}% 11
-\BOOKMARK [1][-]{section.4.3}{Gradient-Noise}{chapter.4}% 12
-\BOOKMARK [1][-]{section.4.4}{Fractal-Noise}{chapter.4}% 13
-\BOOKMARK [1][-]{section.4.5}{Ausblick: Simplex-Noise}{chapter.4}% 14
-\BOOKMARK [2][-]{subsection.4.5.1}{jetzt geht es noch tiefer}{section.4.5}% 15
-\BOOKMARK [0][-]{appendix.A}{Anhang}{}% 16
-\BOOKMARK [1][-]{section.A.1}{Quelltexte}{appendix.A}% 17
-\BOOKMARK [0][-]{chapter*.10}{Literaturverzeichnis}{}% 18
+\BOOKMARK [1][-]{section.1.1}{Datenstrukturen zur Landschaftsspeicherung: H\366henfelder vs. Voxel}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.1}{H\366henfelder}{section.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.1.2}{Voxel}{section.1.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Implizite vs. explizite Funktionen}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Diamond-Square Algorithmus}{}% 8
+\BOOKMARK [1][-]{subsection.2.0.1}{Der Algorithmus}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.0.2}{Flexibilit\344t}{subsection.2.0.1}% 10
+\BOOKMARK [2][-]{subsection.2.0.3}{Bewertung im Rahmen der Fragestellung}{subsection.2.0.1}% 11
+\BOOKMARK [0][-]{chapter.3}{Fourier-Spektralsynthese}{}% 12
+\BOOKMARK [1][-]{subsection.3.0.1}{Der Algorithmus}{chapter.3}% 13
+\BOOKMARK [2][-]{subsection.3.0.2}{Flexibilit\344t}{subsection.3.0.1}% 14
+\BOOKMARK [2][-]{subsection.3.0.3}{Bewertung im Rahmen der Fragestellung}{subsection.3.0.1}% 15
+\BOOKMARK [0][-]{chapter.4}{Noise}{}% 16
+\BOOKMARK [1][-]{section.4.1}{Grundlagen}{chapter.4}% 17
+\BOOKMARK [2][-]{subsection.4.1.1}{Lattice-Function}{section.4.1}% 18
+\BOOKMARK [2][-]{subsection.4.1.2}{Interpolation und Fade-Function}{section.4.1}% 19
+\BOOKMARK [1][-]{section.4.2}{Value-Noise}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.3}{Gradient-Noise}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.4}{Fractal-Noise}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.5}{Noise-Variationen}{chapter.4}% 23
+\BOOKMARK [2][-]{subsection.4.5.1}{Ridged-Noise}{section.4.5}% 24
+\BOOKMARK [2][-]{subsection.4.5.2}{Multifraktal/heterogenes Terrain}{section.4.5}% 25
+\BOOKMARK [2][-]{subsection.4.5.3}{Hybrid-Multifractal}{section.4.5}% 26
+\BOOKMARK [2][-]{subsection.4.5.4}{Domain/Range Mapping}{section.4.5}% 27
+\BOOKMARK [0][-]{chapter*.14}{Literaturverzeichnis}{}% 28

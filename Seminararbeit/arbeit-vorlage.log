@@ -1,31 +1,31 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.1)  5 JUN 2016 15:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.5.3)  7 JUN 2016 15:52
 entering extended mode
 **./arbeit-vorlage.tex
 (arbeit-vorlage.tex
 LaTeX2e <2015/10/01> patch level 2
 Babel <3.9n> and hyphenation patterns for 69 languages loaded.
 (arbeit-vorlage-praeambel.tex
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\scrreprt.cls
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrreprt.cls"
 Document Class: scrreprt 2015/10/03 v3.19a KOMA-Script document class (report)
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\scrkbase.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
 Package: scrkbase 2015/10/03 v3.19a KOMA-Script package (KOMA-Script-dependent 
 basics and keyval usage)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\scrbase.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
 Package: scrbase 2015/10/03 v3.19a KOMA-Script package (KOMA-Script-independent
  basics and keyval usage)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\graphics\keyval.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\scrlfile.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
 Package: scrlfile 2015/10/03 v3.19a KOMA-Script package (loading files)
 
 Package scrlfile, 2015/10/03 v3.19a KOMA-Script package (loading files)
                   Copyright (C) Markus Kohm
 
-))) (D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\tocbasic.sty
+))) ("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty"
 Package: tocbasic 2015/10/03 v3.19a KOMA-Script package (handling toc-files)
 )
 Package tocbasic Info: omitting babel extension for `toc'
@@ -42,11 +42,11 @@ Package tocbasic Info: defining new hook before heading of `' on input line 158
 Class scrreprt Info: File `scrsize12pt.clo' used to setup font sizes on input l
 ine 2248.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\scrsize12pt.clo
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize12pt.clo"
 File: scrsize12pt.clo 2015/10/03 v3.19a KOMA-Script font size class option (12p
 t)
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\typearea.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty"
 Package: typearea 2015/10/03 v3.19a KOMA-Script package (type area)
 
 Package typearea, 2015/10/03 v3.19a KOMA-Script package (type area)
@@ -91,28 +91,28 @@ LaTeX Info: Redefining \textsubscript on input line 4652.
 \c@figure=\count87
 \c@table=\count88
 \bibindent=\dimen102
-) (D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\scrpage2.sty
+) ("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrpage2.sty"
 Package: scrpage2 2015/10/03 v3.19a KOMA-Script package (page head and foot)
 LaTeX Info: Redefining \pagemark on input line 174.
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\amsmath\amsmath.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip48
 
 For additional information on amsmath, use the `?' option.
-(D:\Windows_Program_Files\MikTeX\tex\latex\amsmath\amstext.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\amsmath\amsgen.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks15
 \ex@=\dimen103
 ))
-(D:\Windows_Program_Files\MikTeX\tex\latex\amsmath\amsbsy.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen104
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\amsmath\amsopn.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count89
@@ -153,29 +153,29 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\marvosym\marvosym.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\marvosym\marvosym.sty"
 Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\base\fontenc.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\base\t1enc.def
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-(D:\Windows_Program_Files\MikTeX\tex\latex\base\inputenc.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks20
 \inpenc@posthook=\toks21
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\base\utf8.def
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\base\t1enc.dfu
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
 File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -335,7 +335,7 @@ File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\base\ot1enc.dfu
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
 File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -376,7 +376,7 @@ File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\base\omsenc.dfu
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
 File: omsenc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -400,60 +400,58 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(D:\Windows_Program_Files\MikTeX\tex\latex\psnfss\mathpazo.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\mathpazo.sty"
 Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup4
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\setspace\setspace.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgfplots\pgfplots.sty
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplots.revision.tex)
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgfplots\pgfplots.sty"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.revision.tex")
 Package: pgfplots 2016/01/06 v1.13 Data Visualization (1.13)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgf\frontendlayer\tikz.sty
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgf\basiclayer\pgf.sty
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgf\utilities\pgfrcs.sty
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\utilities\pgfutil-common.tex
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex"
 \pgfutil@everybye=\toks22
 \pgfutil@tempdima=\dimen112
 \pgfutil@tempdimb=\dimen113
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\utilities\pgfutil-common-lists
-.tex))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\utilities\pgfutil-latex.def
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.te
+x")) ("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def"
 \pgfutil@abb=\box29
-
-(D:\Windows_Program_Files\MikTeX\tex\latex\ms\everyshi.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\utilities\pgfrcs.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex"
 Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
 ))
 Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgf\basiclayer\pgfcore.sty
-(D:\Windows_Program_Files\MikTeX\tex\latex\graphics\graphicx.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty"
+("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\graphics\graphics.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\graphics\trig.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\00miktex\graphics.cfg
+("D:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 94.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\pdftex-def\pdftex.def
+("D:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\oberdiek\infwarerr.sty
+("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\oberdiek\ltxcmds.sty
+("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count101
@@ -461,16 +459,16 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen114
 \Gin@req@width=\dimen115
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgf\systemlayer\pgfsys.sty
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\systemlayer\pgfsys.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex"
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\utilities\pgfkeys.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
 \pgfkeys@pathtoks=\toks23
 \pgfkeys@temptoks=\toks24
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\utilities\pgfkeysfiltered.code
-.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.te
+x"
 \pgfkeys@tmptoks=\toks25
 ))
 \pgf@x=\dimen116
@@ -490,51 +488,51 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \t@pgf@toka=\toks26
 \t@pgf@tokb=\toks27
 \t@pgf@tokc=\toks28
- (D:\Windows_Program_Files\MikTeX\tex\generic\pgf\systemlayer\pgf.cfg
+ ("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
 Driver file for pgf: pgfsys-pdftex.def
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
 File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\systemlayer\pgfsys-common-pdf.
-def
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+"
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\systemlayer\pgfsyssoftpath.cod
-e.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.t
+ex"
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
 \pgfsyssoftpath@smallbuffer@items=\count106
 \pgfsyssoftpath@bigbuffer@items=\count107
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\systemlayer\pgfsysprotocol.cod
-e.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.t
+ex"
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
-)) (C:\Users\tjark\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+)) ("D:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\00miktex\color.cfg
+("D:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcore.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex"
 Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmath.code.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathcalc.code.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathutil.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathparser.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
 \pgfmath@dimen=\dimen124
 \pgfmath@count=\count108
 \pgfmath@box=\box30
@@ -542,29 +540,28 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 \pgfmath@stack@operand=\toks30
 \pgfmath@stack@operation=\toks31
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfunctions.code.tex
-
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfunctions.basic.co
-de.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfunctions.trigonom
-etric.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfunctions.random.c
-ode.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfunctions.comparis
-on.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfunctions.base.cod
-e.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfunctions.round.co
-de.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfunctions.misc.cod
-e.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfunctions.integera
-rithmetics.code.tex)))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmathfloat.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.
+tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometr
+ic.code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code
+.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.
+code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.t
+ex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.
+tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.t
+ex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarit
+hmetics.code.tex")))
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
 \c@pgfmathroundto@lastzeros=\count109
 ))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcorepoints.code.
-tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+"
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@picminx=\dimen125
 \pgf@picmaxx=\dimen126
@@ -581,119 +578,113 @@ File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@zx=\dimen137
 \pgf@zy=\dimen138
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcorepathconstruc
-t.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.c
+ode.tex"
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
 \pgf@path@lastx=\dimen139
 \pgf@path@lasty=\dimen140
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcorepathusage.co
-de.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.
+tex"
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
 \pgf@shorten@end@additional=\dimen141
 \pgf@shorten@start@additional=\dimen142
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcorescopes.code.
-tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+"
 File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box31
 \pgf@hbox=\box32
 \pgf@layerbox@main=\box33
 \pgf@picture@serial@count=\count110
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcoregraphicstate
-.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.co
+de.tex"
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
 \pgflinewidth=\dimen143
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcoretransformati
-ons.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations
+.code.tex"
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
 \pgf@pt@x=\dimen144
 \pgf@pt@y=\dimen145
 \pgf@pt@temp=\dimen146
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcorequick.code.t
-ex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex"
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcoreobjects.code
-.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.te
+x"
 File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcorepathprocessi
-ng.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.
+code.tex"
 File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcorearrows.code.
-tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+"
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 \pgfarrowsep=\dimen147
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcoreshade.code.t
-ex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen148
 \pgf@sys@shading@range@num=\count111
-)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcoreimage.code.t
-ex
+) ("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.te
+x"
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcoreexternal.cod
-e.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.t
+ex"
 File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
 \pgfexternal@startupbox=\box34
 ))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcorelayers.code.
-tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+"
 File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcoretransparency
-.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.co
+de.tex"
 File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\basiclayer\pgfcorepatterns.cod
-e.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.t
+ex"
 File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
 )))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\modules\pgfmoduleshapes.code.t
-ex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex"
 File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
 \pgfnodeparttextbox=\box35
-)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\modules\pgfmoduleplot.code.tex
+) ("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex"
 File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgf\compatibility\pgfcomp-version-0-
-65.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.
+sty"
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
 \pgf@nodesepstart=\dimen149
 \pgf@nodesepend=\dimen150
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgf\compatibility\pgfcomp-version-1-
-18.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.
+sty"
 Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
-)) (D:\Windows_Program_Files\MikTeX\tex\latex\pgf\utilities\pgffor.sty
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgf\utilities\pgfkeys.sty
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\utilities\pgfkeys.code.tex))
-(D:\Windows_Program_Files\MikTeX\tex\latex\pgf\math\pgfmath.sty
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmath.code.tex))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\utilities\pgffor.code.tex
+)) ("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty"
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"))
+("D:\Program Files\MiKTeX 2.9\tex\latex\pgf\math\pgfmath.sty"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"))
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex"
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\math\pgfmath.code.tex)
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex")
 \pgffor@iter=\dimen151
 \pgffor@skip=\dimen152
 \pgffor@stack=\toks32
 \pgffor@toks=\toks33
 ))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\frontendlayer\tikz\tikz.code.t
-ex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex"
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\libraries\pgflibraryplothandle
-rs.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.
+code.tex"
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \pgf@plot@mark@count=\count112
 \pgfplotmarksize=\dimen153
@@ -713,8 +704,7 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikznumberofcurrentchild=\count115
 \tikz@fig@count=\count116
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\modules\pgfmodulematrix.code.t
-ex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 \pgfmatrixcurrentrow=\count117
 \pgfmatrixcurrentcolumn=\count118
@@ -722,12 +712,12 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 )
 \tikz@expandcount=\count120
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\frontendlayer\tikz\libraries\t
-ikzlibrarytopaths.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarytopaths.code.tex"
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplots.code.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplotscore.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.code.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplotscore.code.tex"
 \t@pgfplots@toka=\toks34
 \t@pgfplots@tokb=\toks35
 \t@pgfplots@tokc=\toks36
@@ -735,78 +725,75 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 \c@pgfplots@coordindex=\count121
 \c@pgfplots@scanlineindex=\count122
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\sys\pgfplotssysgeneric.co
-de.tex))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\libs\pgfplotslibrary.code
-.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\oldpgfcompatib\pgfplotsol
-dpgfsupp_loader.code.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\libraries\pgflibraryfpu.code.t
-ex)
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\sys\pgfplotssysgeneric.code.
+tex"))
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\libs\pgfplotslibrary.code.te
+x")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\oldpgfcompatib\pgfplotsoldpg
+fsupp_loader.code.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryfpu.code.tex"
+)
 Package pgfplots: loading complementary arithmetics for your pgf version...
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\oldpgfcompatib\pgfplotsol
-dpgfsupp_pgflibraryfpu.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\oldpgfcompatib\pgfplotsol
-dpgfsupp_pgfmathfloat.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\oldpgfcompatib\pgfplotsoldpg
+fsupp_pgflibraryfpu.code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\oldpgfcompatib\pgfplotsoldpg
+fsupp_pgfmathfloat.code.tex"
 \c@pgfmathroundto@lastzeros=\count123
 ))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\util\pgfplotsutil.code.te
-x
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\liststructure\pgfplotslis
-tstructure.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\liststructure\pgfplotslis
-tstructureext.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\liststructure\pgfplotsarr
-ay.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\util\pgfplotsutil.code.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\liststructure\pgfplotslistst
+ructure.code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\liststructure\pgfplotslistst
+ructureext.code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\liststructure\pgfplotsarray.
+code.tex"
 \c@pgfplotsarray@tmp=\count124
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\liststructure\pgfplotsmat
-rix.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\numtable\pgfplotstablesha
-red.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\liststructure\pgfplotsmatrix
+.code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\numtable\pgfplotstableshared
+.code.tex"
 \c@pgfplotstable@counta=\count125
 \t@pgfplotstable@a=\toks37
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\liststructure\pgfplotsdeq
-ue.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\util\pgfplotsbinary.code.
-tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\util\pgfplotsbinary.data.
-code.tex))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\util\pgfplotsutil.verb.co
-de.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\libs\pgflibrarypgfplots.s
-urfshading.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\liststructure\pgfplotsdeque.
+code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\util\pgfplotsbinary.code.tex
+"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\util\pgfplotsbinary.data.cod
+e.tex"))
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\util\pgfplotsutil.verb.code.
+tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\libs\pgflibrarypgfplots.surf
+shading.code.tex"
 \c@pgfplotslibrarysurf@no=\count126
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\sys\pgflibrarypgfplots.su
-rfshading.pgfsys-pdftex.def)))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\util\pgfplotscolormap.cod
-e.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\util\pgfplotscolor.code.t
-ex))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplotsstackedplots.code
-.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplotsplothandlers.code
-.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplotsmeshplothandler.c
-ode.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplotsmeshplotimage.cod
-e.tex)))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplots.scaling.code.tex
-)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplotscoordprocessing.c
-ode.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplots.errorbars.code.t
-ex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplots.markers.code.tex
-) (D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplotsticks.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgfplots\pgfplots.paths.code.tex)
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\frontendlayer\tikz\libraries\t
-ikzlibrarydecorations.code.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\modules\pgfmoduledecorations.c
-ode.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\sys\pgflibrarypgfplots.surfs
+hading.pgfsys-pdftex.def")))
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\util\pgfplotscolormap.code.t
+ex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\util\pgfplotscolor.code.tex"
+))
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplotsstackedplots.code.te
+x")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplotsplothandlers.code.te
+x"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplotsmeshplothandler.code
+.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplotsmeshplotimage.code.t
+ex")))
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.scaling.code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplotscoordprocessing.code
+.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.errorbars.code.tex"
+) ("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.markers.code.tex"
+) ("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplotsticks.code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgfplots\pgfplots.paths.code.tex")
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarydecorations.code.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduledecorations.code
+.tex"
 \pgfdecoratedcompleteddistance=\dimen161
 \pgfdecoratedremainingdistance=\dimen162
 \pgfdecoratedinputsegmentcompleteddistance=\dimen163
@@ -818,14 +805,14 @@ ode.tex
 )
 \tikz@lib@dec@box=\box40
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\frontendlayer\tikz\libraries\t
-ikzlibrarydecorations.pathmorphing.code.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\libraries\decorations\pgflibra
-rydecorations.pathmorphing.code.tex))
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\frontendlayer\tikz\libraries\t
-ikzlibrarydecorations.pathreplacing.code.tex
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\libraries\decorations\pgflibra
-rydecorations.pathreplacing.code.tex))
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarydecorations.pathmorphing.code.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\decorations\pgflibraryd
+ecorations.pathmorphing.code.tex"))
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarydecorations.pathreplacing.code.tex"
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\decorations\pgflibraryd
+ecorations.pathreplacing.code.tex"))
 \pgfplots@numplots=\count128
 \pgfplots@xmin@reg=\dimen168
 \pgfplots@xmax@reg=\dimen169
@@ -834,32 +821,32 @@ rydecorations.pathreplacing.code.tex))
 \pgfplots@zmin@reg=\dimen172
 \pgfplots@zmax@reg=\dimen173
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\frontendlayer\tikz\libraries\t
-ikzlibraryplotmarks.code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+libraryplotmarks.code.tex"
 File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\pgf\libraries\pgflibraryplotmarks.
-code.tex
+("D:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplotmarks.cod
+e.tex"
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
-))) (D:\Windows_Program_Files\MikTeX\tex\latex\chngcntr\chngcntr.sty
+))) ("D:\Program Files\MiKTeX 2.9\tex\latex\chngcntr\chngcntr.sty"
 Package: chngcntr 2009/09/02 v1.0a change counter resetting
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\babel\babel.sty
+("D:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2016/01/08 3.9n The Babel package
 
 *************************************
 * Local config file bblopts.cfg used
 *
-(D:\Windows_Program_Files\MikTeX\tex\latex\00miktex\bblopts.cfg
+("D:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
 File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\babel-german\ngerman.ldf
+("D:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngerman.ldf"
 Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\babel-german\ngermanb.ldf
+("D:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngermanb.ldf"
 Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\babel\babel.def
+("D:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2016/01/08 3.9n Babel common definitions
 \babel@savecnt=\count129
 \U@D=\dimen174
@@ -868,14 +855,14 @@ File: babel.def 2016/01/08 3.9n Babel common definitions
 \l@nswissgerman = a dialect from \language\l@ngerman 
 Package babel Info: Making " an active character on input line 88.
 )))
-(D:\Windows_Program_Files\MikTeX\tex\latex\hyperref\hyperref.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\oberdiek\hobsub-hyperref.sty
+("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
 Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
 
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\oberdiek\hobsub-generic.sty
+("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
 Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
@@ -916,27 +903,27 @@ Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-(D:\Windows_Program_Files\MikTeX\tex\generic\ifxetex\ifxetex.sty
+("D:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\oberdiek\auxhook.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\oberdiek\kvoptions.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen175
 \Hy@linkcounter=\count130
 \Hy@pagecounter=\count131
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\hyperref\pd1enc.def
+("D:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 \Hy@SavedSpaceFactor=\count132
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\00miktex\hyperref.cfg
+("D:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Option `breaklinks' set `true' on input line 4319.
@@ -949,7 +936,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count133
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\url\url.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -974,50 +961,51 @@ LaTeX Info: Redefining \pageref on input line 6369.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\hyperref\hpdftex.def
+("D:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count138
 \c@bookmark@seq@number=\count139
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\oberdiek\rerunfilecheck.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip51
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\microtype\microtype.sty
-Package: microtype 2016/05/01 v2.6 Micro-typographical refinements (RS)
+("D:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.sty"
+Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
 \MT@toks=\toks38
 \MT@count=\count140
-LaTeX Info: Redefining \textls on input line 774.
+LaTeX Info: Redefining \textls on input line 766.
 \MT@outer@kern=\dimen179
-LaTeX Info: Redefining \textmicrotypecontext on input line 1310.
+LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
 \MT@listname@count=\count141
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\microtype\microtype-pdftex.def
-File: microtype-pdftex.def 2016/05/01 v2.6 Definitions specific to pdftex (RS)
-LaTeX Info: Redefining \lsstyle on input line 916.
-LaTeX Info: Redefining \lslig on input line 916.
+("D:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype-pdftex.def"
+File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 915.
+LaTeX Info: Redefining \lslig on input line 915.
 \MT@outer@space=\skip52
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\microtype\microtype.cfg
-File: microtype.cfg 2016/05/01 v2.6 microtype main configuration file (RS)
+("D:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.cfg"
+File: microtype.cfg 2013/05/23 v2.5a microtype main configuration file (RS)
 ))
-(D:\Windows_Program_Files\MikTeX\tex\latex\oberdiek\pdflscape.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
 Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\graphics\lscape.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\multirow\multirow.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 \bigstrutjot=\dimen180
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\tools\multicol.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
 Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
 \c@tracingmulticols=\count142
 \mult@box=\box41
@@ -1066,10 +1054,10 @@ Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
 \colbreak@box=\box66
 \mc@col@check@num=\count150
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\tools\tabularx.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
 Package: tabularx 2014/10/28 v2.10 `tabularx' package (DPC)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\tools\array.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen190
 \extrarowheight=\dimen191
@@ -1085,7 +1073,7 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \TX@cols=\count151
 \TX@ftn=\toks40
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\tools\longtable.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty"
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip57
 \LTright=\skip58
@@ -1105,14 +1093,14 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 )
 Class scrreprt Info: longtable captions redefined on input line 41.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\germbib\bibgerm.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\germbib\bibgerm.sty"
 Package: bibgerm 2000/08/18 v0.1 Support for mixed language bibliographies
 
 ** Macros for german `BibTeX'ing added to Style Option `german' 20 Apr 1993 **
 ** idea and languages `german' and `USenglish' implemented by M. Wallmeier **
 ** Modified for LaTeX 2e and german.sty 2.5b by A. Scherer 1 Nov 1995 **
 ** Modified for ngerman.sty and babel.sty by H. Harders 21 August 2000 **)
-(D:\Windows_Program_Files\MikTeX\tex\latex\float\float.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count157
 \float@exts=\toks42
@@ -1120,13 +1108,13 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks43
 \@floatcapt=\box72
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\caption\subcaption.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
 Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\caption\caption.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\caption\caption3.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen198
@@ -1143,16 +1131,16 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\caption\ltcaption.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 ))
 \c@subfigure=\count159
 \c@subtable=\count160
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\oberdiek\hypcap.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\hypcap.sty"
 Package: hypcap 2011/02/16 v1.11 Adjusting the anchors of captions (HO)
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\footmisc\footmisc.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\footmisc\footmisc.sty"
 Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
 \FN@temptoken=\toks44
 \footnotemargin=\dimen261
@@ -1166,7 +1154,7 @@ Package footmisc Info: Declaring symbol style lamport* on input line 903.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 .
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\listings\listings.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
 \lst@mode=\count162
 \lst@gtempboxa=\box73
 \lst@token=\toks45
@@ -1180,19 +1168,19 @@ Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
 \lst@lineno=\count167
 \lst@maxwidth=\dimen265
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\listings\lstmisc.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count168
 \lst@skipnumbers=\count169
 \lst@framebox=\box74
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\listings\listings.cfg
+("D:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 LaTeX Font Info:    Try loading font information for T1+ppl on input line 89.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\psnfss\t1ppl.fd
+("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ppl.fd"
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 Package typearea Info: These are the values describing the layout:
@@ -1213,14 +1201,14 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \baselineskip   = 17.99446pt
 (typearea)              on input line 89.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\scrhack.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrhack.sty"
 Package: scrhack 2015/10/03 v3.19a KOMA-Script package 
 Package scrhack Info: hyperref hack deactivated because of
 (scrhack)             detection of hyperref version, that doesn't
 (scrhack)             need that hack, on input line 151.
 Package scrhack Info: loading float hack on input line 158.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\float.hak
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\float.hak"
 File: float.hak 2015/10/03 v3.19a KOMA-Script package (hacking package float)
 Package scrhack Info: redefining \newfloat on input line 161.
 Package scrhack Info: redefining \listof on input line 161.
@@ -1228,7 +1216,7 @@ Package scrhack Info: undefining \float@addtolists on input line 161.
 )
 Package scrhack Info: loading listings hack on input line 172.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\listings.hak
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\listings.hak"
 File: listings.hak 2015/10/03 v3.19a KOMA-Script package (hacking package listi
 ngs)
 Package tocbasic Info: setting babel extension for `lol' on input line 137.
@@ -1236,21 +1224,21 @@ Package scrhack Info: redefining \lstlistoflistings on input line 137.
 )
 Package scrhack Info: loading setspace hack on input line 179.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\setspace.hak
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\setspace.hak"
 File: setspace.hak 2015/10/03 v3.19a KOMA-Script package (hacking package setsp
 ace)
 )
 Package scrhack Info: loading lscape hack on input line 187.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\koma-script\lscape.hak
+("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\lscape.hak"
 File: lscape.hak 2015/10/03 v3.19a KOMA-Script package (hacking package lscape)
 
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\xpatch\xpatch.sty
-(D:\Windows_Program_Files\MikTeX\tex\latex\l3kernel\expl3.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\xpatch\xpatch.sty"
+("D:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
 Package: expl3 2016/04/20 v6476 L3 programming layer (loader) 
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\l3kernel\expl3-code.tex
+("D:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
 Package: expl3 2016/04/20 v6476 L3 programming layer (code)
 L3 Module: l3bootstrap 2016/02/12 v6412 L3 Bootstrap code
 L3 Module: l3names 2016/03/11 v6433 L3 Namespace for primitives
@@ -1357,13 +1345,13 @@ L3 Module: l3candidates 2016/03/25 v6456 L3 Experimental additions to l3kernel
 \l__coffin_scaled_width_dim=\dimen296
 L3 Module: l3luatex 2016/03/26 v6465 L3 Experimental LuaTeX-specific functions
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\l3kernel\l3pdfmode.def
+("D:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
 File: l3pdfmode.def 2016/03/26 v6465 L3 Experimental driver: PDF mode
 \l__driver_color_stack_int=\count192
 ))
 Package: xpatch 2012/10/02 v0.3 Extending etoolbox patching commands
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\l3packages\xparse\xparse.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
 Package: xparse 2016/04/20 v6476 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count193
 \l__xparse_m_args_int=\count194
@@ -1371,7 +1359,7 @@ Package: xparse 2016/04/20 v6476 L3 Experimental document command parser
 \l__xparse_processor_int=\count196
 \l__xparse_v_nesting_int=\count197
 )
-(D:\Windows_Program_Files\MikTeX\tex\latex\etoolbox\etoolbox.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count198
 )
@@ -1560,9 +1548,19 @@ Package scrhack Info: \landscape patched to make \textheight change optional on
  input line 91.
 \scrh@LT@textheight=\skip67
 )))
-(arbeit-vorlage.aux (Einleitung.aux) (DiamondSquare.aux) (FourierSynthesis.aux)
+(arbeit-vorlage.aux (Einleitung.aux
+
+LaTeX Warning: Label `img.heightfield' multiply defined.
+
+) (DiamondSquare.aux) (FourierSynthesis.aux)
 
 LaTeX Warning: Label `latticeFunc' multiply defined.
+
+
+LaTeX Warning: Label `eq.fractalnoise' multiply defined.
+
+
+LaTeX Warning: Label `img.multiRendered' multiply defined.
 
 )
 \openout1 = `arbeit-vorlage.aux'.
@@ -1582,7 +1580,7 @@ LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
  ABD: EveryShipout initializing macros
-(D:\Windows_Program_Files\MikTeX\tex\context\base\supp-pdf.mkii
+("D:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count199
 \scratchdimen=\dimen297
@@ -1604,10 +1602,10 @@ your preamble.
 
 \AtBeginShipoutBox=\box91
 Package hyperref Info: Link coloring OFF on input line 3.
-(D:\Windows_Program_Files\MikTeX\tex\latex\hyperref\nameref.sty
+("D:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-(D:\Windows_Program_Files\MikTeX\tex\generic\oberdiek\gettitlestring.sty
+("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count271
@@ -1631,7 +1629,7 @@ Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\microtype\mt-ppl.cfg
+("D:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-ppl.cfg"
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
 
@@ -1644,31 +1642,31 @@ Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count272
 Package scrhack Info: undefining \float@addtolists on input line 3.
 LaTeX Font Info:    Try loading font information for OT1+ppl on input line 27.
-(D:\Windows_Program_Files\MikTeX\tex\latex\psnfss\ot1ppl.fd
+("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ppl.fd"
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Try loading font information for OML+zplm on input line 27.
 
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\psnfss\omlzplm.fd
+("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlzplm.fd"
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Try loading font information for OMS+zplm on input line 27.
 
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\psnfss\omszplm.fd
+("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omszplm.fd"
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Try loading font information for OMX+zplm on input line 27.
 
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\psnfss\omxzplm.fd
+("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omxzplm.fd"
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Try loading font information for OT1+zplm on input line 27.
 
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\psnfss\ot1zplm.fd
+("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1zplm.fd"
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 Package microtype Info: Loading generic settings for font family
@@ -1687,10 +1685,10 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 32.
  [1
 
-{C:/Users/tjark/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/Users/Tjark/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Try loading font information for T1+cmss on input line 37.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\base\t1cmss.fd
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmss.fd"
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 Package microtype Info: Loading generic settings for font family
@@ -1701,7 +1699,21 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ppl/b/n' tried instead on input line 37.
 Package tocbasic Info: character protrusion at toc deactivated on input line 37
 .
- (arbeit-vorlage.toc)
+ (arbeit-vorlage.toc
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 27.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 27.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 27.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 27.
+
+[2
+
+
+
+])
 \tf@toc=\write5
 \openout5 = `arbeit-vorlage.toc'.
 
@@ -1713,18 +1725,20 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 38.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 38.
-[2
-
-
-
-]
+ [3]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 38.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 38.
 Package tocbasic Info: character protrusion at lof deactivated on input line 38
 .
- (arbeit-vorlage.lof)
+ (arbeit-vorlage.lof
+Overfull \hbox (32.23091pt too wide) in paragraph at lines 5--5
+ [][] [][]\T1/ppl/m/n/12 (-20) Gerenderte Vo-xel-land-schaft mit Über-hän-gen. 
+Bild-quel-le: http://tinyurl.com/jq8vta8[] [][]  
+ []
+
+)
 \tf@lof=\write6
 \openout6 = `arbeit-vorlage.lof'.
 
@@ -1736,7 +1750,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 39.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 39.
- [3
+ [4
 
 
 ]
@@ -1758,7 +1772,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 42.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 42.
- [4
+ [5
 
 
 ]
@@ -1770,12 +1784,6 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 12.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 12.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1788,8 +1796,76 @@ Package babel Info: Redefining ngerman shorthand "~
 
 
 
-])
-Overfull \hbox (105.43352pt too wide) in paragraph at lines 22--42
+]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 18.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 18.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 18.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 22.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 22.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 22.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 28.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 28.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 28.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 28.
+ [2] <images/heightfield_rendered.png, id=228, 702.625pt x 301.125pt>
+File: images/heightfield_rendered.png Graphic file (type png)
+
+<use images/heightfield_rendered.png>
+Package pdftex.def Info: images/heightfield_rendered.png used on input line 31.
+
+(pdftex.def)             Requested size: 469.47052pt x 201.20592pt.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 32.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 35.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 35.
+
+<images/voxel_rendered.jpg, id=229, 301.125pt x 223.58531pt>
+File: images/voxel_rendered.jpg Graphic file (type jpg)
+
+<use images/voxel_rendered.jpg>
+Package pdftex.def Info: images/voxel_rendered.jpg used on input line 43.
+(pdftex.def)             Requested size: 469.47052pt x 348.61424pt.
+
+Underfull \hbox (badness 7081) in paragraph at lines 44--44
+[]\T1/ppl/b/n/10.95 Abbildung 1.1.2: |\T1/ppl/m/n/10.95 (+20) Ge-ren-der-te Vo-
+xel-land-schaft mit Über-hän-gen. Bild-quel-le:
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 47.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 47.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 50.
+[3 <./images/heightfield_rendered.png (PNG copy)>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 50.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 50.
+ [4 <./images/voxel_rendered.jpg>])
+Overfull \hbox (105.43352pt too wide) in paragraph at lines 57--42
 \T1/ppl/m/n/12 (-20) ex-pli-zi-ten Al-go-rith-men, wäh-rend die Rausch-funk-tio
 -nen im-pli-zit aus-wert-bar sind. 
  []
@@ -1802,7 +1878,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 42.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 42.
-[2]
+[5]
 \openout2 = `DiamondSquare.aux'.
 
  (DiamondSquare.tex
@@ -1812,31 +1888,76 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
 LaTeX Font Info:    Try loading font information for U+fplmbb on input line 3.
-(D:\Windows_Program_Files\MikTeX\tex\latex\psnfss\ufplmbb.fd
+("D:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ufplmbb.fd"
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
-<images/Diamond_Square.png, id=156, 1927.2pt x 411.5375pt>
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 5.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 5.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 5.
+<images/Diamond_Square.png, id=250, 1927.2pt x 411.5375pt>
 File: images/Diamond_Square.png Graphic file (type png)
 
 <use images/Diamond_Square.png>
-Package pdftex.def Info: images/Diamond_Square.png used on input line 10.
+Package pdftex.def Info: images/Diamond_Square.png used on input line 11.
 (pdftex.def)             Requested size: 469.47052pt x 100.2467pt.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 11.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 15.
+(babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 15.
+(babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 15.
+(babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 15.
- [3
+(babel)             in language  on input line 16.
+ [6
 
 
 
 
- <./images/Diamond_Square.png>])
+ <./images/Diamond_Square.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 17.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 17.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 20.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 20.
+
+("D:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 23.
+
+("D:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ (data/diamondSquare.cs
+LaTeX Font Info:    Try loading font information for U+mvs on input line 1.
+("D:\Program Files\MiKTeX 2.9\tex\latex\marvosym\umvs.fd")
+("D:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-mvs.cfg"
+File: mt-mvs.cfg 2006/07/05 v1.1 microtype config. file: Marvosym Euro (RS)
+)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 10.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 10.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 10.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 10.
+ [7]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <6> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 29.
+))
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 44.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1845,7 +1966,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 44.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 44.
- [4]
+ [8]
 \openout2 = `FourierSynthesis.aux'.
 
 
@@ -1855,8 +1976,54 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
-Missing character: There is no b in font fplmbb!
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 4.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 4.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 13.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 13.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 13.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 13.
+[9
+
+
+
+
+] <images/fourier_24.jpg, id=328, 1284.8pt x 722.7pt>
+File: images/fourier_24.jpg Graphic file (type jpg)
+
+<use images/fourier_24.jpg>
+Package pdftex.def Info: images/fourier_24.jpg used on input line 17.
+(pdftex.def)             Requested size: 230.04312pt x 129.39667pt.
+
+<images/fourier_20.jpg, id=329, 1284.8pt x 722.7pt>
+File: images/fourier_20.jpg Graphic file (type jpg)
+
+<use images/fourier_20.jpg>
+Package pdftex.def Info: images/fourier_20.jpg used on input line 18.
+(pdftex.def)             Requested size: 230.04312pt x 129.39667pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 22.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 22.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 25.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 25.
 )
+Overfull \hbox (43.03691pt too wide) in paragraph at lines 27--46
+\T1/ppl/m/n/12 (-20) Seed aus wo-mit sich der Spei-cher-auf-wand auf ei-ni-ge B
+y-tes ver-rin-gert. 
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 46.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1865,39 +2032,35 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 46.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 46.
- [5
-
-
-
-
-] (Noise.tex
+[10 <./images/fourier_24.jpg> <./images/fourier_20.jpg>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 46.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 46.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 46.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 46.
+ [11] (Noise.tex
 chapter 4.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
 
-Overfull \hbox (58.34827pt too wide) in paragraph at lines 7--8
-\T1/ppl/m/n/12 (-20) klärt, be-vor es einen Aus-blick auf den \T1/ppl/m/it/12 (
--20) Simplex-Noise[]\T1/ppl/m/n/12 (-20) 4.5[] Al-go-rith-mus gibt. 
+Overfull \hbox (117.2034pt too wide) in paragraph at lines 7--8
+\T1/ppl/m/n/12 (-20) klärt, be-vor es einen Aus-blick auf ver-schie-den Ab-wand
+-lun-gen von \T1/ppl/m/it/12 (-20) Frac-tal Noi-se \T1/ppl/m/n/12 (-20) gibt. 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 11.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 11.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 12.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 12.
-
-Overfull \hbox (17.11723pt too wide) in paragraph at lines 13--15
-\T1/ppl/m/n/12 (-20) Der ers-te Schritt zur Er-zeu-gung von Noi-se ist in der R
-e-gel ei-ne so-ge-nann-te \T1/ppl/m/it/12 (-20) Noise-Lattice(Rausch-
- []
-
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1906,287 +2069,303 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 15.
-[6
+[12
 
 
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 19.
+(babel)             in language  on input line 17.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 19.
+(babel)             in language  on input line 17.
 
-Overfull \hbox (22.33334pt too wide) in paragraph at lines 22--23
+Overfull \hbox (22.33334pt too wide) in paragraph at lines 20--21
 []\T1/ppl/m/n/12 (-20) Um über-haupt ei-ne ste-ti-ge Noise-Funktion zu er-mög-l
 i-chen, muss 
  []
 
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 52.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 52.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 54.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 54.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 54.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 54.
+[13] (data/valueNoise.cs)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 60.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 60.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 60.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 60.
+ [14]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 62.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 62.
+ (data/gradientNoise.cs)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 76.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 76.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 79.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 79.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 79.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 79.
+ [15]
+<images/perlin_rendered.png, id=426, 986.9372pt x 685.8122pt>
+File: images/perlin_rendered.png Graphic file (type png)
 
-Overfull \hbox (68.4826pt too wide) in paragraph at lines 25--27
-\T1/ppl/m/n/12 (-20) lich wirkt, soll-te je-doch ei-ne Ste-tig-keit von $\OML/z
-plm/m/it/12 C[]$ \T1/ppl/m/n/12 (-20) und da-mit die Ei-gen-schaf-ten 
- []
+<use images/perlin_rendered.png>
+Package pdftex.def Info: images/perlin_rendered.png used on input line 97.
+(pdftex.def)             Requested size: 469.47052pt x 326.23509pt.
+ (data/fractalNoise.cs)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 103.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 103.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 105.
+ [16]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 105.
+ [17 <./images/perlin_rendered.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 106.
 
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 56.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 56.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 58.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 58.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 58.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 58.
-[7] (D:\Windows_Program_Files\MikTeX\tex\latex\listings\lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 62.
+<images/ridged_rendered.png, id=454, 991.45406pt x 695.59875pt>
+File: images/ridged_rendered.png Graphic file (type png)
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\base\t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- (data/valueNoise.cs
-LaTeX Font Info:    Try loading font information for U+mvs on input line 1.
+<use images/ridged_rendered.png>
+Package pdftex.def Info: images/ridged_rendered.png used on input line 118.
+(pdftex.def)             Requested size: 469.47052pt x 329.37268pt.
+ (data/RidgedNoiseHLSL.hlsl)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 122.
+ [18]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 122.
+ [19 <./images/ridged_rendered.png>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 124.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 124.
 
-(D:\Windows_Program_Files\MikTeX\tex\latex\marvosym\umvs.fd)
-(D:\Windows_Program_Files\MikTeX\tex\latex\microtype\mt-mvs.cfg
-File: mt-mvs.cfg 2006/07/05 v1.1 microtype config. file: Marvosym Euro (RS)
-))
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 64.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 64.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 68.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 68.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 68.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 68.
- [8]
-(data/gradientNoise.cs)
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 78.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 78.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 83.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 83.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 83.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 83.
- [9] (data/fractalNoise.cs)
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 95.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 95.
-)
-<images/bild.pdf, id=267, 415.35217pt x 271.05566pt>
-File: images/bild.pdf Graphic file (type pdf)
- <use images/bild.pdf>
-Package pdftex.def Info: images/bild.pdf used on input line 50.
-(pdftex.def)             Requested size: 455.24408pt x 297.09093pt.
+<images/ridgedmulti_rendered.png, id=489, 987.69pt x 764.8575pt>
+File: images/ridgedmulti_rendered.png Graphic file (type png)
 
-Overfull \hbox (18.03021pt too wide) in paragraph at lines 55--57
-\T1/ppl/m/n/12 (-20) ist all-seits be-kannt und be-darf wohl kei-ner wei-te-ren
- Er-läu-te-rung. 
- []
+<use images/ridgedmulti_rendered.png>
+Package pdftex.def Info: images/ridgedmulti_rendered.png used on input line 136
+.
+(pdftex.def)             Requested size: 469.47052pt x 363.5445pt.
+ (data/RidgedMultiNoiseHLSL.hlsl)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 142.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 142.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 145.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 145.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 145.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 145.
+ [20]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 145.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 145.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 145.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 145.
 
+[21 <./images/ridgedmulti_rendered.png>]
+<images/hybridmulti_rendered.png, id=525, 991.45406pt x 650.43pt>
+File: images/hybridmulti_rendered.png Graphic file (type png)
 
-Overfull \hbox (104.47833pt too wide) in paragraph at lines 58--59
-\T1/ppl/m/n/12 (-20) Hieran sieht man den Vor-teil des autoref-Befehls und das 
-so Links er-stellt wer-den. 
- []
+<use images/hybridmulti_rendered.png>
+Package pdftex.def Info: images/hybridmulti_rendered.png used on input line 150
+.
+(pdftex.def)             Requested size: 469.47052pt x 307.98483pt.
+ (data/HMFNoise.hlsl
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 7.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 7.
+ [22 <./images/hybridmulti_rendered.png>])
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 157.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 157.
 
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 78.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 78.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 81.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 81.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 81.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 81.
-[10]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 81.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 81.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 81.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 81.
- [11 <./images/bild.pdf>]
-<images/schwein1.pdf, id=316, 184.1316pt x 184.1316pt>
-File: images/schwein1.pdf Graphic file (type pdf)
+<images/domainwarped_rendered.png, id=539, 989.19562pt x 744.53156pt>
+File: images/domainwarped_rendered.png Graphic file (type png)
 
-<use images/schwein1.pdf>
-Package pdftex.def Info: images/schwein1.pdf used on input line 85.
-(pdftex.def)             Requested size: 230.04312pt x 230.04874pt.
- <images/schwein2.png, id=317, 445.665pt x 445.665pt>
-File: images/schwein2.png Graphic file (type png)
-
-<use images/schwein2.png>
-Package pdftex.def Info: images/schwein2.png used on input line 87.
-(pdftex.def)             Requested size: 230.04312pt x 230.04706pt.
+<use images/domainwarped_rendered.png>
+Package pdftex.def Info: images/domainwarped_rendered.png used on input line 16
+7.
+(pdftex.def)             Requested size: 469.47052pt x 353.34943pt.
+) (arbeit-vorlage.bbl
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 95.
- [12 <./images/schwein1.pdf> <./images/schwein2.png>]
-chapter A.
+(babel)             in language  on input line 1.
+ [23]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
-(D:\Windows_Program_Files\MikTeX\tex\latex\listings\lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(D:\Windows_Program_Files\MikTeX\tex\latex\listings\lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 99.
- (code/cpu.c
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <6> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 6.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 89.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 89.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 89.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 89.
-
-[13
-
-
-
-]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 191.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 191.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 191.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 191.
- [14])
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 100.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 100.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 100.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 100.
- [15] (arbeit-vorlage.bbl
+(babel)             in language  on input line 1.
+ [24 <./images/domainwarped_rendered.png>]
 chapter without number
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
 
-Underfull \hbox (badness 6236) in paragraph at lines 57--63
+Underfull \hbox (badness 5652) in paragraph at lines 62--68
 []\T1/ppl/m/n/12 (+20) Jens Schnei-der, Ru-di-ger W. To-bi-as Bold-te B. To-bi-
 as Bold-te:  \T1/ppl/m/it/12 (+20) Real-
  []
 
 
-Underfull \hbox (badness 6380) in paragraph at lines 57--63
+Underfull \hbox (badness 5652) in paragraph at lines 62--68
 \T1/ppl/m/it/12 (+20) Time Editing, Syn-the-sis, and Ren-de-ring of In-fi-ni-te
  Lands-ca-pes on GPUs\T1/ppl/m/n/12 (+20) .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--63
+Underfull \hbox (badness 10000) in paragraph at lines 62--68
 []$\T1/cmtt/m/n/12 http : / / wwwcg . in . tum . de / fileadmin / user _ upload
  / Lehrstuehle / Lehrstuhl _$
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 71.
-[16
-
+(babel)             in language  on input line 68.
+[25
 
 
 ])
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 107.
- [17]
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+(babel)             in language  on input line 55.
+ [26]
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 114.
+(babel)             in language  on input line 62.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 114.
+(babel)             in language  on input line 62.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 114.
+(babel)             in language  on input line 62.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 114.
-[18
+(babel)             in language  on input line 62.
+[27
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 114.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 62.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 62.
  (arbeit-vorlage.aux (Einleitung.aux) (DiamondSquare.aux)
 (FourierSynthesis.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
-Package rerunfilecheck Info: File `arbeit-vorlage.out' has not changed.
-(rerunfilecheck)             Checksum: 2F5A0DB98A746303BC2C12CE9B5C6A0C;1112.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 62.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 62.
 
+
+Package rerunfilecheck Warning: File `arbeit-vorlage.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `arbeit-vorlage.out':
+(rerunfilecheck)             Before: DCFAC0F5E1E69A9EC81E1E1431F28C16;1951
+(rerunfilecheck)             After:  E29C19E5A0BC45CA513DA98FF594C50C;1951.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 62.
  ) 
 Here is how much of TeX's memory you used:
- 42178 strings out of 493634
- 919559 string characters out of 3142151
- 1420649 words of memory out of 3000000
- 44295 multiletter control sequences out of 15000+200000
- 65243 words of font info for 245 fonts, out of 3000000 for 9000
+ 41975 strings out of 493634
+ 914488 string characters out of 3143745
+ 1278313 words of memory out of 3000000
+ 44120 multiletter control sequences out of 15000+200000
+ 72959 words of font info for 289 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 75i,12n,100p,10525b,2161s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not ex
+ 75i,12n,100p,10525b,1957s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not ex
 ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exis
+t, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
 , replaced by a fixed one
@@ -2215,28 +2394,33 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
- <C:\Users\tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ec
-tt1200.pk> <C:\Users\tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
-\dpi450\ecit0800.pk> <C:\Users\tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\j
-knappen\ec\dpi450\ectt0800.pk>{D:/Windows_Program_Files/MikTeX/fonts/enc/dvips/
-fontname/8r.enc}<D:/Windows_Program_Files/MikTeX/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><D:/Windows_Program_Files/MikTeX/fonts/type1/public/amsfonts/cm/cme
-x10.pfb><D:/Windows_Program_Files/MikTeX/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb><D:/Windows_Program_Files/MikTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-<D:/Windows_Program_Files/MikTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/W
-indows_Program_Files/MikTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Window
-s_Program_Files/MikTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Windows_Prog
-ram_Files/MikTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Windows_Program_
-Files/MikTeX/fonts/type1/public/mathpazo/fplmbb.pfb><D:/Windows_Program_Files/M
-ikTeX/fonts/type1/public/mathpazo/fplmr.pfb><D:/Windows_Program_Files/MikTeX/fo
-nts/type1/urw/palatino/uplb8a.pfb><D:/Windows_Program_Files/MikTeX/fonts/type1/
-urw/palatino/uplr8a.pfb><D:/Windows_Program_Files/MikTeX/fonts/type1/urw/palati
-no/uplr8a.pfb><D:/Windows_Program_Files/MikTeX/fonts/type1/urw/palatino/uplri8a
-.pfb>
-Output written on arbeit-vorlage.pdf (22 pages, 351817 bytes).
+pdfTeX warning (dest): name{table.caption.15} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.14} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.16} has been referenced but does not exist
+, replaced by a fixed one
+
+ <C:\Users\Tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ec
+tt1200.pk> <C:\Users\Tjark\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
+\dpi450\ectt0800.pk>{D:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.en
+c}<D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/mathpazo/fplmbb.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/mathpazo/fplmr.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/mathpa
+zo/fplmri.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/marvosym/marvosym
+.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><D:/Progr
+am Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><D:/Program Files/MiKTe
+X 2.9/fonts/type1/urw/palatino/uplr8a.pfb><D:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/urw/palatino/uplri8a.pfb>
+Output written on arbeit-vorlage.pdf (32 pages, 8795963 bytes).
 PDF statistics:
- 891 PDF objects out of 1000 (max. 8388607)
- 669 compressed objects within 7 object streams
- 351 named destinations out of 1000 (max. 500000)
- 48817 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 832 PDF objects out of 1000 (max. 8388607)
+ 640 compressed objects within 7 object streams
+ 265 named destinations out of 1000 (max. 500000)
+ 51487 words of extra memory for PDF output out of 51595 (max. 10000000)
 

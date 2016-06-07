@@ -3,7 +3,6 @@
 inline float NoiseFuncPlain(sampler2D latticeArray, float latticeSize, float x, float y, int kmax, float lacunarity, float h, bool derive = false, bool deriveAfterX = true) {
 
 	float currHeight = 0;
-	//currHeight = NoiseFuncPlain(latticeArray, latticeSize, x, y, --k, lacunarity, h);
 
 	for (int k = 0; k < kmax; k++) {
 		float val = (1-abs(S1F(latticeArray, latticeSize, x * pow(lacunarity, k), y * pow(lacunarity, k), derive, deriveAfterX))) / (!derive ? pow(lacunarity, k * h) : 1);

@@ -1,17 +1,27 @@
 \chapter{Fourier-Spektralsynthese}
 Bei der Spektralsynthese wird das Höhenfeld in der Frequenz-Domäne modelliert und durch die inverse Fourier Transformation in ein Höhenfeld in der Raum-Domäne umgewandelt. 
 
-Als ersten Schritt sollten sich Gedanken darüber gemacht werden, welche Frequenzanteile für einen plausiblen Eindruck notwendig sind und wie stark diese ausgeprägt sein sollten. Eine Landschaft etwa hat Niederfrequente Anteile mit großer Amplitude die Hügel und Täler formen und Höherfrequente Anteile mit niedriger Amplitude durch die unregelmäßigkeiten und die Rauheit des Bodens simuliert wird.
+\subsection{Der Algorithmus}
+Als ersten Schritt sollten sich Gedanken darüber gemacht werden, welche Frequenzanteile für einen plausiblen Eindruck notwendig sind und wie stark diese ausgeprägt sein sollten. Eine Landschaft etwa hat Niederfrequente Anteile mit großer Amplitude die Hügel und Täler formen und Höherfrequente Anteile mit niedriger Amplitude durch die Unregelmäßigkeiten und die Rauheit des Bodens simuliert wird.
 
-Um das Höhenfeld zu modellieren wird weißes Rauschen erzeugt welches im Anschluss durch einen beliebigen Filter die ungewünschten Frequenzanteile entfernt bzw. deren Amplitude verringert.
-%TODO QUellen hinzufügen
-Weißes Rauschen bezeichnet ein Signal welches aus im der Frequenz-Domäne allen Frequenzen eine konstante Amplitude zuordnet. Für den Zweck der Höhenfeldsynthese reicht uns eine Annäherung vollkommen aus. Dazu wird in der Raum-Domäne ein Bild erzeugt in dem der Farbwert für einen Pixel durch einen einfachen, C-ähnlichen Pseudozufallsgenerator erzeugt wird. Dieses verhält sich, in die Frequenz-Domäne übertragen, ähnlich wie weißes Rauschen.
+Um das Höhenfeld zu modellieren wird weißes Rauschen erzeugt welches im Anschluss durch einen beliebigen Filter die unerwünschten Frequenzanteile entfernt bzw. deren Amplitude verringert.
+Weißes Rauschen bezeichnet ein Signal welches in der Frequenz-Domäne allen Frequenzen eine konstante Amplitude zuordnet\cite{whiteNoise}. Für den Zweck der Höhenfeldsynthese ist eine Annäherung vollkommen ausreichend. Dazu wird in der Raum-Domäne ein Bild erzeugt in dem der Farbwert eines Pixels durch einen einfachen, C-ähnlichen Pseudozufallsgenerator erzeugt wird\label{fourier.rauschbild}. Dieses Bild verhält sich, in die Frequenz-Domäne übertragen, ähnlich wie weißes Rauschen.
 
-Der Filter den wir nun auf dieses Rauschen anwenden bestimmt entscheidend das Aussehen des späteren Höhenfeldes. Plausible Ergebnisse lassen sich mit dem Filter $f=1/f^\mathbb{b}$%TODO beta
-erzeugen. Das resultierende Frequenz Bild entspricht bei $beta=2$ dem von Fractale-Brownian Motion\footnote{Auch Pinkes-Rauschen}.
-In %TODO Bilder
-sieht man das in 3D visualisierte Ergebnis des resultierenden Höhenfeldes.
+Der Filter den wir nun auf dieses Rauschen anwenden bestimmt entscheidend das Aussehen des späteren Höhenfeldes. Plausible Ergebnisse lassen sich mit dem Filter $f=1/f^\beta$
+erzeugen. Das resultierende Frequenz Bild entspricht bei der richtigen Wahl des Filters der von gebrochener Brownscher Bewegung\cite{fbmFromFourier}, welche dafür geeignet ist eine Vielzahl von natürlichen Phänomenen die auf Selbstähnlichkeit basieren passend zu beschreiben\cite{fbm}.
+In \autoref{img.fourierResult} sieht man das in 3D visualisierte Ergebnis des resultierenden Höhenfeldes. Besonders zu bemerken sind der deutlich höhere Detailgrad der Landschaft in \autoref{img.fourier20} welcher aus den höheren Amplituden der Hochfrequenten Anteile folgt.
 
-Die Spektralsynthese ist sehr flexibel anpassbar, da sich mit der Änderung des Filters beliebig viele Effekte mit wenig Implementierungsaufwand erzeugen lassen.
+\begin{figure}
+	\centering
+	\subcaptionbox{Spektralsynthese mit Filter $f=1/f^{2.4}$\label{img.fourier24}}
+	{\includegraphics[width=0.49\textwidth]{images/fourier_24.jpg}}
+	\subcaptionbox{Spektralsynthese mit Filter $f=1/f^{2.0}$\label{img.fourier20}} {\includegraphics[width=0.49\textwidth]{images/fourier_20.jpg}}
+	\caption{Durch Spektralsynthese erzeugte Höhenfelder in 3D gerendert. Bilder entnommen von: http://tinyurl.com/z6lfzmv}\label{img.fourierResult}
+\end{figure}\label{test}
 
-%TODO Bilder 
+\subsection{Flexibilität}
+Die Spektralsynthese ist sehr flexibel anpassbar, da sich mit der Änderung des Filters beliebig viele Effekte mit wenig Implementierungsaufwand erzeugen lassen. Klare Nachteile ergeben sich jedoch aus der genutzten Fourier bzw. der inversen Fourier Transformation, welche eine Auswertung innerhalb eines Frames nahezu unmöglich macht. Da die Frequenzen an jedem Ort des Höhenfeldes wirken hat das resultierende Gelände einen konstanten Detailgrad. Wünschenswert wäre es jedoch, die Höherfrequenten Anteil in den tiefer liegenden Regionen nicht anzuzeigen, da das Täler in der Natur nicht so rau sind wie Berge\label{unisotrop}. Im Vergleich zum Diamond-Square Algorithmus ist die Auflösung des Höhenfeldes jedoch irrelevant für die Funktionalität.
+
+\subsection{Bewertung im Rahmen der Fragestellung}
+%TODO Noch mal rübergucken da Fragestellung neu
+Die Speicherung großer Geländeabschnitte erweist sich recht einfach. Es müssten zu jedem Gelände nur das zugehörige Rauschbild\ref{fourier.rauschbild} plus Filter gespeichert werden. Da das Rauschbild aus einem Pseudozufallsgenerator kommt, reicht hier auch der sogenannte Seed aus womit sich der Speicheraufwand auf einige Bytes verringert.
