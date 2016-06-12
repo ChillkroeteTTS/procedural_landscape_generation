@@ -13,8 +13,6 @@ Neben der Synthese von Landschaften sind diese Algorithmen vielseitig einsetzbar
 
 Der Diamond-Square Algorithmus sowie verschiedene Rauschfunktionen sind in dem diesem Dokument beiliegendem Unity-Projekt in C\# bzw. HLSL\footnote{High Level Shading Language} implementiert und lassen sich durch Unity auf Windows, Unix und Mac OS basierten Betriebssystemen kompilieren.
 
-%TODO Kapitel zu aktuellen Anwendungen
-
 \section{Datenstrukturen zur Landschaftsspeicherung: Höhenfelder vs. Voxel}
 Landschaften werden in der Regel entweder in einem Höhenfeld oder in Voxeln gespeichert.
 Der wesentliche Unterschied der beiden Techniken liegt in ihrer Dimensionen. Das Höhenfeld speichert in einem ganzzahligen Zweidimensionalen Koordinatensystem zu jedem Punkt den dazugehörigen Höhenwert der Landschaft, während ein Voxel den Dichtewert eines Punktes in einem Dreidimensionalem Koordinatensystem darstellt. Beide Datenstrukturen haben den Vorteil, dass sich die Position jedes Wertes in der Landschaft implizit aus der Position zu seinen Nachbarn bestimmen lässt. Eine zusätzliche Speicherung seiner Koordinate ist also nicht notwendig. Anders wäre es bei Polygonen, wo jeder Vertex eine Koordinate im Raum hat. Polygone sind daher gut für Szenen geeignet, in denen viel Leerraum herrscht, welcher in den hier vorgestellten Datenstrukturen zu unnötig gespeicherten Daten führe würde

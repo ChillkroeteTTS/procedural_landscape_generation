@@ -8,10 +8,11 @@ Dieses Kapitel soll ein grundlegendes Verständnis über Noise-Funktionen bieten
 
 Weitere ausführliche Beschreibung in \cite{BurgerGradientNoise2008} (Gradient-Noise) und in \cite{simplexNoise} zu \emph{Simplex-Noise} welches eine, besonders in höheren Dimensionen, performantere Implementierung von Perlin Noise darstellt.
 
-\section{Grundlagen}
+\section{Der Algorithmus}
 \subsection{Lattice-Function}\label{latticeFunc}
 Der erste Schritt zur Erzeugung von Noise ist in der Regel eine sogenannte \emph{Lattice(Gitter)-Funktion}\cite{fractalsAndChaos} der Form \begin{math}l(\vec{k}): {Z}^n \mapsto [-1 - 1]\end{math}\label{latticeFunc}.
-Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, sie muss also für jede Koordinate eines Gitterpunktes immer denselben Funktionswert liefern.}. Perlin verwendet bei seiner Implementierung eine Hashfunktion die auf ein, mit zufälligen Werten gefülltes, Array zugreift. Ein Zugriff auf dieses Array mittels simpler Modulo Operation hätte zur Folge, dass sich im Höhenfeld wiederkehrende Strukturen zeigen würden sobald die Funktion über den Rahmen des Arrays hinausgreift.
+Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, für jede Koordinate eines Gitterpunktes muss sie also immer denselben Funktionswert liefern.}. Perlin verwendet bei seiner Implementierung eine Hashfunktion die auf ein, mit zufälligen Werten gefülltes, Array zugreift. %TODO eig. nicht, wie Zufall bei Perlin? Überarbeiten!
+ Ein Zugriff auf dieses Array mittels simpler Modulo Operation hätte zur Folge, dass sich im Höhenfeld wiederkehrende Strukturen zeigen würden sobald die Funktion über den Rahmen des Arrays hinausgreift.
 
 
 \subsection{Interpolation und Fade-Function}
@@ -48,8 +49,7 @@ Dafür wird im folgenden das Polynom $f(t) = 6t^5-15t^4+10t^3$ benutzt, welches 
 	\caption{Fade-Function}
 \end{figure}
 
-
-\section{Value-Noise}\label{Value-Noise}
+\subsection{Value-Noise}\label{Value-Noise}
 Value-Noise ist die wohl naivste Implementierung einer Noise-Funktion. Bei ihr werden die Gitterpunktwerte, welche durch die \emph{Lattice-Funktion}\ref{latticeFunc} erzeugt wurden, als Höhenwerte interpretiert.
 
 Die mit $f(t)$ gebildete, interpolierende Funktion $vnoise(\vec{x}) = noise(\vec{x})$ definiert nun die Value-Noise-Funktion.
@@ -59,7 +59,7 @@ Noise lässt sich problemlos in mehrere Dimensionen skalieren. Einzig die Interp
 
 \lstinputlisting[language=csh, title=Value-Noise Implementierung C\#]{data/valueNoise.cs}\label{valueNoise.cs}
 
-\section{Gradient-Noise}\label{Gradient-Noise}
+\subsection{Gradient-Noise}\label{Gradient-Noise}
 Der vorher erwähnte Value-Noise kann, je nach Parameterwahl, noch ein unruhiges Rauschen erzeugen. Um die Übergänge zwischen den Gitterpunktwerten noch sanfter und damit natürlicher aussehen zu lassen wurde der Gradient-Noise erfunden.
 Hier werden die Gitterpunktwerte nicht als Höhenwerte, Gradienten an den Nullstellen der Noise-Funktion gesehen.
 Es ergibt sich also:
@@ -73,7 +73,7 @@ In der untenstehenden 2D C\# Implementierung ist zu sehen, wie zuerst ein Höhen
 \lstinputlisting[language=csh, title=Gradient-Noise Implementierung C\#]{data/gradientNoise.cs}
  
 
-\section{Fractal-Noise}\label{Fractal-Noise}
+\subsection{Fractal-Noise}\label{Fractal-Noise}
 
 Die bisher behandelten Noise-Funktionen erzeugen zwar natürlich erscheinende Zufallswerte, wenn man diese jedoch auf eine Heightmap überträgt wird deutlich, dass es ihr an Details fehlt um realistisch zu wirken.
 
@@ -100,8 +100,8 @@ Durch die Anpassung dieser Parameter lässt sich das Verhalten der Noise-Funktio
 
 \lstinputlisting[language=csh, title=Simple Fractal-Noise Implementierung C\#]{data/fractalNoise.cs}
 
-\section{Noise-Variationen}\label{NoiseVariationen} %TODO Screenshots der Noise Variationen
-Die in \ref{eq.fractalnoise} beschriebene Funktion lässt sich beliebig erweitern und anpassen um bestimmte Effekte zu erzielen. Im folgenden sollen daher einige bekannte und für Landschaften passende Erweiterungen erläutert werden. Diese Auflistung ist nur als eine Auswahl zu verstehen. Es gibt noch zahlreiche weitere Implementierungen wie z.B. Convolution oder auch sparse Convolution-Noise\cite{texturingAndModeling}.
+\section{Flexibilität}\label{NoiseVariationen}
+Die in \ref{eq.fractalnoise} beschriebene Funktion lässt sich beliebig erweitern und anpassen um bestimmte Effekte zu erzielen. Im folgenden sollen daher einige bekannte und für Landschaften passende Erweiterungen erläutert werden. Diese Auflistung ist nur als eine Auswahl zu verstehen. Es gibt noch zahlreiche weitere Implementierungen wie z.B. Convolution oder auch Sparse-Convolution-Noise\cite{texturingAndModeling}.
 
 \subsection{Ridged-Noise}
 In der Natur lassen sich in einigen Gebirgen sehr steile und gezahnte Kämme feststellen. Aufgrund der kontinuierlichen Natur einer Noise-Funktion sind die Kämme jedoch eher abgerundet. 
@@ -124,7 +124,7 @@ Anschaulich modelliert die Funktion nun Material aus einem Quader heraus anstatt
 \subsection{Multifraktal/heterogenes Terrain}
 Wie auch in \ref{unisotrop} erwähnt kommen hohe Frequenzen momentan sowohl in den Tälern als auch auf den Bergen unserer Landschaft vor. Um diese homogenität zu verhindern wurde eine Noise Funktion entwickelt die durch Multiplikation der Oktaven zu einem Multifraktal führt\footnote{\cite{texturingAndModeling} p.440}. 
 
-\begin{equation} \label{eq.fractalnoise}
+\begin{equation} \label{eq.multiNoise}
 multi(\vec{x}) = \prod_{k=k_0}^{k_1}\frac{1}{r^{kH}}(gnoise(r^k\vec{x})+o).
 \end{equation}
 
@@ -154,22 +154,36 @@ In \autoref{img.hybridmultiRendered} ist zu sehen, dass die hohen Frequenzen wie
 \lstinputlisting[language=csh, title=Hybrid-Multifractal Noise Implementierung HLSL]{data/HMFNoise.hlsl}
 
 
-\subsection{Domain/Range Mapping}
-%Dummy text
-Um das Problem des schwer zu bestimmenden Intervalls einer Multifraktalen Rauschfunktion zu umgehen und trotzdem ein heterogenes Terrain Ergebnis zu erzielen lassen sich die normale und die Multifraktale Rauschfunktion auch kombinieren. 
-Die Heterogenität lässt sich dadurch erreichen, dass jede Oktave vor der Addition mit einem Gewicht multipliziert wird, welches das Produkt der vorherigen Oktaven ist. Dabei wird ein Faktor $w$ definiert, welcher das zu schnelle abfallen des Gewichtwertes bremst.
+\subsection{Domain/Range Mapping} %TODO Fertig machen
+Um die Rauschfunktion mit weiteren Effekten zu versehen lässt sich Domain bzw. Range Mapping anwendenden. 
 
-In \autoref{img.hybridmultiRendered} sieht man, dass die hohen Frequenzen wie beim Multifraktalem Rauschen  kaum noch Einfluss in den Tälern haben.
-%TODO Fertig machen
+Beim Domain Mapping handelt es sich um eine Modifikation der Definitionsmenge\footnote{englisch: Domain}. So wurde etwa in \autoref{img.domainwarpedRendered} der Eingangsvektor $\vec{x}$ proportional zur Höhe rotiert.
+
+\begin{equation} \label{eq.domainrangemapping}
+rangedomain(\vec{x}) = r\left( \sum_{k=k_0}^{k_1}\frac{1}{r^{kH}}(gnoise(d(r^k\vec{x})))\right)
+\end{equation}
+
+Range Mapping bezeichnet die nachträgliche Transformation des Ergebnisses der Rauschfunktion durch eine Funktion der Form $r(x): [-1-1]\to[-1-1]$.
+Zum modellieren einer geeigneten Funktion bietet sich die von Ken Perlin vorgestellte %TODO Quelle
+Bias und Gain Funktion an.
+
+
+\subsubsection{Bias-Funktion}
+
+\subsubsection{Gain-Funktion}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/domainwarped_rendered.png}
-	\caption{Texturierte Landschaft im Beispielprogramm die aus Domain Mapped Multifractal-Noise mit $o=0.48$ und $\alpha=20$ entstanden ist.}\label{img.multiRendered}
+	\caption{Texturierte Landschaft im Beispielprogramm die aus Domain Mapped Multifractal-Noise mit $o=0.48$ und $\alpha=20$ entstanden ist.}\label{img.domainwarpedRendered}
 \end{figure}
 
 
-%TODO Auflistung und Bilder der Ergebnisse
+\section{Bewertung im Rahmen der Fragestellung}
+Das deterministische Verhalten von Rauschfunktionen erlaubt es einzig den Seed zur Erstellung %TODO Was muss gespeichert werden? Geblockt durch TODO Lattice Funktion
+
+
+%TODO Fragestellung beantworten
 
 
 
