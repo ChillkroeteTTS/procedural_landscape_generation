@@ -11,8 +11,8 @@ Weitere ausführliche Beschreibung in \cite{BurgerGradientNoise2008} (Gradient-N
 \section{Der Algorithmus}
 \subsection{Lattice-Function}\label{latticeFunc}
 Der erste Schritt zur Erzeugung von Noise ist in der Regel eine sogenannte \emph{Lattice(Gitter)-Funktion}\cite{fractalsAndChaos} der Form \begin{math}l(\vec{k}): {Z}^n \mapsto [-1 - 1]\end{math}\label{latticeFunc}.
-Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, für jede Koordinate eines Gitterpunktes muss sie also immer denselben Funktionswert liefern.}. Perlin verwendet bei seiner Implementierung eine Hashfunktion die auf ein, mit zufälligen Werten gefülltes, Array zugreift. %TODO eig. nicht, wie Zufall bei Perlin? Überarbeiten!
- Ein Zugriff auf dieses Array mittels simpler Modulo Operation hätte zur Folge, dass sich im Höhenfeld wiederkehrende Strukturen zeigen würden sobald die Funktion über den Rahmen des Arrays hinausgreift.
+Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, für jede Koordinate eines Gitterpunktes muss sie also immer denselben Funktionswert liefern.}. Perlin verwendet bei seiner Implementierung eine Hashfunktion die auf ein, mit zufälligen Werten gefülltes, Array zugreift.
+Ein Zugriff auf dieses Array mittels Modulo Operation hätte zur Folge, dass sich im Höhenfeld wiederkehrende Strukturen zeigen würden sobald die Funktion über den Rahmen des Arrays hinausgreift.
 
 
 \subsection{Interpolation und Fade-Function}
@@ -86,8 +86,7 @@ In \cite{Saupe} wird daher folgende Formel definiert:
 	fractal(\vec{x}) = \sum_{k=k_0}^{k_1}\frac{1}{r^{kH}}gnoise(r^k\vec{x}).
 \end{equation}
 
-Wobei $H=2-D$ der Hurst-Exponent ist\cite{tuMuenchen} und %TODO S. 438 oder so nachgucken wegen H
-$D=-\frac{log(\frac{1}{k1})}{log(r)}$\cite{fraktDim} die fraktale Dimension.
+Wobei $H=2-D$ der Hurst-Exponent ist\cite{tuMuenchen} und in den meisten Fällen .
 
 In der Formel beschreibt $r$ die sogenannte Lacunarity. Mit ihr lässt sich steuern, wie stark die Amplitude bei jeder Oktave abnimmt bzw. sich die Frequenz erhöht.
 Durch die Anpassung dieser Parameter lässt sich das Verhalten der Noise-Funktion gezielt steuern. Eine Implementierung in C\# findet sich unten.
@@ -113,7 +112,7 @@ ridged(\vec{x}) = \sum_{k=k_0}^{k_1}\frac{1}{r^{kH}}(1-\left|gnoise(r^k\vec{x})\
 
 Anschaulich modelliert die Funktion nun Material aus einem Quader heraus anstatt die Landschaft auf eine Ebene rauf zu modellieren. Durch den Betrag verliert die Funktion außerdem ihre Stetigkeit in der ersten Ableitung, was zu einem abrupten Richtungswechseln der Höhenfunktion führt. An diesen Punkten entstehen nun, wie in \autoref{img.ridgedRendered}zu sehen, die erwünschten scharfen Kämme.
 
-\begin{figure}
+\begin{figure}[!hbtp]%
 	\centering
 	\includegraphics[width=\textwidth]{images/ridged_rendered.png}
 	\caption{Texturierte Landschaft im Beispielprogramm die aus Ridged Noise entstanden ist}\label{img.ridgedRendered}
@@ -143,18 +142,33 @@ In \autoref{img.multiRendered} ist zu sehen, wie die tiefer gelegenen Gebiete de
 Um das Problem des schwer zu bestimmenden Intervalls einer Multifraktalen Rauschfunktion zu umgehen und trotzdem ein heterogenes Terrain Ergebnis zu erzielen lassen sich die normale und die Multifraktale Rauschfunktion auch kombinieren. 
 Die Heterogenität lässt sich dadurch erreichen, dass jede Oktave vor der Addition mit einem Gewicht multipliziert wird, welches das Produkt der vorherigen Oktaven ist. Dabei wird ein Faktor $w$ definiert, welcher das zu schnelle abfallen des Gewichtwertes bremst.
 
-In \autoref{img.hybridmultiRendered} ist zu sehen, dass die hohen Frequenzen wie beim Multifraktalem Rauschen kaum noch Einfluss in den Tälern haben.
+
+\begin{equation}
+hybridnoise_{k1}(\vec{x}) = \sum_{k=k_0}^{k_1}s_k*octave_k
+\end{equation}
+
+\begin{equation}
+s_i=\prod_{k=k_0}^{k_{i-1}}octave_k*w
+\end{equation}
+
+\begin{equation}
+octave_k=\frac{1}{r^{kH}}gnoise(r^k\vec{x})
+\end{equation}
+
+
+In \autoref{img.hybridmultiRendered} ist zu sehen, dass hohe Frequenzen, wie beim Multifraktalem Rauschen, kaum noch Einfluss in den Tälern haben. 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{images/hybridmulti_rendered.png}
-	\caption{Texturierte Landschaft im Beispielprogramm die aus Hybrid-Multifractal-Noise mit $o=0.5$ entstanden ist.}\label{img.hybridmultiRendered}
+	\caption{Texturierte Landschaft im Beispielprogramm die aus Hybrid-Multifractal-Noise mit $o=0.5$ und $w=1.15$ entstanden ist.}\label{img.hybridmultiRendered}
 \end{figure}
+
 
 \lstinputlisting[language=csh, title=Hybrid-Multifractal Noise Implementierung HLSL]{data/HMFNoise.hlsl}
 
 
-\subsection{Domain/Range Mapping} %TODO Fertig machen
+\subsection{Domain/Range Mapping}
 Um die Rauschfunktion mit weiteren Effekten zu versehen lässt sich Domain bzw. Range Mapping anwendenden. 
 
 Beim Domain Mapping handelt es sich um eine Modifikation der Definitionsmenge\footnote{englisch: Domain}. So wurde etwa in \autoref{img.domainwarpedRendered} der Eingangsvektor $\vec{x}$ proportional zur Höhe rotiert.
@@ -164,15 +178,101 @@ rangedomain(\vec{x}) = r\left( \sum_{k=k_0}^{k_1}\frac{1}{r^{kH}}(gnoise(d(r^k\v
 \end{equation}
 
 Range Mapping bezeichnet die nachträgliche Transformation des Ergebnisses der Rauschfunktion durch eine Funktion der Form $r(x): [-1-1]\to[-1-1]$.
-Zum modellieren einer geeigneten Funktion bietet sich die von Ken Perlin vorgestellte %TODO Quelle
+Zum modellieren einer geeigneten Funktion $r$ bietet sich die von Ken Perlin in \cite{texturingAndModeling}\footnote{Seiten 339-400} vorgestellten
 Bias und Gain Funktion an.
 
 
 \subsubsection{Bias-Funktion}
+Die Bias-Funktion ist im Intervall $[0-1]$ definiert und bei einem Funktionswert von $x=0.5$ seine Basis $b$ zurück. Durch die Veränderung dieser Basis lässt sich das Krümmungsverhalten der Funktion anpassen.
+
+\begin{equation}
+	bias_b(t)=t^{\frac{ln(b)}{ln(0.5)}}
+\end{equation}
+
+\begin{figure}[!hbtp]%
+	
+	
+	\newcommand{\biasscale}{0.5}
+	\centering
+	\subcaptionbox{b=0.25}
+	{
+		\begin{tikzpicture}[scale=\biasscale]
+		\begin{axis}
+		[ 
+		xlabel=$t$,
+		ylabel={$bias_{0.25}(x)$},
+		ymin=0,
+		ymax=1,
+		xmin=0,
+		xmax=1,
+		restrict x to domain=0:1
+		] 
+		
+		\addplot[no markers, blue, smooth, domain = 0:1] {x^(ln(0.25)/ln(0.5))}; 
+		\end{axis}
+		\end{tikzpicture}
+	}
+	\subcaptionbox{b=0.5}
+	{
+		\begin{tikzpicture}[scale=\biasscale]
+		\begin{axis}
+		[ 
+		xlabel=$t$,
+		ylabel={$bias_{0.5}(x)$},
+		ymin=0,
+		ymax=1,
+		xmin=0,
+		xmax=1,
+		restrict x to domain=0:1
+		] 
+		
+		\addplot[no markers, blue, smooth, domain = 0:1] {x^(ln(0.5)/ln(0.5))}; 
+		\end{axis}
+		\end{tikzpicture}
+	}
+	\subcaptionbox{b=0.75}
+	{
+		\begin{tikzpicture}[scale=\biasscale]
+		\begin{axis}
+		[ 
+		xlabel=$t$,
+		ylabel={$bias_{0.75}(x)$},
+		ymin=0,
+		ymax=1,
+		xmin=0,
+		xmax=1,
+		restrict x to domain=0:1
+		] 
+		
+		\addplot[no markers, blue, smooth, domain = 0:1] {x^(ln(0.75)/ln(0.5))}; 
+		\end{axis}
+		\end{tikzpicture}
+	}
+	\caption{Bias-Funktion}
+\end{figure}
 
 \subsubsection{Gain-Funktion}
+Im gleichen Intervall wie die Bias Funktion definiert, lässt sich mit Basis $g$ der Gain-Funktion kontrollieren, ob die Funktionswerte sich, wie in \autoref{img.gain} zu sehen, die meiste Zeit im Mittel oder an den Extremwerten(0 und 1) befinden.
+\[
+gain(t)= 
+\begin{cases}
+\frac{bias_{1-g}(2t)}{2},& \text{if } t>0.5\\
+\frac{2-bias_{1-g}(2-2t)}{2},              & \text{if } t\leq0.5
+\end{cases}
+\]
 
-\begin{figure}
+\begin{figure}[!hbtp]%
+	\centering
+	\subcaptionbox{$g=0.25$\label{img.gain025}}
+	{\includegraphics[width=0.24\textwidth]{images/gain025.png}}
+	\subcaptionbox{$g=0.5$\label{img.gain05}} {\includegraphics[width=0.24\textwidth]{images/gain05.png}}
+	\subcaptionbox{$g=0.75$\label{img.gain075}} {\includegraphics[width=0.24\textwidth]{images/gain075.png}}
+	\subcaptionbox{$g=0.97$\label{img.gain097}} {\includegraphics[width=0.24\textwidth]{images/gain097.png}}
+	\caption{Verhalten der Gain-Funktion bei verschiedenen Werten für $g$. Bilder entnommen von: http://tinyurl.com/zgb6jaj}\label{img.gain}
+\end{figure}
+
+
+\begin{figure}[!hbtp]
 	\centering
 	\includegraphics[width=\textwidth]{images/domainwarped_rendered.png}
 	\caption{Texturierte Landschaft im Beispielprogramm die aus Domain Mapped Multifractal-Noise mit $o=0.48$ und $\alpha=20$ entstanden ist.}\label{img.domainwarpedRendered}
@@ -180,10 +280,8 @@ Bias und Gain Funktion an.
 
 
 \section{Bewertung im Rahmen der Fragestellung}
-Das deterministische Verhalten von Rauschfunktionen erlaubt es einzig den Seed zur Erstellung %TODO Was muss gespeichert werden? Geblockt durch TODO Lattice Funktion
+Das deterministische Verhalten von Rauschfunktionen erlaubt es einzig den Seed zur Erzeugung der Gitterwerte zu speichern. Durch die punktuelle Auswertung der Funktion lässt sich immer nur der Teil der Landschaft im Speicher halten, welcher gerade durch die virtuelle Kamera sichtbar ist. Eine Aufteilung des Geländes wie beim Diamond-Square Algorithmus vorgeschlagen\ref{Patches} ist nicht notwendig, wenn auch möglich um Ladezeiten zu vermeiden.
 
-
-%TODO Fragestellung beantworten
 
 
 
