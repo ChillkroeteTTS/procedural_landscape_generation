@@ -9,12 +9,14 @@
 \contentsline {figure}{\numberline {3.0.1}{\ignorespaces Durch Spektralsynthese erzeugte H\IeC {\"o}henfelder in 3D gerendert. Bilder entnommen von: http://tinyurl.com/z6lfzmv\relax }}{10}{figure.caption.6}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1.1}{\ignorespaces Fade-Function\relax }}{14}{figure.caption.7}
-\contentsline {figure}{\numberline {4.1.2}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus fraktalem Perlin-Noise entstanden ist.\relax }}{17}{figure.caption.8}
-\contentsline {figure}{\numberline {4.2.1}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Ridged Noise entstanden ist\relax }}{19}{figure.caption.9}
-\contentsline {figure}{\numberline {4.2.2}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Ridged-Multifractal-Noise mit $o=0.2$ entstanden ist.\relax }}{21}{figure.caption.10}
-\contentsline {figure}{\numberline {4.2.3}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Hybrid-Multifractal-Noise mit $o=0.5$ und $w=1.15$ entstanden ist.\relax }}{22}{figure.caption.11}
-\contentsline {figure}{\numberline {4.2.4}{\ignorespaces Bias-Funktion\relax }}{24}{figure.caption.13}
-\contentsline {figure}{\numberline {4.2.5}{\ignorespaces Verhalten der Gain-Funktion bei verschiedenen Werten f\IeC {\"u}r $g$. Bilder entnommen von: http://tinyurl.com/zgb6jaj\relax }}{25}{figure.caption.15}
-\contentsline {figure}{\numberline {4.2.6}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Domain Mapped Multifractal-Noise mit $o=0.48$ und $\alpha =20$ entstanden ist.\relax }}{25}{figure.caption.16}
+\contentsline {figure}{\numberline {4.1.2}{\ignorespaces Screenshot aus dem Beispielprogramm, "NoiseCPU"\ Szene. Pink: Wert der Lattice-Funktion, Rot: Value-Noise Funktionswert\relax }}{15}{figure.caption.8}
+\contentsline {figure}{\numberline {4.1.3}{\ignorespaces Screenshot aus dem Beispielprogramm, "NoiseCPU"\ Szene. Pink: Wert der Lattice-Funktion, Rot: Gradient-Noise Funktionswert\relax }}{16}{figure.caption.9}
+\contentsline {figure}{\numberline {4.1.4}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus fraktalem Perlin-Noise entstanden ist.\relax }}{18}{figure.caption.10}
+\contentsline {figure}{\numberline {4.2.1}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Ridged Noise entstanden ist\relax }}{20}{figure.caption.11}
+\contentsline {figure}{\numberline {4.2.2}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Ridged-Multifractal-Noise mit $o=0.2$ entstanden ist.\relax }}{22}{figure.caption.12}
+\contentsline {figure}{\numberline {4.2.3}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Hybrid-Multifractal-Noise mit $o=0.5$ und $w=1.15$ entstanden ist.\relax }}{24}{figure.caption.13}
+\contentsline {figure}{\numberline {4.2.4}{\ignorespaces Bias-Funktion\relax }}{26}{figure.caption.15}
+\contentsline {figure}{\numberline {4.2.5}{\ignorespaces Verhalten der Gain-Funktion bei verschiedenen Werten f\IeC {\"u}r $g$. Bilder entnommen von: http://tinyurl.com/zgb6jaj\relax }}{26}{figure.caption.17}
+\contentsline {figure}{\numberline {4.2.6}{\ignorespaces Texturierte Landschaft im Beispielprogramm die aus Domain Mapped Multifractal-Noise mit $o=0.48$ und $\alpha =20$ entstanden ist.\relax }}{27}{figure.caption.18}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

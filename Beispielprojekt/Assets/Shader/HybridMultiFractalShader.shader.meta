@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f4b873db1eb1e45499a08df794b94b9e
+timeCreated: 1465818402
+licenseType: Free
+ShaderImporter:
+  defaultTextures:
+  - _WaterTex: {fileID: 2800000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
+  - _SandTex: {fileID: 2800000, guid: bfd675cc0db1d4656b75dc6d6ba91142, type: 3}
+  - _GrassTex: {fileID: 2800000, guid: 440eb36db91ca410f800ff3cfe43572f, type: 3}
+  - _MountainTex: {fileID: 2800000, guid: ef5c51cfa2ce46043a41a376b560c525, type: 3}
+  - _PeakTex: {instanceID: 0}
+  - _LatticeTex: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

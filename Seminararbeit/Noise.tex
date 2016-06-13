@@ -1,22 +1,23 @@
 \chapter{Noise}\label{Noise}
 Synthetisch erzeugtes Rauschen \emph{(engl. Noise)} erweist sich als hilfreiches Mittel zur Erzeugung von zufällig erscheinenden Strukturen.
-Als wohl bekannteste Implementierung ist hier die Implementierung von Ken Perlin\cite{PERLIN1985} zur Erzeugung einer Marmortextur auf einer Vase zu nennen\footnote{Auch als \emph{Perlin-Noise} bezeichnete Implementierung von Gradient Noise in 3-D}.
+Als wohl bekannteste Implementierung ist hier die Implementierung von Ken Perlin\cite{PERLIN1985} zur Erzeugung einer Marmortextur auf einer Vase zu nennen\footnote{Auch als \emph{Perlin-Noise} bezeichnete Implementierung von Gradient Noise in 3D}.
 
 Neben umfangreichen Anpassungsmöglichkeiten durch verschiedene Parameter ist die Performance dieses Verfahrens ein entscheidender Grund für die Nutzung. Noise verbraucht extrem wenig Speicher, ist relativ einfach zu berechnen und ist zu jeder Zeit an einer beliebigen Stelle auswertbar, was es auch für Echtzeitanwendungen geeignet macht.\cite{H.Hauser2010}
 
-Dieses Kapitel soll ein grundlegendes Verständnis über Noise-Funktionen bieten. Dazu werden zuerst grundlegende Komponenten, welche jeder Implementierung zugrunde liegen, erläutert. Anschließend werden \emph{Value-}\ref{Value-Noise}, \emph{Gradient-Noise}\ref{Gradient-Noise} sowie \emph{Fractal-Noise}\ref{Fractal-Noise} erklärt, bevor es einen Ausblick auf verschieden Abwandlungen von \emph{Fractal Noise} gibt.
+Dieses Kapitel soll ein grundlegendes Verständnis über Noise-Funktionen bieten. Dazu werden zuerst grundlegende Komponenten, welche jeder Implementierung zugrunde liegen, erläutert. Anschließend werden \emph{Value-}\ref{Value-Noise}, \emph{Gradient-Noise}\ref{Gradient-Noise} sowie \emph{Fractal-Noise}\ref{Fractal-Noise} erklärt, bevor es einen Ausblick auf verschieden Abwandlungen von \emph{Fractal Noise} gibt. Da mit Höhenfeldern gearbeitet wird und das Verständnis im Vordergrund liegt wird in den Beispiel nur auf Zweidimensionale Rauschfunktionen eingegangen. Die Begriffe Noise und Rauschfunktion werden synonym verwendet.
+
 
 Weitere ausführliche Beschreibung in \cite{BurgerGradientNoise2008} (Gradient-Noise) und in \cite{simplexNoise} zu \emph{Simplex-Noise} welches eine, besonders in höheren Dimensionen, performantere Implementierung von Perlin Noise darstellt.
 
 \section{Der Algorithmus}
 \subsection{Lattice-Function}\label{latticeFunc}
 Der erste Schritt zur Erzeugung von Noise ist in der Regel eine sogenannte \emph{Lattice(Gitter)-Funktion}\cite{fractalsAndChaos} der Form \begin{math}l(\vec{k}): {Z}^n \mapsto [-1 - 1]\end{math}\label{latticeFunc}.
-Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, für jede Koordinate eines Gitterpunktes muss sie also immer denselben Funktionswert liefern.}. Perlin verwendet bei seiner Implementierung eine Hashfunktion die auf ein, mit zufälligen Werten gefülltes, Array zugreift.
+Diese dient zur Beschreibung eines Gitters, welches die Form unserer zukünftigen Noise-Funktion bestimmen wird und jeder Integer-Koordinate eine Wert im Intervall -1 - 1 zuweist. Die Funktion muss dabei unbedingt deterministisch sein\footnote{Siehe\ref{Fractal-Noise}, für jede Koordinate eines Gitterpunktes muss sie also immer denselben Funktionswert liefern.}. Perlin verwendet bei seiner Implementierung eine Hashfunktion die auf ein, mit zufälligen Werten gefülltes, Array zugreift.
 Ein Zugriff auf dieses Array mittels Modulo Operation hätte zur Folge, dass sich im Höhenfeld wiederkehrende Strukturen zeigen würden sobald die Funktion über den Rahmen des Arrays hinausgreift.
 
 
-\subsection{Interpolation und Fade-Function}
-Um aufbauend auf der Lattice-Funktion\ref{latticeFunc} eine Funktion $S(\vec{x}): \mathbb{R}^n\mapsto\mathbb{R}, \vec{x}\in \mathbb{Z}^n$\label{S} zu definieren wird zwischen benachbarten Gitterpunkten lokal interpoliert. Dafür wird eine sogenannte Fade-Function\cite{fadeFunction} der Form $f(t): \mathbb{R}\mapsto\mathbb{R}$ mit $t\in[0, 1]$ definiert, welche den Übergang zwischen den Gitterpunkten steuert.
+\subsection{Interpolation und Fade-Funktion}
+Um aufbauend auf der Lattice-Funktion\ref{latticeFunc} eine Funktion $S(\vec{x}): \mathbb{R}^n\mapsto\mathbb{R}, \vec{x}\in \mathbb{Z}^n$\label{S} zu definieren wird zwischen benachbarten Gitterpunkten lokal interpoliert. Dafür wird eine sogenannte Fade-Function\cite{fadeFunction} der Form $f(t): \left[0-1\right]\mapsto\left[0-1\right]$ definiert, welche den Übergang zwischen den Gitterpunkten steuert.
 
 Um überhaupt eine stetige Noise-Funktion zu ermöglichen, muss 
 \begin{equation}
@@ -28,7 +29,7 @@ Damit der Übergang zwischen den Gitterpunkten möglichst glatt und damit natür
 \end{equation} 
 gelten.
 
-Dafür wird im folgenden das Polynom $f(t) = 6t^5-15t^4+10t^3$ benutzt, welches auch in Perlins Referenzimplementierung Verwendung findet\cite{BurgerGradientNoise2008} und alle Eigenschaften erfüllt.
+Dafür wird im folgenden das Polynom $f(t) = 6t^5-15t^4+10t^3$ verwendet, welches auch in Perlins Referenzimplementierung Verwendung findet\cite{BurgerGradientNoise2008} und alle geforderten Eigenschaften erfüllt. Die Wahl der Fade-Funktion ist entscheidend für die Optik der resultierenden Funktion. In \autoref{img.vnoise} sieht man, wie die Fade Funktion zwischen jedem Lattice-Funktionswert wiederzuerkennen ist\footnote{Besonders auffällig zwischen dem 4. und dem 5. Wert}.
 \begin{figure}[!hbtp]%
 	\centering
 	\begin{tikzpicture}
@@ -48,29 +49,40 @@ Dafür wird im folgenden das Polynom $f(t) = 6t^5-15t^4+10t^3$ benutzt, welches 
 	\end{tikzpicture}
 	\caption{Fade-Function}
 \end{figure}
-
+\newpage
 \subsection{Value-Noise}\label{Value-Noise}
+\begin{figure}[!ht]%
+	\centering
+	\includegraphics[width=\textwidth]{images/vnoise.png}
+	\caption{Screenshot aus dem Beispielprogramm, "NoiseCPU"\ Szene. Pink: Wert der Lattice-Funktion, Rot: Value-Noise Funktionswert}\label{img.vnoise}
+\end{figure}
 Value-Noise ist die wohl naivste Implementierung einer Noise-Funktion. Bei ihr werden die Gitterpunktwerte, welche durch die \emph{Lattice-Funktion}\ref{latticeFunc} erzeugt wurden, als Höhenwerte interpretiert.
 
-Die mit $f(t)$ gebildete, interpolierende Funktion $vnoise(\vec{x}) = noise(\vec{x})$ definiert nun die Value-Noise-Funktion.
+Die mit $f(t)$ gebildete, interpolierende Funktion $vnoise(\vec{x}) = noise(\vec{x}) = S(\vec{x})$ definiert nun die Value-Noise-Funktion.
 
 Untenstehend ist eine Implementierung in C\# für eine Zweidimensionale Rauschfunktion zu sehen.
 Noise lässt sich problemlos in mehrere Dimensionen skalieren. Einzig die Interpolation der Werte muss hier angepasst werden. In der Implementierung ist zu sehen, wie die Gitterpunktwerte - ähnlich einer \emph{billinearen Interpolation} - mit der \emph{Fade-Function} interpoliert werden.
 
-\lstinputlisting[language=csh, title=Value-Noise Implementierung C\#]{data/valueNoise.cs}\label{valueNoise.cs}
+\lstinputlisting[title=Value-Noise Implementierung C\#]{data/valueNoise.cs}\label{valueNoise.cs}
 
+\newpage
 \subsection{Gradient-Noise}\label{Gradient-Noise}
+\begin{figure}[!ht]%
+	\centering
+	\includegraphics[width=\textwidth]{images/gnoise.png}
+	\caption{Screenshot aus dem Beispielprogramm, "NoiseCPU"\ Szene. Pink: Wert der Lattice-Funktion, Rot: Gradient-Noise Funktionswert}\label{img.vnoise}
+\end{figure}
 Der vorher erwähnte Value-Noise kann, je nach Parameterwahl, noch ein unruhiges Rauschen erzeugen. Um die Übergänge zwischen den Gitterpunktwerten noch sanfter und damit natürlicher aussehen zu lassen wurde der Gradient-Noise erfunden.
-Hier werden die Gitterpunktwerte nicht als Höhenwerte, Gradienten an den Nullstellen der Noise-Funktion gesehen.
+Hier werden die Gitterpunktwerte nicht als Höhenwerte, sondern als Gradienten an den Nullstellen der Noise-Funktion gesehen.
 Es ergibt sich also:
 \begin{equation}
 noise(\vec{k}) = 0 \land 
 noise'(\vec{k}) = gnoise(\vec{k}),  k \in \mathbb{Z}^n  .
 \end{equation}
 
-In der untenstehenden 2D C\# Implementierung ist zu sehen, wie zuerst ein Höhenwert für den aktuellen Punkt  $\vec{x}$ über das Skalarprodukt\footnote{engl. Dot-Product} zwischen dem Gradienten und der relativen Position $\begin{pmatrix}tx\\ty\end{pmatrix}  tx, ty\in [0-1]$ und anschließend über die bekannte Interpolation berechnet wird.
+In der untenstehenden 2D C\# Implementierung ist zu sehen, wie ein Höhenwert für den aktuellen Punkt  $\vec{x}$ über das Skalarprodukt\footnote{engl. Dot-Product} zwischen dem Gradienten und der relativen Position $\begin{pmatrix}tx\\ty\end{pmatrix}  tx, ty\in [0-1]$ und anschließend über die bekannte Interpolation berechnet wird.
 
-\lstinputlisting[language=csh, title=Gradient-Noise Implementierung C\#]{data/gradientNoise.cs}
+\lstinputlisting[title=Gradient-Noise Implementierung C\#]{data/gradientNoise.cs}
  
 
 \subsection{Fractal-Noise}\label{Fractal-Noise}
@@ -86,39 +98,41 @@ In \cite{Saupe} wird daher folgende Formel definiert:
 	fractal(\vec{x}) = \sum_{k=k_0}^{k_1}\frac{1}{r^{kH}}gnoise(r^k\vec{x}).
 \end{equation}
 
-Wobei $H=2-D$ der Hurst-Exponent ist\cite{tuMuenchen} und in den meisten Fällen .
+Der Exponent $H$ wird je nach Quelle unterschiedlich bezeichnet. In \cite{tuMuenchen} etwas wird er als Hurst-Exponent $H=3-D$ definiert, wobei D die fraktale Dimensionalität beschreibt. In der Praxis ist er als Exponent anzusehen, welcher die Abnahmegeschwindigkeit der Amplituden der höheren Frequenzen maßgeblich beeinflußt.
 
-In der Formel beschreibt $r$ die sogenannte Lacunarity. Mit ihr lässt sich steuern, wie stark die Amplitude bei jeder Oktave abnimmt bzw. sich die Frequenz erhöht.
-Durch die Anpassung dieser Parameter lässt sich das Verhalten der Noise-Funktion gezielt steuern. Eine Implementierung in C\# findet sich unten.
+In \autoref{eq.fractalnoise} beschreibt $r$ die sogenannte Lacunarity. Mit ihr lässt sich steuern, wie stark die Amplitude bei jeder Oktave abnimmt bzw. sich die Frequenz erhöht.
+Durch die Anpassung dieser Parameter lässt sich das Verhalten der Noise-Funktion gezielt steuern. Eine Implementierung in C\# findet sich unten. In \autoref{img.perlinRendered} ist eine gerenderte Variante von Perlin-Noise zu sehen.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{images/perlin_rendered.png}
-	\caption{Texturierte Landschaft im Beispielprogramm die aus fraktalem Perlin-Noise entstanden ist.}\label{img.perlinRendered}
+\newpage
+\lstinputlisting[title=Simple Fractal-Noise Implementierung C\#]{data/fractalNoise.cs}
+\begin{figure}[!hb]%
+\centering
+\includegraphics[width=\textwidth]{images/perlin_rendered.png}
+\caption{Texturierte Landschaft im Beispielprogramm die aus fraktalem Perlin-Noise entstanden ist.}\label{img.perlinRendered}
 \end{figure}
 
-\lstinputlisting[language=csh, title=Simple Fractal-Noise Implementierung C\#]{data/fractalNoise.cs}
-
+\newpage
 \section{Flexibilität}\label{NoiseVariationen}
 Die in \ref{eq.fractalnoise} beschriebene Funktion lässt sich beliebig erweitern und anpassen um bestimmte Effekte zu erzielen. Im folgenden sollen daher einige bekannte und für Landschaften passende Erweiterungen erläutert werden. Diese Auflistung ist nur als eine Auswahl zu verstehen. Es gibt noch zahlreiche weitere Implementierungen wie z.B. Convolution oder auch Sparse-Convolution-Noise\cite{texturingAndModeling}.
 
 \subsection{Ridged-Noise}
 In der Natur lassen sich in einigen Gebirgen sehr steile und gezahnte Kämme feststellen. Aufgrund der kontinuierlichen Natur einer Noise-Funktion sind die Kämme jedoch eher abgerundet. 
-Um diesen Effekt aufzuheben wird der Betrag der Noise-Funktion von 1 abgezogen. 
+Um diesen Effekt aufzuheben wird der Betrag der Noise-Funktion von 1 subtrahiert. 
 
 \begin{equation} \label{eq.ridgedNoise}
 ridged(\vec{x}) = \sum_{k=k_0}^{k_1}\frac{1}{r^{kH}}(1-\left|gnoise(r^k\vec{x})\right|).
 \end{equation}
 
-Anschaulich modelliert die Funktion nun Material aus einem Quader heraus anstatt die Landschaft auf eine Ebene rauf zu modellieren. Durch den Betrag verliert die Funktion außerdem ihre Stetigkeit in der ersten Ableitung, was zu einem abrupten Richtungswechseln der Höhenfunktion führt. An diesen Punkten entstehen nun, wie in \autoref{img.ridgedRendered}zu sehen, die erwünschten scharfen Kämme.
+Anschaulich modelliert die Funktion nun Material aus einem Quader heraus anstatt die Landschaft auf eine Ebene herauf zu modellieren. Durch den Betrag verliert die Funktion außerdem ihre Stetigkeit in der ersten Ableitung, was zu einem abrupten Richtungswechseln der Höhenfunktion führt. An diesen Punkten entstehen nun, wie in \autoref{img.ridgedRendered}zu sehen, die erwünschten scharfen Kämme.
 
-\begin{figure}[!hbtp]%
+\newpage
+\lstinputlisting[title=Ridged-Noise Implementierung HLSL]{data/RidgedNoiseHLSL.hlsl}
+
+\begin{figure}[!hbp]%
 	\centering
 	\includegraphics[width=\textwidth]{images/ridged_rendered.png}
 	\caption{Texturierte Landschaft im Beispielprogramm die aus Ridged Noise entstanden ist}\label{img.ridgedRendered}
 \end{figure}
-
-\lstinputlisting[language=csh, title=Ridged-Noise Implementierung HLSL]{data/RidgedNoiseHLSL.hlsl}
 
 \subsection{Multifraktal/heterogenes Terrain}
 Wie auch in \ref{unisotrop} erwähnt kommen hohe Frequenzen momentan sowohl in den Tälern als auch auf den Bergen unserer Landschaft vor. Um diese homogenität zu verhindern wurde eine Noise Funktion entwickelt die durch Multiplikation der Oktaven zu einem Multifraktal führt\footnote{\cite{texturingAndModeling} p.440}. 
@@ -130,17 +144,17 @@ multi(\vec{x}) = \prod_{k=k_0}^{k_1}\frac{1}{r^{kH}}(gnoise(r^k\vec{x})+o).
 Es ist hierbei anzumerken, dass das Intervall des Ergebnisses dieser Rauschfunktion stark variiert. Um ein Ergebnis in einem konstanten Intervall zu verarbeiten muss im Nachhinein der höchste bzw. tiefste Punkt gesucht werden und entsprechend skaliert werden. Dadurch geht der Vorteil der parallelen Berechnung zur Echtzeit verloren. Eine andere Möglichkeit ist den Parameter $o$ entsprechend anzupassen um das Ergebnis in eine bestimmte Richtung zu beeinflussen. 
 In \autoref{img.multiRendered} ist zu sehen, wie die tiefer gelegenen Gebiete deutlich weniger Anteile von hohen Frequenzen aufweisen und dadurch natürlicher wirken.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{images/ridgedmulti_rendered.png}
-	\caption{Texturierte Landschaft im Beispielprogramm die aus Ridged-Multifractal-Noise mit $o=0.2$ entstanden ist.}\label{img.multiRendered}
+\lstinputlisting[title=Ridged-Multifractal Noise Implementierung HLSL]{data/RidgedMultiNoiseHLSL.hlsl}
+
+\begin{figure}[!hp]
+\centering
+\includegraphics[width=\textwidth]{images/ridgedmulti_rendered.png}
+\caption{Texturierte Landschaft im Beispielprogramm die aus Ridged-Multifractal-Noise mit $o=0.2$ entstanden ist.}\label{img.multiRendered}
 \end{figure}
 
-\lstinputlisting[language=csh, title=Ridged-Multifractal Noise Implementierung HLSL]{data/RidgedMultiNoiseHLSL.hlsl}
-
 \subsection{Hybrid-Multifractal}
-Um das Problem des schwer zu bestimmenden Intervalls einer Multifraktalen Rauschfunktion zu umgehen und trotzdem ein heterogenes Terrain Ergebnis zu erzielen lassen sich die normale und die Multifraktale Rauschfunktion auch kombinieren. 
-Die Heterogenität lässt sich dadurch erreichen, dass jede Oktave vor der Addition mit einem Gewicht multipliziert wird, welches das Produkt der vorherigen Oktaven ist. Dabei wird ein Faktor $w$ definiert, welcher das zu schnelle abfallen des Gewichtwertes bremst.
+Um das Problem des schwer zu bestimmenden Intervalls einer Multifraktalen Rauschfunktion zu umgehen und trotzdem ein heterogenes Ergebnis zu erzielen lassen sich die normale und die Multifraktale Rauschfunktion auch kombinieren. 
+Die Heterogenität lässt sich dadurch erreichen, dass jede Oktave vor der Addition mit einem Gewicht multipliziert wird, welches das Produkt der vorherigen Oktaven ist. Dabei wird ein Faktor $w$ definiert, welcher das zu schnelle abfallen des Gewichtwertes verhindert.
 
 
 \begin{equation}
@@ -148,7 +162,7 @@ hybridnoise_{k1}(\vec{x}) = \sum_{k=k_0}^{k_1}s_k*octave_k
 \end{equation}
 
 \begin{equation}
-s_i=\prod_{k=k_0}^{k_{i-1}}octave_k*w
+s_i=\prod_{l=k_0}^{k_{i-1}}octave_l*w
 \end{equation}
 
 \begin{equation}
@@ -165,7 +179,7 @@ In \autoref{img.hybridmultiRendered} ist zu sehen, dass hohe Frequenzen, wie bei
 \end{figure}
 
 
-\lstinputlisting[language=csh, title=Hybrid-Multifractal Noise Implementierung HLSL]{data/HMFNoise.hlsl}
+\lstinputlisting[title=Hybrid-Multifractal Noise Implementierung HLSL]{data/HMFNoise.hlsl}
 
 
 \subsection{Domain/Range Mapping}
@@ -278,7 +292,7 @@ gain(t)=
 	\caption{Texturierte Landschaft im Beispielprogramm die aus Domain Mapped Multifractal-Noise mit $o=0.48$ und $\alpha=20$ entstanden ist.}\label{img.domainwarpedRendered}
 \end{figure}
 
-
+\newpage
 \section{Bewertung im Rahmen der Fragestellung}
 Das deterministische Verhalten von Rauschfunktionen erlaubt es einzig den Seed zur Erzeugung der Gitterwerte zu speichern. Durch die punktuelle Auswertung der Funktion lässt sich immer nur der Teil der Landschaft im Speicher halten, welcher gerade durch die virtuelle Kamera sichtbar ist. Eine Aufteilung des Geländes wie beim Diamond-Square Algorithmus vorgeschlagen\ref{Patches} ist nicht notwendig, wenn auch möglich um Ladezeiten zu vermeiden.
 
